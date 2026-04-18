@@ -335,9 +335,17 @@
 
     .writing-intro {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-      line-height: 1.3;
+      font-weight: 600;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      max-width: 640px;
+      margin-bottom: 12px;
+    }
+
+    .writing-subtitle {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
       max-width: 640px;
       margin-bottom: 56px;
     }
@@ -349,11 +357,18 @@
       margin-bottom: 48px;
     }
 
+    .writing-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
     .writing-item {
       padding: 32px 28px;
       background: var(--cream);
       border: 1px solid var(--rule);
       transition: border-color 0.25s;
+      cursor: pointer;
     }
     .writing-item:hover { border-color: var(--ink-mid); }
 
@@ -613,24 +628,31 @@
     <div class="container-wide">
       <div class="fade-up">
         <p class="section-label">Writing</p>
-        <p class="writing-intro"><strong>dotBloom</strong> is Ryan's publication on technology, media, and culture, advocating for ethical technology that serves the public good.</p>
+        <p class="writing-intro">dotBloom</p>
+        <p class="writing-subtitle">Our publication on responsible technology, human-centered policies, and the cultural impact of AI that serves the public good.</p>
       </div>
       <div class="writing-grid fade-up">
-        <div class="writing-item">
-          <p class="writing-tag">AI Governance</p>
-          <h4 class="writing-title">Constitutional AI as Corporate Self-Governance</h4>
-          <p class="writing-excerpt">Examining Anthropic's approach to value alignment as a template for responsible self-regulation in a regulatory vacuum.</p>
-        </div>
-        <div class="writing-item">
-          <p class="writing-tag">Ethics & Technology</p>
-          <h4 class="writing-title">Who Owns the Machine's Judgment?</h4>
-          <p class="writing-excerpt">On accountability, traceability, and why understanding where AI decisions come from is central to any meaningful governance framework.</p>
-        </div>
-        <div class="writing-item">
-          <p class="writing-tag">Media & Culture</p>
-          <h4 class="writing-title">The Civic Cost of Algorithmic Attention</h4>
-          <p class="writing-excerpt">How recommendation systems are reshaping public discourse, and what human-centered design alternatives might look like in practice.</p>
-        </div>
+        <a href="https://ryanvasquez.substack.com/p/the-what-if-era-is-over" target="_blank" class="writing-card-link">
+          <div class="writing-item">
+            <p class="writing-tag">AI Governance</p>
+            <h4 class="writing-title">The "What If" Era is Over</h4>
+            <p class="writing-excerpt">AI is already reshaping the world. Our elected leaders have yet to notice.</p>
+          </div>
+        </a>
+        <a href="https://ryanvasquez.substack.com/p/smoking-on-that-meta-pack" target="_blank" class="writing-card-link">
+          <div class="writing-item">
+            <p class="writing-tag">Ethics & Technology</p>
+            <h4 class="writing-title">Meta's Case Study in the Ethics of Social Media</h4>
+            <p class="writing-excerpt">What the fall of Big Tobacco can teach us about Meta, addiction, and the long road to accountability.</p>
+          </div>
+        </a>
+        <a href="https://ryanvasquez.substack.com/p/g0v-and-the-future-we-arent-building" target="_blank" class="writing-card-link">
+          <div class="writing-item">
+            <p class="writing-tag">Technology & the Public Sector</p>
+            <h4 class="writing-title">g0v and the Future We Aren't Building</h4>
+            <p class="writing-excerpt">The internet can bring people together, and Taiwan proved it.</p>
+          </div>
+        </a>
       </div>
       <a href="https://ryanvasquez.substack.com" target="_blank" class="writing-cta">Read dotBloom on Substack</a>
     </div>
