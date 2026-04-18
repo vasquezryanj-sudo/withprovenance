@@ -266,15 +266,24 @@
     }
 
     .work-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      background: var(--rule);
+      display: flex;
+      align-items: stretch;
     }
 
     .work-card {
       background: var(--cream);
       padding: 48px 40px;
+      flex: 1;
+    }
+
+    .work-divider {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      user-select: none;
     }
 
     .work-card-num {
@@ -510,7 +519,8 @@
       .nav-links { display: none; }
       section { padding: 64px 24px; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .work-grid { grid-template-columns: 1fr; }
+      .work-grid { flex-direction: column; }
+      .work-divider { padding: 16px 0; justify-content: center; }
       .writing-grid { grid-template-columns: 1fr; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
       .hero-rule { display: none; }
@@ -580,22 +590,19 @@
     <div class="container-wide">
       <div class="fade-up">
         <p class="section-label">Work</p>
-        <p class="work-intro">Two interconnected practices: governance frameworks that protect organizations, and education that builds lasting AI literacy.</p>
+        <p class="work-intro">Provenance sits at a rare intersection: encouraging client fluency in AI systems and how they work in practice, and partnering in creating unique AI governance frameworks grounded in responsible and ethical use. Most organizations get one or the other. Provenance brings both.</p>
       </div>
       <div class="work-grid fade-up">
         <div class="work-card">
-          <div class="work-card-num">01</div>
           <h3 class="work-card-title">AI Governance</h3>
-          <p class="work-card-body">Provenance helps organizations understand their obligations and opportunities under emerging AI legislation, including the EU AI Act, US state and federal frameworks, and sector-specific regulation. Engagements range from risk assessments to comprehensive governance documents and internal policy development.</p>
-          <p class="work-card-body">Powered by <strong>Compass AI</strong>, a survey-driven tool that maps your organization's AI footprint and returns concrete governance recommendations.</p>
-          <a href="https://compass.withprovenance.org" target="_blank" class="work-card-link">Launch Compass AI</a>
+          <p class="work-card-body">Navigating AI regulation requires more than static legal awareness. Provenance develops living, flexible governance frameworks, risk assessments, and internal policy infrastructure grounded in both regulatory reality and practical AI experience.</p>
+          <p class="work-card-body">Engagements draw on relevant active frameworks and regulation, but move beyond the current environment to guarantee safe, responsible, and ethical AI use as boundaries shift and products develop.</p>
         </div>
+        <div class="work-divider">∞</div>
         <div class="work-card">
-          <div class="work-card-num">02</div>
-          <h3 class="work-card-title">AI Fluency Education</h3>
-          <p class="work-card-body">The gap between access to AI tools and knowing how to use them responsibly is significant. Provenance offers workshops, one-on-one consulting, and organizational training designed to close that gap for companies, nonprofits, and individuals.</p>
-          <p class="work-card-body">Emphasis on practical, ethical integration: not just what AI can do, but how to use it in ways that align with your values and mission.</p>
-          <a href="#contact" class="work-card-link">Inquire about a workshop</a>
+          <h3 class="work-card-title">AI Fluency & Innovation</h3>
+          <p class="work-card-body">At Provenance, we know that responsible AI adoption isn't just about what to avoid, but about knowing what's possible and building toward it thoughtfully. Provenance consults with organizations with a mission to provide tools to enhance their workflows with the use of novel AI systems, always with responsibility and safety at the forefront.</p>
+          <p class="work-card-body">This includes workshops, one-on-one consulting, and the development of bespoke AI tools built to solve real organizational problems. All with governance built in from the start.</p>
         </div>
       </div>
     </div>
