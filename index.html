@@ -503,93 +503,6 @@
     }
     .compass-cta:hover { background: var(--accent-warm); }
 
-    /* ── Writing / dotBloom ── */
-    #writing {
-      background: var(--cream);
-      padding-top: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .writing-header {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 0.95rem;
-      color: var(--ink-mid);
-      line-height: 1.7;
-      max-width: 720px;
-      margin-bottom: 40px;
-    }
-
-    .writing-header strong {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--ink);
-    }
-
-    .writing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-bottom: 40px;
-    }
-
-    .writing-card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .writing-item {
-      padding: 32px 28px;
-      background: transparent;
-      border: 1px solid var(--rule);
-      transition: border-color 0.25s;
-      cursor: pointer;
-    }
-    .writing-item:hover { border-color: var(--ink-mid); }
-
-    .writing-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 14px;
-    }
-
-    .writing-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: 1.2rem;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-
-    .writing-excerpt {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 0.83rem;
-      color: var(--ink-mid);
-      line-height: 1.7;
-    }
-
-    .writing-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 4px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .writing-cta:hover { border-color: var(--ink); color: var(--ink); }
 
     /* ── Contact ── */
     #contact { border-bottom: 1px solid var(--rule); }
@@ -700,8 +613,7 @@
       .nav-links { display: none; }
       .nav-dropdown { padding: 24px; }
       section { padding: 64px 24px; }
-      #writing { padding-top: 36px; padding-bottom: 36px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+.about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid { flex-direction: column; }
       .work-divider { padding: 16px 0; justify-content: center; }
       .writing-grid { grid-template-columns: 1fr; }
@@ -845,40 +757,6 @@
     </div>
   </section>
 
-  <!-- Writing / dotBloom -->
-  <section id="writing">
-    <div class="container-wide">
-      <div class="fade-up">
-        <p class="section-label">Writing</p>
-        <p class="writing-header"><strong>dotBloom</strong>. Our publication on responsible technology, human-centered policies, and the cultural impact of AI.</p>
-      </div>
-      <div class="writing-grid fade-up">
-        <a href="https://ryanvasquez.substack.com/p/the-what-if-era-is-over" target="_blank" class="writing-card-link">
-          <div class="writing-item">
-            <p class="writing-tag">AI Governance</p>
-            <h4 class="writing-title">The "What If" Era is Over</h4>
-            <p class="writing-excerpt">AI is already reshaping the world. Our elected leaders have yet to notice.</p>
-          </div>
-        </a>
-        <a href="https://ryanvasquez.substack.com/p/smoking-on-that-meta-pack" target="_blank" class="writing-card-link">
-          <div class="writing-item">
-            <p class="writing-tag">Ethics & Technology</p>
-            <h4 class="writing-title">Meta's Case Study in the Ethics of Social Media</h4>
-            <p class="writing-excerpt">What the fall of Big Tobacco can teach us about Meta, addiction, and the long road to accountability.</p>
-          </div>
-        </a>
-        <a href="https://ryanvasquez.substack.com/p/g0v-and-the-future-we-arent-building" target="_blank" class="writing-card-link">
-          <div class="writing-item">
-            <p class="writing-tag">Technology & the Public Sector</p>
-            <h4 class="writing-title">Gov Zero and the Future We Aren't Building</h4>
-            <p class="writing-excerpt">The internet can bring people together, and Taiwan proved it.</p>
-          </div>
-        </a>
-      </div>
-      <a href="https://ryanvasquez.substack.com/" target="_blank" class="writing-cta">Read more from dotBloom &rarr;</a>
-    </div>
-  </section>
-
   <!-- Contact -->
   <section id="contact">
     <div class="container">
@@ -897,7 +775,7 @@
           </a>
           <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-link">
             <span class="contact-link-icon">dB</span>
-            dotBloom
+            <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:var(--ink-light); text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
           </a>
           <a href="https://compass.withprovenance.org" target="_blank" class="contact-link">
             <span class="contact-link-icon"><img src="favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
