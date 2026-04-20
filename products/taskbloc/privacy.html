@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - TaskBloc by Provenance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f4ef;
+      --text: #1a1612;
+      --text2: #5a5248;
+      --text3: #9a9088;
+      --accent: #b8501e;
+      --border: #ddd5c8;
+      --surface: #f0ebe3;
+    }
+
+    html { background: var(--bg); }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .nav-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 9px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 3px;
+      padding: 7px;
+    }
+
+    .nav-icon-block {
+      background: #fdfaf6;
+      border-radius: 2px;
+    }
+
+    .nav-icon-block.missing {
+      background: transparent;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-app {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text);
+      letter-spacing: -0.2px;
+      line-height: 1;
+    }
+
+    .nav-by {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--text3);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-right {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text3);
+      letter-spacing: 0.5px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 60px 60px;
+      border-bottom: 1px solid var(--border);
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text3);
+      font-weight: 400;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 720px;
+      padding: 70px 60px 100px;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 500;
+      font-size: 28px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text2);
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+
+    .section ul {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+
+    .section ul li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text2);
+      padding: 6px 0 6px 18px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.65;
+    }
+
+    .section ul li:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text3);
+      font-size: 12px;
+    }
+
+    .section h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--text);
+      margin: 24px 0 10px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,80,30,0.3);
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-color: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--text3);
+      font-weight: 300;
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: var(--text3);
+      font-weight: 300;
+    }
+
+    .footer-right a {
+      color: var(--text3);
+      border-color: transparent;
+    }
+
+    .footer-right a:hover {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 48px 24px 40px; }
+      .content { padding: 48px 24px 80px; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-left" href="https://www.withprovenance.org">
+      <div class="nav-icon">
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block"></div>
+        <div class="nav-icon-block missing"></div>
+      </div>
+      <div class="nav-brand">
+        <span class="nav-app">TaskBloc</span>
+        <span class="nav-by">by Provenance</span>
+      </div>
+    </a>
+    <span class="nav-right">Legal</span>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-label">Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p class="hero-meta">Last updated: April 19, 2026</p>
+  </div>
+
+  <div class="content">
+
+    <div class="section">
+      <div class="section-label">Overview</div>
+      <h2>What this covers</h2>
+      <p>TaskBloc is a personal task management application developed by Provenance. We are committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+      <p>We do not sell your data. We do not run ads. TaskBloc exists to help you organize your days, nothing more.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Data Collection</div>
+      <h2>What we collect</h2>
+      <h3>Information you provide</h3>
+      <ul>
+        <li>Task names, notes, tags, due dates, and time estimates you enter into the app</li>
+        <li>Project names and associated task data</li>
+        <li>Google Calendar credentials, if you choose to connect</li>
+      </ul>
+      <h3>Information collected automatically</h3>
+      <ul>
+        <li>Basic usage data to maintain app functionality</li>
+        <li>Device type and operating system for compatibility purposes</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Google Calendar</div>
+      <h2>Calendar integration</h2>
+      <p>If you choose to connect Google Calendar, TaskBloc will read your calendar events to find available time slots, and create calendar events on your behalf based on your task list.</p>
+      <p>We store a secure authentication token to maintain the connection. We do not sell, share, or use your Google Calendar data for any purpose other than scheduling tasks at your direction. You can disconnect Google Calendar at any time from the Settings menu.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Storage & Security</div>
+      <h2>How we store your data</h2>
+      <p>Your task data is stored securely using Supabase, a third-party database provider. Data is encrypted in transit and at rest.</p>
+      <ul>
+        <li>Supabase, database and backend infrastructure</li>
+        <li>Google Calendar API, optional calendar integration</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Retention</div>
+      <h2>How long we keep it</h2>
+      <p>Your data is retained as long as your account is active. Completed tasks within a project are retained until you archive that project. You may request deletion of your data at any time by contacting us.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Children</div>
+      <h2>Children's privacy</h2>
+      <p>TaskBloc is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Updates</div>
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy from time to time. We will notify users of significant changes through the app.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Contact</div>
+      <h2>Get in touch</h2>
+      <p>For privacy questions or data deletion requests, reach us at <a href="mailto:ryan@withprovenance.org">ryan@withprovenance.org</a></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">© 2026 Provenance. All rights reserved.</span>
+    <span class="footer-right"><a href="https://www.withprovenance.org">withprovenance.org</a></span>
+  </footer>
+
+</body>
+</html>
