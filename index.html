@@ -54,7 +54,7 @@
       padding: 0 48px;
       background: var(--cream);
       border-bottom: 1px solid var(--rule);
-      z-index: 100;
+      z-index: 200;
     }
 
     .nav-wordmark {
@@ -65,6 +65,12 @@
       text-transform: uppercase;
       color: var(--ink);
       text-decoration: none;
+    }
+
+    .nav-right-group {
+      display: flex;
+      align-items: center;
+      gap: 36px;
     }
 
     .nav-links {
@@ -84,6 +90,76 @@
     }
 
     .nav-links a:hover { color: var(--accent); }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* Dropdown menu */
+    .nav-dropdown {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--rule);
+      padding: 32px 48px;
+      display: none;
+      z-index: 199;
+    }
+
+    .nav-dropdown.open {
+      display: block;
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .nav-dropdown a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-dropdown a:hover {
+      color: var(--accent);
+    }
 
     /* ── Layout ── */
     section { padding: 96px 48px; }
@@ -126,6 +202,8 @@
     }
 
     .hero-body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 1.05rem;
       color: var(--ink-mid);
       max-width: 540px;
@@ -219,6 +297,8 @@
     }
 
     .about-body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 0.93rem;
       color: var(--ink-mid);
       line-height: 1.8;
@@ -248,6 +328,8 @@
     }
 
     .detail-value {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 0.88rem;
       color: var(--ink-mid);
       line-height: 1.6;
@@ -319,6 +401,8 @@
     }
 
     .work-card-body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 0.88rem;
       color: var(--ink-mid);
       line-height: 1.75;
@@ -339,38 +423,116 @@
       transition: gap 0.2s;
     }
     .work-card-link:hover { gap: 14px; }
-    .work-card-link::after { content: '→'; }
+    .work-card-link::after { content: '\2192'; }
 
-    /* ── Writing ── */
-    #writing {
-      background: var(--parchment);
+    .work-portfolio-link {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    /* ── CompassAI ── */
+    #compass {
+      background: var(--ink);
       border-bottom: 1px solid var(--rule);
     }
 
-    .writing-intro {
+    #compass .section-label {
+      color: var(--accent-warm);
+    }
+    #compass .section-label::after {
+      background: var(--accent-warm);
+    }
+
+    .compass-headline {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
+      color: var(--cream);
       max-width: 640px;
-      margin-bottom: 12px;
+      margin-bottom: 48px;
     }
 
-    .writing-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+    .compass-slider {
+      border: 1px solid var(--accent);
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .compass-slider-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+    }
+
+    .compass-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+
+    .compass-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-warm);
+      background: transparent;
+    }
+
+    .compass-dot:first-child {
+      background: var(--accent-warm);
+    }
+
+    .compass-cta {
+      display: inline-block;
+      padding: 13px 32px;
+      background: var(--accent);
+      color: var(--cream);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .compass-cta:hover { background: var(--accent-warm); }
+
+    /* ── Writing / dotBloom ── */
+    #writing {
+      background: var(--cream);
+      padding-top: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .writing-header {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
       color: var(--ink-mid);
       line-height: 1.7;
-      max-width: 640px;
-      margin-bottom: 56px;
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    .writing-header strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--ink);
     }
 
     .writing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .writing-card-link {
@@ -381,7 +543,7 @@
 
     .writing-item {
       padding: 32px 28px;
-      background: var(--cream);
+      background: transparent;
       border: 1px solid var(--rule);
       transition: border-color 0.25s;
       cursor: pointer;
@@ -406,6 +568,8 @@
     }
 
     .writing-excerpt {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 0.83rem;
       color: var(--ink-mid);
       line-height: 1.7;
@@ -426,17 +590,9 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .writing-cta:hover { border-color: var(--ink); color: var(--ink); }
-    .writing-cta::after { content: '→'; }
 
     /* ── Contact ── */
     #contact { border-bottom: 1px solid var(--rule); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
 
     .contact-headline {
       font-family: 'Cormorant Garamond', serif;
@@ -446,7 +602,15 @@
       margin-bottom: 24px;
     }
 
+    .contact-headline-accent {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--accent-warm);
+    }
+
     .contact-body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 0.92rem;
       color: var(--ink-mid);
       line-height: 1.8;
@@ -487,22 +651,8 @@
       font-weight: 500;
     }
 
-    .scope-list { list-style: none; }
-
-    .scope-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.9rem;
-      color: var(--ink-mid);
-    }
-
-    .scope-list li::before {
-      content: '-';
-      color: var(--accent-warm);
-      flex-shrink: 0;
+    .contact-portfolio {
+      margin-top: 36px;
     }
 
     /* ── Footer ── */
@@ -548,13 +698,21 @@
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
+      .nav-dropdown { padding: 24px; }
       section { padding: 64px 24px; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      #writing { padding-top: 36px; padding-bottom: 36px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid { flex-direction: column; }
       .work-divider { padding: 16px 0; justify-content: center; }
       .writing-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .compass-slider { height: 400px; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
       .hero-rule { display: none; }
+    }
+
+    @media (min-width: 769px) {
+      .nav-links { display: flex; }
     }
   </style>
 </head>
@@ -562,20 +720,36 @@
 
   <nav>
     <a href="#hero" class="nav-wordmark">Provenance</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#writing">Writing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right-group">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#compass">CompassAI</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
+
+  <div class="nav-dropdown" id="navDropdown">
+    <ul>
+      <li><a href="#about" class="nav-dropdown-link">About</a></li>
+      <li><a href="#work" class="nav-dropdown-link">Work</a></li>
+      <li><a href="#compass" class="nav-dropdown-link">CompassAI</a></li>
+      <li><a href="#contact" class="nav-dropdown-link">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- Hero -->
   <section id="hero">
     <div class="container">
       <p class="hero-eyebrow">Fluency · Ethics · Governance</p>
       <h1 class="hero-headline">Where innovation<br>meets <em>responsibility.</em></h1>
-      <p class="hero-body">Provenance works with organizations and individuals navigating the ethical and regulatory dimensions of emerging technologies.</p>
+      <p class="hero-body">Provenance works with organizations and individuals looking to innovate and build products responsibly and ethically in the changing technological and regulatory landscape.</p>
       <div class="hero-cta-group">
         <a href="#work" class="btn-primary">Our Work</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
@@ -630,23 +804,53 @@
           <p class="work-card-body">Navigating AI regulation requires more than static legal awareness. Provenance develops living, flexible governance frameworks, risk assessments, and internal policy infrastructure grounded in both regulatory reality and practical AI experience.</p>
           <p class="work-card-body">Engagements draw on relevant active frameworks and regulation, but move beyond the current environment to guarantee safe, responsible, and ethical AI use as boundaries shift and products develop.</p>
         </div>
-        <div class="work-divider">∞</div>
+        <div class="work-divider">&infin;</div>
         <div class="work-card">
           <h3 class="work-card-title">AI Fluency & Innovation</h3>
           <p class="work-card-body">At Provenance, we know that responsible AI adoption isn't just about what to avoid, but about knowing what's possible and building toward it thoughtfully. Provenance consults with organizations with a mission to provide tools to enhance their workflows with the use of novel AI systems, always with responsibility and safety at the forefront.</p>
           <p class="work-card-body">This includes workshops, one-on-one consulting, and the development of bespoke AI tools built to solve real organizational problems. All with governance built in from the start.</p>
         </div>
       </div>
+      <div class="work-portfolio-link fade-up">
+        <a href="withprovenance.org/portfolio/portfolio.html" class="work-card-link">See who has built something with Provenance</a>
+      </div>
     </div>
   </section>
 
-  <!-- Writing -->
+  <!-- CompassAI -->
+  <section id="compass">
+    <div class="container-wide">
+      <div class="fade-up">
+        <p class="section-label">CompassAI</p>
+        <h2 class="compass-headline">Know where your AI governance stands, in just five minutes.</h2>
+      </div>
+      <div class="fade-up">
+        <div class="compass-slider">
+          <div class="compass-slide"></div>
+          <div class="compass-slide"></div>
+          <div class="compass-slide"></div>
+          <div class="compass-slide"></div>
+          <div class="compass-slide"></div>
+          <span class="compass-slider-note">[ CompassAI slider — 5 slides ]</span>
+        </div>
+        <div class="compass-dots">
+          <div class="compass-dot"></div>
+          <div class="compass-dot"></div>
+          <div class="compass-dot"></div>
+          <div class="compass-dot"></div>
+          <div class="compass-dot"></div>
+        </div>
+        <a href="https://compass-ai-sandy-three.vercel.app/" target="_blank" class="compass-cta">Begin Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing / dotBloom -->
   <section id="writing">
     <div class="container-wide">
       <div class="fade-up">
         <p class="section-label">Writing</p>
-        <p class="writing-intro">dotBloom</p>
-        <p class="writing-subtitle">Our publication on responsible technology, human-centered policies, and the cultural impact of AI that serves the public good.</p>
+        <p class="writing-header"><strong>dotBloom</strong>. Our publication on responsible technology, human-centered policies, and the cultural impact of AI.</p>
       </div>
       <div class="writing-grid fade-up">
         <a href="https://ryanvasquez.substack.com/p/the-what-if-era-is-over" target="_blank" class="writing-card-link">
@@ -671,48 +875,37 @@
           </div>
         </a>
       </div>
-      <a href="https://ryanvasquez.substack.com" target="_blank" class="writing-cta">Read more from dotBloom</a>
+      <a href="https://ryanvasquez.substack.com/" target="_blank" class="writing-cta">Read more from dotBloom &rarr;</a>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact">
     <div class="container">
-      <div class="contact-grid fade-up">
-        <div>
-          <p class="section-label">Contact</p>
-          <h2 class="contact-headline">Let's talk about what you're building.</h2>
-          <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, we are available to help at Provenance.</p>
-          <p class="contact-body" style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--accent);"><strong>Start your journey.</strong></p>
-          <div class="contact-links">
-            <a href="mailto:ryan@withprovenance.org" class="contact-link">
-              <span class="contact-link-icon">@</span>
-              ryan@withprovenance.org
-            </a>
-            <a href="https://www.linkedin.com/in/ryanvasquez14/" target="_blank" class="contact-link">
-              <span class="contact-link-icon">in</span>
-              linkedin.com/in/ryanvasquez14
-            </a>
-            <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-link">
-              <span class="contact-link-icon">dB</span>
-              dotBloom
-            </a>
-            <a href="https://withprovenance.org/products/products.html" target="_blank" class="contact-link">
-              <span class="contact-link-icon"><img src="favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
-              <span>Our Products<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:var(--ink-light);">Explore apps and tools from Provenance.</span></span>
-            </a>
-          </div>
+      <div class="fade-up">
+        <p class="section-label">Contact</p>
+        <h2 class="contact-headline">Let's create something together.<br><span class="contact-headline-accent">Responsibly, safely, ethically.</span></h2>
+        <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, we are available to help at Provenance.</p>
+        <div class="contact-links">
+          <a href="mailto:ryan@withprovenance.org" class="contact-link">
+            <span class="contact-link-icon">@</span>
+            ryan@withprovenance.org
+          </a>
+          <a href="https://www.linkedin.com/in/ryanvasquez14/" target="_blank" class="contact-link">
+            <span class="contact-link-icon">in</span>
+            linkedin.com/in/ryanvasquez14
+          </a>
+          <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-link">
+            <span class="contact-link-icon">dB</span>
+            dotBloom
+          </a>
+          <a href="https://compass.withprovenance.org" target="_blank" class="contact-link">
+            <span class="contact-link-icon"><img src="favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
+            CompassAI
+          </a>
         </div>
-        <div>
-          <p class="section-label">Scope of practice</p>
-          <ul class="scope-list">
-            <li>AI governance assessments & policy development</li>
-            <li>Regulatory compliance strategy</li>
-            <li>AI fluency workshops & organizational training</li>
-            <li>Ethics consulting for product teams</li>
-            <li>Nonprofit & public sector advisory</li>
-            <li>Keynote & educational speaking</li>
-          </ul>
+        <div class="contact-portfolio">
+          <a href="withprovenance.org/portfolio/portfolio.html" class="btn-secondary">Our Portfolio</a>
         </div>
       </div>
     </div>
@@ -720,13 +913,32 @@
 
   <footer>
     <span class="footer-wordmark">Provenance</span>
-    <span class="footer-copy">© 2026 Ryan Vasquez · All rights reserved</span>
+    <span class="footer-copy">&copy; 2026 Ryan Vasquez · All rights reserved</span>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // Fade-up animation
     document.querySelectorAll('.fade-up').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const dropdown = document.getElementById('navDropdown');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      dropdown.classList.toggle('open');
+    });
+
+    // Close dropdown when a link is clicked
+    document.querySelectorAll('.nav-dropdown-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        dropdown.classList.remove('open');
+      });
     });
   </script>
 
