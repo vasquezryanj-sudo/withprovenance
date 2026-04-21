@@ -502,6 +502,7 @@
       border: 1px solid var(--accent);
       margin-bottom: 16px;
       aspect-ratio: 16 / 9;
+      width: 100%;
     }
 
     .compass-slider-track {
@@ -690,6 +691,7 @@
       .work-dots { display: flex; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .compass-grid { grid-template-columns: 1fr; gap: 40px; }
+      .compass-grid > * { min-width: 0; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
       .hero-rule { display: none; }
     }
