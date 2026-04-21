@@ -32,6 +32,7 @@
       font-weight: 300;
       line-height: 1.65;
       overflow-x: hidden;
+      padding-top: var(--nav-h);
     }
 
     body::after {
@@ -171,7 +172,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: calc(var(--nav-h) + 64px);
+      padding-top: 64px;
       padding-bottom: 96px;
       border-bottom: 1px solid var(--rule);
       position: relative;
@@ -615,8 +616,7 @@
       section { padding: 64px 24px; }
 .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid { flex-direction: column; }
-      .work-divider { padding: 16px 0; justify-content: center; }
-      .writing-grid { grid-template-columns: 1fr; }
+      .work-divider { padding: 16px 0; margin: 0; justify-content: center; font-size: 1.5rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .compass-slider { height: 400px; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
@@ -636,7 +636,6 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#compass">CompassAI</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -651,7 +650,6 @@
     <ul>
       <li><a href="#about" class="nav-dropdown-link">About</a></li>
       <li><a href="#work" class="nav-dropdown-link">Work</a></li>
-      <li><a href="#compass" class="nav-dropdown-link">CompassAI</a></li>
       <li><a href="#contact" class="nav-dropdown-link">Contact</a></li>
     </ul>
   </div>
@@ -661,7 +659,7 @@
     <div class="container">
       <p class="hero-eyebrow">Fluency · Ethics · Governance</p>
       <h1 class="hero-headline">Where innovation<br>meets <em>responsibility.</em></h1>
-      <p class="hero-body">Provenance works with organizations and individuals looking to innovate and build products responsibly and ethically in the changing technological and regulatory landscape.</p>
+      <p class="hero-body">Provenance works with organizations and individuals looking to innovate and build products responsibly in an evolving market and shifting regulatory landscape.</p>
       <div class="hero-cta-group">
         <a href="#work" class="btn-primary">Our Work</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
@@ -677,8 +675,7 @@
         <div>
           <p class="section-label">About</p>
           <h2 class="about-headline">Grounded in ethics.<br>Built for practice.</h2>
-          <p class="about-body">Provenance is a consulting practice built by Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
-          <p class="about-body">With a background in philosophy, an MA in Ethics and Emerging Technology from Fordham University, and international certification as an AI Governance Professional, Ryan brings both rigorous theoretical grounding and hands-on consulting, organizing, and administrative experience to the work at Provenance.</p>
+          <p class="about-body">With a Master's in Ethics and Emerging Technology from Fordham University, and an internationally recognized certification as an AI Governance Professional, Ryan brings both regulatory expertise and a deep, forward-looking understanding to his work, building an ethos of responsibility, care, and safety at every level of your project.</p>
         </div>
         <div class="about-details">
           <div class="detail-item">
@@ -724,7 +721,7 @@
         </div>
       </div>
       <div class="work-portfolio-link fade-up">
-        <a href="https://withprovenance.org/portfolio" class="work-card-link">See our work in action</a>
+        <a href="https://withprovenance.org/products/" class="btn-secondary">Our Products</a>
       </div>
     </div>
   </section>
@@ -734,7 +731,7 @@
     <div class="container-wide">
       <div class="fade-up">
         <p class="section-label">CompassAI</p>
-        <h2 class="compass-headline">Know where your AI governance stands, in just five minutes.</h2>
+        <h2 class="compass-headline">Your custom governance profile, in just five minutes.</h2>
       </div>
       <div class="fade-up">
         <div class="compass-slider">
@@ -752,7 +749,7 @@
           <div class="compass-dot"></div>
           <div class="compass-dot"></div>
         </div>
-        <a href="https://compass-ai-sandy-three.vercel.app/" target="_blank" class="compass-cta">Begin Assessment</a>
+        <a href="https://compass.withprovenance.org" target="_blank" class="compass-cta">Begin Assessment</a>
       </div>
     </div>
   </section>
@@ -762,24 +759,24 @@
     <div class="container">
       <div class="fade-up">
         <p class="section-label">Contact</p>
-        <h2 class="contact-headline">Let's create something together.<br><span class="contact-headline-accent">Responsibly, safely, ethically.</span></h2>
+        <h2 class="contact-headline">Let's create something together.<br><span class="contact-headline-accent">Responsibly.</span></h2>
         <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, we are available to help at Provenance.</p>
         <div class="contact-links">
           <a href="mailto:ryan@withprovenance.org" class="contact-link">
             <span class="contact-link-icon">@</span>
-            ryan@withprovenance.org
+            Contact us
           </a>
           <a href="https://www.linkedin.com/in/ryanvasquez14/" target="_blank" class="contact-link">
             <span class="contact-link-icon">in</span>
-            linkedin.com/in/ryanvasquez14
+            LinkedIn
           </a>
           <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-link">
             <span class="contact-link-icon">dB</span>
             <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:var(--ink-light); text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
           </a>
-          <a href="https://compass.withprovenance.org" target="_blank" class="contact-link">
-            <span class="contact-link-icon"><img src="favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
-            CompassAI
+          <a href="https://withprovenance.org/products/" target="_blank" class="contact-link">
+            <span class="contact-link-icon">↗</span>
+            Products
           </a>
         </div>
         <div class="contact-portfolio">
