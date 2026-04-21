@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,306 +10,303 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
-:root {
-  --ink:          #16120e;
-  --ink-mid:      #3d3530;
-  --ink-light:    #7a706a;
-  --cream:        #f7f3ec;
-  --parchment:    #ede6d8;
-  --rule:         #cec5b8;
-  --accent:       #6b3a2a;
-  --accent-warm:  #a0522d;
-  --nav-h:        72px;
-}
+    :root {
+      --ink:          #16120e;
+      --ink-mid:      #3d3530;
+      --ink-light:    #7a706a;
+      --cream:        #f7f3ec;
+      --parchment:    #ede6d8;
+      --rule:         #cec5b8;
+      --accent:       #6b3a2a;
+      --accent-warm:  #a0522d;
+      --nav-h:        72px;
+    }
 
-html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
 
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.65;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
 
-/* ── Nav ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-h);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
-  background: var(--cream);
-  border-bottom: 1px solid var(--rule);
-  z-index: 200;
-}
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      z-index: 200;
+    }
 
-.nav-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  font-size: 1.2rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-}
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
 
-.nav-links a {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  text-decoration: none;
-  transition: color 0.2s;
-}
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-/* ── Page wrapper ── */
-main {
-  padding-top: var(--nav-h);
-}
+    /* ── Page wrapper ── */
+    main {
+      padding-top: var(--nav-h);
+    }
 
-/* ── Hero ── */
-.products-hero {
-  padding: 96px 48px 80px;
-  background: var(--accent);
-  border-bottom: 1px solid #7a3020;
-}
+    /* ── Hero ── */
+    .products-hero {
+      padding: 96px 48px 80px;
+      background: var(--accent);
+      border-bottom: 1px solid #7a3020;
+    }
 
-.products-hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
+    .products-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-.section-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #e8b99a;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #e8b99a;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-.section-label::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 1px;
-  background: #e8b99a;
-}
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: #e8b99a;
+    }
 
-.products-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(2.8rem, 5vw, 4.8rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  max-width: 720px;
-  margin-bottom: 28px;
-  color: var(--cream);
-}
+    .products-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 720px;
+      margin-bottom: 28px;
+      color: var(--cream);
+    }
 
-.products-headline em {
-  font-style: italic;
-  color: #f0c9a8;
-}
+    .products-headline em {
+      font-style: italic;
+      color: #f0c9a8;
+    }
 
-.products-subhead {
-  font-size: 1rem;
-  color: #d4b8a8;
-  max-width: 560px;
-  line-height: 1.8;
-}
+    .products-subhead {
+      font-size: 1rem;
+      color: #d4b8a8;
+      max-width: 560px;
+      line-height: 1.8;
+    }
 
-/* ── Products grid ── */
-.products-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 48px 120px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  background: var(--cream);
-}
+    /* ── Products grid ── */
+    .products-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 48px 120px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      background: var(--cream);
+    }
 
-.product-card {
-  background: var(--cream);
-  padding: 48px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transition: background 0.2s;
-}
+    .product-card {
+      background: var(--cream);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: background 0.2s;
+    }
 
-.product-card:hover { background: var(--parchment); }
+    .product-card:hover { background: var(--parchment); }
 
-/* Icon placeholder */
-.product-icon {
-  width: 64px;
-  height: 64px;
-  border: 1px solid var(--rule);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--parchment);
-  flex-shrink: 0;
-}
+    /* Icon placeholder */
+    .product-icon {
+      width: 64px;
+      height: 64px;
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--parchment);
+      flex-shrink: 0;
+    }
 
-.product-icon-placeholder {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  text-align: center;
-  line-height: 1.4;
-}
+    .product-icon-placeholder {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-align: center;
+      line-height: 1.4;
+    }
 
-.product-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-}
+    .product-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
 
-.product-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  font-size: 1.8rem;
-  letter-spacing: 0.01em;
-  color: var(--ink);
-  line-height: 1.1;
-}
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
 
-.product-desc {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  color: var(--ink-mid);
-  line-height: 1.75;
-  font-weight: 300;
-  flex-grow: 1;
-}
+    .product-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      font-weight: 300;
+      flex-grow: 1;
+    }
 
-.product-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  transition: gap 0.2s;
-  margin-top: auto;
-}
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: gap 0.2s;
+      margin-top: auto;
+    }
 
-.product-link:hover { gap: 14px; }
-.product-link::after { content: '→'; }
+    .product-link:hover { gap: 14px; }
+    .product-link::after { content: '→'; }
 
-.product-link.disabled {
-  color: var(--ink-light);
-  pointer-events: none;
-}
+    .product-link.disabled {
+      color: var(--ink-light);
+      pointer-events: none;
+    }
 
-.product-link.disabled::after { content: ''; }
+    .product-link.disabled::after { content: ''; }
 
-/* Status pill */
-.product-status {
-  display: inline-block;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border: 1px solid var(--rule);
-  color: var(--ink-light);
-  border-radius: 99px;
-  margin-top: -8px;
-}
+    /* Status pill */
+    .product-status {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--rule);
+      color: var(--ink-light);
+      border-radius: 99px;
+      margin-top: -8px;
+    }
 
-.product-status.live {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+    .product-status.live {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-/* ── Back link ── */
-.back-bar {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px 64px;
-}
+    /* ── Back link ── */
+    .back-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px 64px;
+    }
 
-.back-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s;
-}
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
 
-.back-link:hover { color: var(--accent); }
-.back-link::before { content: '←'; }
+    .back-link:hover { color: var(--accent); }
+    .back-link::before { content: '←'; }
 
-/* ── Footer ── */
-footer {
-  padding: 28px 48px;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    /* ── Footer ── */
+    footer {
+      padding: 28px 48px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.footer-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-}
+    .footer-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
 
-.footer-copy {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-light);
-}
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+    }
 
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .products-hero { padding: 72px 24px 56px; }
-  .products-grid { grid-template-columns: 1fr; padding: 48px 24px 80px; }
-  footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
-  .back-bar { padding: 0 24px 48px; }
-}
-```
-
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .products-hero { padding: 72px 24px 56px; }
+      .products-grid { grid-template-columns: 1fr; padding: 48px 24px 80px; }
+      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
+      .back-bar { padding: 0 24px 48px; }
+    }
   </style>
 </head>
 <body>
@@ -328,65 +324,63 @@ footer {
 
   <main>
 
-```
-<div class="products-hero">
-  <div class="products-hero-inner">
-    <p class="section-label">Products</p>
-    <h1 class="products-headline">Technology built for <em>people,</em><br>not the other way around.</h1>
-    <p class="products-subhead">Every product Provenance builds starts from the same premise: that technology should expand human capability without compromising human dignity. These tools are designed to be useful, responsible, and honest about what they are.</p>
-  </div>
-</div>
-
-<div class="products-grid">
-
-  <!-- CompassAI -->
-  <div class="product-card">
-    <div class="product-icon">
-      <span class="product-icon-placeholder">Icon<br>placeholder</span>
+    <div class="products-hero">
+      <div class="products-hero-inner">
+        <p class="section-label">Products</p>
+        <h1 class="products-headline">Technology built for <em>people,</em><br>not the other way around.</h1>
+        <p class="products-subhead">Every product Provenance builds starts from the same premise: that technology should expand human capability without compromising human dignity. These tools are designed to be useful, responsible, and honest about what they are.</p>
+      </div>
     </div>
-    <div>
-      <p class="product-tag">AI Governance</p>
-      <span class="product-status live">Live</span>
-    </div>
-    <h2 class="product-name">CompassAI</h2>
-    <p class="product-desc">A free diagnostic tool that maps your organization's AI footprint against the five pillars of responsible governance: transparency, fairness, accountability, privacy, and robustness. Answer ten questions. Receive a governance profile built for your context, not a generic checklist.</p>
-    <a href="https://compass-ai-sandy-three.vercel.app/" target="_blank" class="product-link">Begin Assessment</a>
-  </div>
 
-  <!-- Taskbloc -->
-  <div class="product-card">
-    <div class="product-icon">
-      <span class="product-icon-placeholder">Icon<br>placeholder</span>
-    </div>
-    <div>
-      <p class="product-tag">Personal Productivity</p>
-      <span class="product-status">Coming Soon</span>
-    </div>
-    <h2 class="product-name">Taskbloc</h2>
-    <p class="product-desc">A personal task organization tool designed around how people actually think and work, not how productivity culture tells them they should. Taskbloc is built for clarity over complexity, helping individuals manage their work without the overhead of enterprise software.</p>
-    <span class="product-link disabled">Coming Soon</span>
-  </div>
+    <div class="products-grid">
 
-  <!-- Mindwell -->
-  <div class="product-card">
-    <div class="product-icon">
-      <span class="product-icon-placeholder">Icon<br>placeholder</span>
-    </div>
-    <div>
-      <p class="product-tag">Reading Tracker</p>
-      <span class="product-status">Coming Soon</span>
-    </div>
-    <h2 class="product-name">Mindwell</h2>
-    <p class="product-desc">A reading tracker for students and lifelong learners, designed to make the habit of reading measurable and meaningful. Mindwell helps individuals and schools build reading culture without gamification gimmicks, keeping the focus on the books, not the streaks.</p>
-    <span class="product-link disabled">Coming Soon</span>
-  </div>
+      <!-- CompassAI -->
+      <div class="product-card">
+        <div class="product-icon">
+          <span class="product-icon-placeholder">Icon<br>placeholder</span>
+        </div>
+        <div>
+          <p class="product-tag">AI Governance</p>
+          <span class="product-status live">Live</span>
+        </div>
+        <h2 class="product-name">CompassAI</h2>
+        <p class="product-desc">A free diagnostic tool that maps your organization's AI footprint against the five pillars of responsible governance: transparency, fairness, accountability, privacy, and robustness. Answer ten questions. Receive a governance profile built for your context, not a generic checklist.</p>
+        <a href="https://compass-ai-sandy-three.vercel.app/" target="_blank" class="product-link">Begin Assessment</a>
+      </div>
 
-</div>
+      <!-- Taskbloc -->
+      <div class="product-card">
+        <div class="product-icon">
+          <span class="product-icon-placeholder">Icon<br>placeholder</span>
+        </div>
+        <div>
+          <p class="product-tag">Personal Productivity</p>
+          <span class="product-status">Coming Soon</span>
+        </div>
+        <h2 class="product-name">Taskbloc</h2>
+        <p class="product-desc">A personal task organization tool designed around how people actually think and work, not how productivity culture tells them they should. Taskbloc is built for clarity over complexity, helping individuals manage their work without the overhead of enterprise software.</p>
+        <span class="product-link disabled">Coming Soon</span>
+      </div>
 
-<div class="back-bar">
-  <a href="/" class="back-link">Back to Provenance</a>
-</div>
-```
+      <!-- Mindwell -->
+      <div class="product-card">
+        <div class="product-icon">
+          <span class="product-icon-placeholder">Icon<br>placeholder</span>
+        </div>
+        <div>
+          <p class="product-tag">Reading Tracker</p>
+          <span class="product-status">Coming Soon</span>
+        </div>
+        <h2 class="product-name">Mindwell</h2>
+        <p class="product-desc">A reading tracker for students and lifelong learners, designed to make the habit of reading measurable and meaningful. Mindwell helps individuals and schools build reading culture without gamification gimmicks, keeping the focus on the books, not the streaks.</p>
+        <span class="product-link disabled">Coming Soon</span>
+      </div>
+
+    </div>
+
+    <div class="back-bar">
+      <a href="/" class="back-link">Back to Provenance</a>
+    </div>
 
   </main>
 
