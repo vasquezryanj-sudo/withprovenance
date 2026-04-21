@@ -497,26 +497,6 @@
       background: var(--ink);
     }
 
-    .compass-slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(22, 18, 14, 0.5);
-      color: var(--cream);
-      border: none;
-      width: 44px;
-      height: 44px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      z-index: 2;
-    }
-    .compass-slider-arrow:hover { background: rgba(22, 18, 14, 0.8); }
-    .compass-slider-arrow.prev { left: 12px; }
-    .compass-slider-arrow.next { right: 12px; }
 
     .compass-dots {
       display: flex;
@@ -796,8 +776,6 @@
               <div class="compass-slide"><img src="images/compass/slide-4.png" alt="Your profile, through our eyes" /></div>
               <div class="compass-slide"><img src="images/compass/slide-5.png" alt="Build responsibly with Provenance" /></div>
             </div>
-            <button class="compass-slider-arrow prev" id="compassPrev" aria-label="Previous slide">&#8249;</button>
-            <button class="compass-slider-arrow next" id="compassNext" aria-label="Next slide">&#8250;</button>
           </div>
           <div class="compass-dots" id="compassDots">
             <button class="compass-dot active" data-slide="0" aria-label="Slide 1"></button>
@@ -873,8 +851,6 @@
     (() => {
       const track = document.getElementById('compassTrack');
       const dots = document.querySelectorAll('.compass-dot');
-      const prevBtn = document.getElementById('compassPrev');
-      const nextBtn = document.getElementById('compassNext');
       const slideCount = 5;
       let current = 0;
       let autoplayTimer;
@@ -885,8 +861,6 @@
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
-      prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
-      nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
       dots.forEach(dot => {
         dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.slide)); resetAutoplay(); });
       });
