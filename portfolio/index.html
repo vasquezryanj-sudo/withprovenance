@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Provenance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:          #16120e;
+      --ink-mid:      #3d3530;
+      --ink-light:    #7a706a;
+      --cream:        #f7f3ec;
+      --parchment:    #ede6d8;
+      --rule:         #cec5b8;
+      --accent:       #6b3a2a;
+      --accent-warm:  #a0522d;
+      --nav-h:        72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      padding-top: var(--nav-h);
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      z-index: 200;
+    }
+
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Page hero ── */
+    .page-hero {
+      padding: 80px 48px 72px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent-warm);
+    }
+
+    .page-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .page-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .page-subhead {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* ── Case study ── */
+    .case-study {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-study:last-of-type {
+      border-bottom: none;
+    }
+
+    /* Case study header bar */
+    .case-header {
+      padding: 64px 48px 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .case-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 14px;
+    }
+
+    .case-client {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .case-descriptor {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .case-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 220px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .meta-value {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    /* Case body */
+    .case-body {
+      padding: 64px 48px;
+      background: var(--parchment);
+    }
+
+    .case-body-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .case-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    .case-section-title.mono {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .case-text {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    .case-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .case-list li {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .case-list li::before {
+      content: '\2013';
+      color: var(--accent-warm);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Pillar table */
+    .pillar-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--rule);
+    }
+
+    .pillar-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      background: var(--cream);
+    }
+
+    .pillar-name {
+      padding: 14px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border-right: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pillar-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .pillar-dot.strong { background: #2D6A4F; }
+    .pillar-dot.developing { background: var(--accent-warm); }
+    .pillar-dot.attention { background: #8B1A1A; }
+
+    .pillar-status {
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* Deliverables grid */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--rule);
+    }
+
+    .deliverable-item {
+      background: var(--cream);
+      padding: 20px 18px;
+    }
+
+    .deliverable-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .deliverable-desc {
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    /* Quote pull */
+    .case-quote {
+      padding: 40px 48px;
+      background: var(--ink);
+      border-left: 4px solid var(--accent-warm);
+    }
+
+    .case-quote-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .case-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      line-height: 1.5;
+      color: var(--parchment);
+      margin-bottom: 16px;
+    }
+
+    .case-quote cite {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      font-style: normal;
+    }
+
+    /* Outcomes row */
+    .case-outcomes {
+      padding: 48px 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-outcomes-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      margin-top: 24px;
+    }
+
+    .outcome-item {
+      background: var(--cream);
+      padding: 28px 24px;
+    }
+
+    .outcome-text {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ── CTA ── */
+    .portfolio-cta {
+      padding: 80px 48px;
+      text-align: center;
+      background: var(--parchment);
+    }
+
+    .portfolio-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 16px;
+    }
+
+    .portfolio-cta h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .portfolio-cta p {
+      font-size: 0.93rem;
+      color: var(--ink-mid);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 13px 32px;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 28px 48px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .page-hero { padding: 56px 24px 48px; }
+      .case-header { padding: 48px 24px 36px; }
+      .case-header-inner { grid-template-columns: 1fr; gap: 32px; }
+      .case-meta { flex-direction: row; flex-wrap: wrap; gap: 24px; }
+      .case-body { padding: 48px 24px; }
+      .case-body-inner { grid-template-columns: 1fr; gap: 48px; }
+      .pillar-row { grid-template-columns: 1fr; }
+      .pillar-name { border-right: none; border-bottom: 1px solid var(--rule); }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .case-quote { padding: 32px 24px; }
+      .case-outcomes { padding: 40px 24px; }
+      .portfolio-cta { padding: 56px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-wordmark">Provenance</a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page hero -->
+  <div class="page-hero">
+    <p class="section-label">Portfolio</p>
+    <h1 class="page-headline">Governance work that<br><em>goes into production.</em></h1>
+    <p class="page-subhead">Provenance engagements are built from the ground up for each client's context, regulatory environment, and values. These are two of the organizations we have worked with to build responsible AI infrastructure.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CASE STUDY 1: PsynapseMD (ANONYMIZED)
+  ═══════════════════════════════════════ -->
+  <article class="case-study">
+
+    <div class="case-header">
+      <div class="case-header-inner">
+        <div>
+          <p class="case-type">Healthcare AI · AI Governance Framework</p>
+          <h2 class="case-client">Psychiatric AI Documentation Startup</h2>
+          <p class="case-descriptor">A pre-launch psychiatric AI documentation tool that transcribes clinician dictation, generates structured clinical notes, and evaluates those notes against insurance payer documents to support prior authorization. The product operates in one of the highest-stakes environments in clinical AI: mental health care.</p>
+        </div>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Sector</span>
+            <span class="meta-value">Healthcare AI / Psychiatric Software</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Engagement</span>
+            <span class="meta-value">April 2026</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Engagement Type</span>
+            <span class="meta-value">AI Governance Framework</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Stage</span>
+            <span class="meta-value">Pre-production / Pre-pilot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-body">
+      <div class="case-body-inner">
+
+        <div>
+          <p class="case-section-title">The Challenge</p>
+          <p class="case-text">The founding team was preparing to enter clinical pilot with a product that handles protected health information, interfaces with insurance payer systems, and produces outputs that directly affect patient care decisions. Before deploying into clinical environments, they needed an honest picture of where their governance posture stood and a structured framework to carry into pilot.</p>
+          <p class="case-text">The engagement began with a CompassAI governance assessment, which surfaced the key questions the product needed to answer before launch. It then expanded into a full consulting engagement producing a comprehensive AI Governance Framework across five pillars.</p>
+
+          <br/>
+          <p class="case-section-title">Key Considerations</p>
+          <ul class="case-list">
+            <li>Psychiatric patients represent one of the most vulnerable populations in clinical care. Every governance decision carries heightened ethical weight.</li>
+            <li>The product generates output from three distinct sources: clinician dictation, system inference, and external payer policy evaluation. These needed to be distinguishable at the point of clinician review, not invisible in a unified output.</li>
+            <li>A mandatory clinician approval step was designed into the product — affirmative, not passive — ensuring no note is finalized without deliberate human action.</li>
+            <li>Every finalized note includes a clinician attestation statement making accountability explicit and traceable.</li>
+            <li>The most urgent pre-launch gap identified: no signed Business Associate Agreement (BAA) with the cloud infrastructure provider — a HIPAA compliance requirement before any real patient data can be processed.</li>
+            <li>Audit log architecture was evaluated for its ability to reconstruct the full provenance of any note, including what the model generated, which fields were auto-populated, and what the clinician changed.</li>
+            <li>Governance development was aligned with cyber insurance requirements from the outset, so documentation, access controls, and incident response planning serve both clinical governance and insurance review simultaneously.</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="case-section-title">Governance Profile at a Glance</p>
+          <div class="pillar-grid">
+            <div class="pillar-row">
+              <div class="pillar-name"><span class="pillar-dot strong"></span>Transparency</div>
+              <div class="pillar-status">Strong. Full AI disclosure present in every output. Clinician-selected payer documents constrain the model's evaluation scope.</div>
+            </div>
+            <div class="pillar-row">
+              <div class="pillar-name"><span class="pillar-dot developing"></span>Fairness</div>
+              <div class="pillar-status">Developing. No fine-tuning on proprietary datasets reduces bias risk. Formal equity assessment and adversarial testing planned prior to pilot expansion.</div>
+            </div>
+            <div class="pillar-row">
+              <div class="pillar-name"><span class="pillar-dot attention"></span>Privacy</div>
+              <div class="pillar-status">Needs attention. Full Azure-contained data pipeline. Critical gap: no signed BAA with Microsoft — most urgent pre-launch action item.</div>
+            </div>
+            <div class="pillar-row">
+              <div class="pillar-name"><span class="pillar-dot developing"></span>Explainability</div>
+              <div class="pillar-status">Developing. Robust human oversight with mandatory approval and attestation. Source distinction in the clinician interface still to be implemented.</div>
+            </div>
+            <div class="pillar-row">
+              <div class="pillar-name"><span class="pillar-dot developing"></span>Robustness</div>
+              <div class="pillar-status">Developing. Baseline monitoring in place. Incident response and change control protocols to be formalized before pilot expansion.</div>
+            </div>
+          </div>
+
+          <br/>
+          <p class="case-section-title">Deliverables</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-item">
+              <p class="deliverable-name">CompassAI Assessment</p>
+              <p class="deliverable-desc">Structured governance diagnostic across five pillars, surfacing pre-launch gaps and priorities.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">AI Governance Framework v2.0</p>
+              <p class="deliverable-desc">Full five-pillar framework documenting current posture, identified gaps, planned actions, and recommended protocols.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">Product Design Guidance</p>
+              <p class="deliverable-desc">Source delineation design for the clinician interface; mandatory approval architecture; attestation language.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">Cyber Insurance Alignment</p>
+              <p class="deliverable-desc">Governance deliverables mapped to cyber insurance requirements for coordinated pre-launch review.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="case-quote">
+      <div class="case-quote-inner">
+        <p>"Working through the governance framework before we deployed gave us a level of confidence we would not have had otherwise. Responsible AI governance became integral to how we thought about what we were building, not just how we documented it."</p>
+        <cite>Founder, Psychiatric AI Documentation Startup</cite>
+      </div>
+    </div>
+
+    <div class="case-outcomes">
+      <div class="case-outcomes-inner">
+        <p class="case-section-title mono">Outcomes</p>
+        <div class="outcomes-grid">
+          <div class="outcome-item">
+            <p class="outcome-text">A full governance framework in place before a single clinical pilot participant is enrolled, shaping product decisions rather than documenting them after the fact.</p>
+          </div>
+          <div class="outcome-item">
+            <p class="outcome-text">Governance mechanisms designed into the product itself: mandatory approval step, source distinction in the review interface, and clinician attestation in every output.</p>
+          </div>
+          <div class="outcome-item">
+            <p class="outcome-text">A prioritized pre-launch action list with the BAA as the highest-priority item, aligned with both HIPAA compliance and cyber insurance requirements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- ═══════════════════════════════════════
+       CASE STUDY 2: TOES FOR DANCE
+  ═══════════════════════════════════════ -->
+  <article class="case-study" style="border-top: 1px solid var(--rule);">
+
+    <div class="case-header">
+      <div class="case-header-inner">
+        <div>
+          <p class="case-type">Arts Nonprofit · AI Fluency & Governance</p>
+          <h2 class="case-client">Toes For Dance</h2>
+          <p class="case-descriptor">An artist-run nonprofit based in Toronto operating three programs: the Common Ground Dance Festival, the Process + Practice residency series, and the Fresh Dance Intensive for youth ages 8 to 18. TFD serves equity-seeking communities including Indigenous artists and youth, funded by Canada Council for the Arts, Ontario Arts Council, and Toronto Arts Council.</p>
+        </div>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Sector</span>
+            <span class="meta-value">Arts Nonprofit</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Toronto, Canada</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Engagement</span>
+            <span class="meta-value">March 2026</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Engagement Type</span>
+            <span class="meta-value">AI Fluency, Privacy Governance, Research Protocols</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-body">
+      <div class="case-body-inner">
+
+        <div>
+          <p class="case-section-title">The Challenge</p>
+          <p class="case-text">TFD came to Provenance with no existing AI usage and a clear set of constraints: a lean staff, limited budget, and significant responsibility for the data of youth participants, Indigenous artists, and donors. AI tools that could meaningfully reduce their administrative burden were accessible, but the risk of misuse, privacy exposure, and value misalignment was real.</p>
+          <p class="case-text">The engagement had to be grounded in Canadian law, appropriate for the organization's community commitments, and immediately practical for a small team.</p>
+
+          <br/>
+          <p class="case-section-title">Key Considerations</p>
+          <ul class="case-list">
+            <li>TFD serves youth ages 8 to 18 and Indigenous artists, both of whom carry heightened data protections under Canadian law. The governance bar was set above the legal minimum.</li>
+            <li>OCAP principles (Ownership, Control, Access, Possession) governed how Provenance approached any framework touching Indigenous community data. Consent was treated as relational, not transactional.</li>
+            <li>Five Canadian legal frameworks were integrated: PIPEDA, the Ontario Human Rights Code, OCAP principles, CASL, and the Child, Youth and Family Services Act.</li>
+            <li>Public AI tools were treated as having no confidentiality guarantees. The framework established clear boundaries for what could and could not be entered into any AI system.</li>
+            <li>Parental consent requirements were built into the framework at the program level, not as an afterthought, covering Fresh Dance registration, photo and video releases, and AI-assisted workflows.</li>
+            <li>Tools were evaluated against four criteria specific to TFD: workflow relevance, nonprofit pricing, Canadian data handling compliance, and minimal technical barrier to entry.</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="case-section-title">Deliverables</p>
+          <div class="deliverables-grid">
+            <div class="deliverable-item">
+              <p class="deliverable-name">AI Fluency Reference</p>
+              <p class="deliverable-desc">Staff-facing guide covering the 4D Framework with TFD-specific use cases across research, writing, data analysis, and workflow automation.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">Privacy & Data Governance Framework</p>
+              <p class="deliverable-desc">Two-part framework: internal governance covering legal requirements, consent standards, AI-specific data rules, and breach protocol; and external commitments for participants, donors, and community members.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">AI Tools Starter Stack</p>
+              <p class="deliverable-desc">Six tools selected and evaluated for a small Canadian arts nonprofit: Claude, Google for Nonprofits (incl. NotebookLM), Gamma, Canva AI, Otter.ai, and Zapier.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">AI Research Protocols</p>
+              <p class="deliverable-desc">Guidelines for AI-assisted grant research and funder landscape scanning, with verification requirements for time-sensitive or regulatory information.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">Learning Path</p>
+              <p class="deliverable-desc">Curated free training resources with onboarding timeline. Approximately 3 hours total for all staff and new board members.</p>
+            </div>
+            <div class="deliverable-item">
+              <p class="deliverable-name">CompassAI Assessment</p>
+              <p class="deliverable-desc">Governance diagnostic establishing TFD's AI posture as a baseline for the engagement and for future review.</p>
+            </div>
+          </div>
+
+          <br/>
+          <p class="case-section-title">Legal Frameworks Addressed</p>
+          <ul class="case-list">
+            <li>PIPEDA (Personal Information Protection and Electronic Documents Act)</li>
+            <li>OCAP Principles for Indigenous data sovereignty</li>
+            <li>Ontario Human Rights Code</li>
+            <li>CASL (Canada's Anti-Spam Legislation)</li>
+            <li>Child, Youth and Family Services Act</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="case-outcomes">
+      <div class="case-outcomes-inner">
+        <p class="case-section-title mono">Outcomes</p>
+        <div class="outcomes-grid">
+          <div class="outcome-item">
+            <p class="outcome-text">A working governance and privacy framework in place before TFD adopted any AI tools, grounded in Canadian law and the organization's specific community commitments.</p>
+          </div>
+          <div class="outcome-item">
+            <p class="outcome-text">Staff AI onboarding pathway established using free, sequenced training resources. Estimated 3 hours total — achievable alongside a full program calendar.</p>
+          </div>
+          <div class="outcome-item">
+            <p class="outcome-text">Leadership equipped to evaluate new AI tools against a consistent set of organizational criteria, with a starter stack ready to implement immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="portfolio-cta">
+    <h2>Ready to build something <em>responsibly?</em></h2>
+    <p>Provenance works with organizations at any stage of AI adoption. Whether you are building a product or integrating tools into an existing workflow, we can help you do it right.</p>
+    <a href="/#contact" class="btn-primary">Get in Touch</a>
+  </section>
+
+  <footer>
+    <a href="/" class="footer-wordmark">Provenance</a>
+    <span class="footer-copy">2026 Ryan Vasquez · All rights reserved</span>
+  </footer>
+
+</body>
+</html>
