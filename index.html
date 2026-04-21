@@ -364,6 +364,10 @@
     }
 
     .work-grid {
+      display: block;
+    }
+
+    .work-grid-track {
       display: flex;
       align-items: stretch;
     }
@@ -430,6 +434,28 @@
     .work-portfolio-link {
       margin-top: 40px;
       text-align: left;
+    }
+
+    .work-dots {
+      display: none;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .work-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-warm);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+
+    .work-dot.active {
+      background: var(--accent-warm);
     }
 
     /* ── CompassAI ── */
@@ -646,8 +672,21 @@
       .nav-dropdown { padding: 24px; }
       section { padding: 64px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .work-grid { flex-direction: column; }
-      .work-divider { padding: 16px 0; margin: 0; justify-content: center; font-size: 1.5rem; }
+      .work-grid {
+        overflow: hidden;
+        position: relative;
+      }
+      .work-grid-track {
+        display: flex;
+        transition: transform 0.4s ease;
+      }
+      .work-card {
+        min-width: 100%;
+        flex-shrink: 0;
+        padding: 32px 24px;
+      }
+      .work-divider { display: none; }
+      .work-dots { display: flex; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .compass-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
@@ -739,17 +778,23 @@
         <h2 class="work-headline">Govern and create.<br><em>In tandem.</em></h2>
         <p class="work-intro">Provenance sits at a rare intersection: encouraging client fluency in AI systems and how they work in practice, and partnering in creating unique AI governance frameworks grounded in responsible and ethical use. Most organizations get one or the other. Provenance brings both.</p>
       </div>
-      <div class="work-grid fade-up">
-        <div class="work-card">
-          <h3 class="work-card-title">AI Governance</h3>
-          <p class="work-card-body">Navigating AI regulation requires more than static legal awareness. Provenance develops living, flexible governance frameworks, risk assessments, and internal policy infrastructure grounded in both regulatory reality and practical AI experience.</p>
-          <p class="work-card-body">Engagements draw on relevant active frameworks and regulation, but move beyond the current environment to guarantee safe, responsible, and ethical AI use as boundaries shift and products develop.</p>
+      <div class="work-grid fade-up" id="workSlider">
+        <div class="work-grid-track" id="workTrack">
+          <div class="work-card">
+            <h3 class="work-card-title">AI Governance</h3>
+            <p class="work-card-body">Navigating AI regulation requires more than static legal awareness. Provenance develops living, flexible governance frameworks, risk assessments, and internal policy infrastructure grounded in both regulatory reality and practical AI experience.</p>
+            <p class="work-card-body">Engagements draw on relevant active frameworks and regulation, but move beyond the current environment to guarantee safe, responsible, and ethical AI use as boundaries shift and products develop.</p>
+          </div>
+          <div class="work-divider">&infin;</div>
+          <div class="work-card">
+            <h3 class="work-card-title">AI Fluency & Innovation</h3>
+            <p class="work-card-body">At Provenance, we know that responsible AI adoption isn't just about what to avoid, but about knowing what's possible and building toward it thoughtfully. Provenance consults with organizations with a mission to provide tools to enhance their workflows with the use of novel AI systems, always with responsibility and safety at the forefront.</p>
+            <p class="work-card-body">This includes workshops, one-on-one consulting, and the development of bespoke AI tools built to solve real organizational problems. All with governance built in from the start.</p>
+          </div>
         </div>
-        <div class="work-divider">&infin;</div>
-        <div class="work-card">
-          <h3 class="work-card-title">AI Fluency & Innovation</h3>
-          <p class="work-card-body">At Provenance, we know that responsible AI adoption isn't just about what to avoid, but about knowing what's possible and building toward it thoughtfully. Provenance consults with organizations with a mission to provide tools to enhance their workflows with the use of novel AI systems, always with responsibility and safety at the forefront.</p>
-          <p class="work-card-body">This includes workshops, one-on-one consulting, and the development of bespoke AI tools built to solve real organizational problems. All with governance built in from the start.</p>
+        <div class="work-dots" id="workDots">
+          <button class="work-dot active" data-slide="0" aria-label="Card 1"></button>
+          <button class="work-dot" data-slide="1" aria-label="Card 2"></button>
         </div>
       </div>
       <div class="work-portfolio-link fade-up">
@@ -872,6 +917,32 @@
       }
 
       resetAutoplay();
+    })();
+
+    // Work cards slider (mobile only)
+    (() => {
+      const track = document.getElementById('workTrack');
+      const dots = document.querySelectorAll('.work-dot');
+      let current = 0;
+
+      function goTo(index) {
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => goTo(parseInt(dot.dataset.slide)));
+      });
+
+      // Swipe support
+      let startX = 0;
+      const slider = document.getElementById('workSlider');
+      slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      slider.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(diff > 0 ? 1 : 0);
+      });
     })();
   </script>
 
