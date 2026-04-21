@@ -444,21 +444,36 @@
       background: var(--accent-warm);
     }
 
+    .compass-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
     .compass-headline {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
       line-height: 1.2;
       color: var(--cream);
-      max-width: 640px;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
+    }
+
+    .compass-body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.93rem;
+      color: var(--ink-light);
+      line-height: 1.8;
+      margin-bottom: 32px;
     }
 
     .compass-slider {
       position: relative;
       overflow: hidden;
       border: 1px solid var(--accent);
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       aspect-ratio: 16 / 9;
     }
 
@@ -507,7 +522,7 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 48px;
+      margin-bottom: 0;
     }
 
     .compass-dot {
@@ -653,7 +668,7 @@
       .work-grid { flex-direction: column; }
       .work-divider { padding: 16px 0; margin: 0; justify-content: center; font-size: 1.5rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .compass-slider { height: 400px; }
+      .compass-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
       .hero-rule { display: none; }
     }
@@ -765,30 +780,33 @@
   <!-- CompassAI -->
   <section id="compass">
     <div class="container-wide">
-      <div class="fade-up">
-        <p class="section-label">CompassAI</p>
-        <h2 class="compass-headline">Your custom governance profile, in just five minutes.</h2>
-      </div>
-      <div class="fade-up">
-        <div class="compass-slider" id="compassSlider">
-          <div class="compass-slider-track" id="compassTrack">
-            <div class="compass-slide"><img src="images/compass/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
-            <div class="compass-slide"><img src="images/compass/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
-            <div class="compass-slide"><img src="images/compass/slide-3.png" alt="Your context, your industry, your people" /></div>
-            <div class="compass-slide"><img src="images/compass/slide-4.png" alt="Your profile, through our eyes" /></div>
-            <div class="compass-slide"><img src="images/compass/slide-5.png" alt="Build responsibly with Provenance" /></div>
+      <div class="compass-grid fade-up">
+        <div>
+          <p class="section-label">CompassAI</p>
+          <h2 class="compass-headline">Your custom governance profile, in just five minutes.</h2>
+          <p class="compass-body">CompassAI is a free diagnostic built around the five pillars of responsible AI: transparency, fairness, accountability, privacy, and robustness. Answer ten questions and receive a governance profile tailored to your organization, your industry, and your people.</p>
+          <a href="https://compass.withprovenance.org" target="_blank" class="compass-cta">Begin Assessment</a>
+        </div>
+        <div>
+          <div class="compass-slider" id="compassSlider">
+            <div class="compass-slider-track" id="compassTrack">
+              <div class="compass-slide"><img src="images/compass/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
+              <div class="compass-slide"><img src="images/compass/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
+              <div class="compass-slide"><img src="images/compass/slide-3.png" alt="Your context, your industry, your people" /></div>
+              <div class="compass-slide"><img src="images/compass/slide-4.png" alt="Your profile, through our eyes" /></div>
+              <div class="compass-slide"><img src="images/compass/slide-5.png" alt="Build responsibly with Provenance" /></div>
+            </div>
+            <button class="compass-slider-arrow prev" id="compassPrev" aria-label="Previous slide">&#8249;</button>
+            <button class="compass-slider-arrow next" id="compassNext" aria-label="Next slide">&#8250;</button>
           </div>
-          <button class="compass-slider-arrow prev" id="compassPrev" aria-label="Previous slide">&#8249;</button>
-          <button class="compass-slider-arrow next" id="compassNext" aria-label="Next slide">&#8250;</button>
+          <div class="compass-dots" id="compassDots">
+            <button class="compass-dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="compass-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="compass-dot" data-slide="2" aria-label="Slide 3"></button>
+            <button class="compass-dot" data-slide="3" aria-label="Slide 4"></button>
+            <button class="compass-dot" data-slide="4" aria-label="Slide 5"></button>
+          </div>
         </div>
-        <div class="compass-dots" id="compassDots">
-          <button class="compass-dot active" data-slide="0" aria-label="Slide 1"></button>
-          <button class="compass-dot" data-slide="1" aria-label="Slide 2"></button>
-          <button class="compass-dot" data-slide="2" aria-label="Slide 3"></button>
-          <button class="compass-dot" data-slide="3" aria-label="Slide 4"></button>
-          <button class="compass-dot" data-slide="4" aria-label="Slide 5"></button>
-        </div>
-        <a href="https://compass.withprovenance.org" target="_blank" class="compass-cta">Begin Assessment</a>
       </div>
     </div>
   </section>
