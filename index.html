@@ -455,21 +455,48 @@
     }
 
     .compass-slider {
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--accent);
-      height: 600px;
+      margin-bottom: 24px;
+    }
+
+    .compass-slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .compass-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+
+    .compass-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .compass-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(22, 18, 14, 0.5);
+      color: var(--cream);
+      border: none;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
-      position: relative;
+      transition: background 0.2s;
+      z-index: 2;
     }
-
-    .compass-slider-note {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--ink-light);
-      letter-spacing: 0.08em;
-    }
+    .compass-slider-arrow:hover { background: rgba(22, 18, 14, 0.8); }
+    .compass-slider-arrow.prev { left: 12px; }
+    .compass-slider-arrow.next { right: 12px; }
 
     .compass-dots {
       display: flex;
@@ -479,14 +506,17 @@
     }
 
     .compass-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       border: 1px solid var(--accent-warm);
       background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
     }
 
-    .compass-dot:first-child {
+    .compass-dot.active {
       background: var(--accent-warm);
     }
 
@@ -735,20 +765,23 @@
         <h2 class="compass-headline">Your custom governance profile, in just five minutes.</h2>
       </div>
       <div class="fade-up">
-        <div class="compass-slider">
-          <div class="compass-slide"></div>
-          <div class="compass-slide"></div>
-          <div class="compass-slide"></div>
-          <div class="compass-slide"></div>
-          <div class="compass-slide"></div>
-          <span class="compass-slider-note">[ CompassAI slider — 5 slides ]</span>
+        <div class="compass-slider" id="compassSlider">
+          <div class="compass-slider-track" id="compassTrack">
+            <div class="compass-slide"><img src="images/compass/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
+            <div class="compass-slide"><img src="images/compass/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
+            <div class="compass-slide"><img src="images/compass/slide-3.png" alt="Your context, your industry, your people" /></div>
+            <div class="compass-slide"><img src="images/compass/slide-4.png" alt="Your profile, through our eyes" /></div>
+            <div class="compass-slide"><img src="images/compass/slide-5.png" alt="Build responsibly with Provenance" /></div>
+          </div>
+          <button class="compass-slider-arrow prev" id="compassPrev" aria-label="Previous slide">&#8249;</button>
+          <button class="compass-slider-arrow next" id="compassNext" aria-label="Next slide">&#8250;</button>
         </div>
-        <div class="compass-dots">
-          <div class="compass-dot"></div>
-          <div class="compass-dot"></div>
-          <div class="compass-dot"></div>
-          <div class="compass-dot"></div>
-          <div class="compass-dot"></div>
+        <div class="compass-dots" id="compassDots">
+          <button class="compass-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="compass-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="compass-dot" data-slide="2" aria-label="Slide 3"></button>
+          <button class="compass-dot" data-slide="3" aria-label="Slide 4"></button>
+          <button class="compass-dot" data-slide="4" aria-label="Slide 5"></button>
         </div>
         <a href="https://compass.withprovenance.org" target="_blank" class="compass-cta">Begin Assessment</a>
       </div>
@@ -812,6 +845,36 @@
         dropdown.classList.remove('open');
       });
     });
+
+    // CompassAI slider
+    (() => {
+      const track = document.getElementById('compassTrack');
+      const dots = document.querySelectorAll('.compass-dot');
+      const prevBtn = document.getElementById('compassPrev');
+      const nextBtn = document.getElementById('compassNext');
+      const slideCount = 5;
+      let current = 0;
+      let autoplayTimer;
+
+      function goTo(index) {
+        current = (index + slideCount) % slideCount;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+      nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.slide)); resetAutoplay(); });
+      });
+
+      function resetAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = setInterval(() => goTo(current + 1), 5000);
+      }
+
+      resetAutoplay();
+    })();
   </script>
 
 </body>
