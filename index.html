@@ -900,7 +900,7 @@
 
       function goTo(index) {
         current = (index + slideCount) % slideCount;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        track.style.transform = 'translateX(-' + (current * 20) + '%)';
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
@@ -913,6 +913,27 @@
         autoplayTimer = setInterval(() => goTo(current + 1), 5000);
       }
 
+      // Swipe support for compass slider
+      let startX = 0;
+      const slider = document.getElementById('compassSlider');
+      slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      slider.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); resetAutoplay(); }
+      });
+
+      // Mouse drag support for desktop
+      let mouseDown = false, mouseStartX = 0;
+      slider.addEventListener('mousedown', e => { mouseDown = true; mouseStartX = e.clientX; e.preventDefault(); });
+      slider.addEventListener('mousemove', e => { if (mouseDown) e.preventDefault(); });
+      document.addEventListener('mouseup', e => {
+        if (mouseDown) {
+          const diff = mouseStartX - e.clientX;
+          if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); resetAutoplay(); }
+          mouseDown = false;
+        }
+      });
+
       resetAutoplay();
     })();
 
@@ -924,7 +945,7 @@
 
       function goTo(index) {
         current = index;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        track.style.transform = 'translateX(-' + (current * 50) + '%)';
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
