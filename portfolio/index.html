@@ -472,6 +472,91 @@
       color: var(--ink-light);
     }
 
+    /* ── Reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-stagger.visible > * { opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-entrance > * {
+      opacity: 0;
+      animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Button hover lift */
+    .btn-primary {
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    /* Section label line draw */
+    .section-label::after {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+    .reveal.visible .section-label::after,
+    .hero-entrance .section-label::after {
+      transform: scaleX(1);
+    }
+
+    /* Deliverable/outcome card hover */
+    .deliverable-item, .outcome-item {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .deliverable-item:hover, .outcome-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Pillar row hover */
+    .pillar-row {
+      transition: background 0.2s;
+    }
+    .pillar-row:hover {
+      background: var(--parchment);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > *, .hero-entrance > * {
+        opacity: 1; transform: none;
+        animation: none; transition: none;
+      }
+      .section-label::after { transform: scaleX(1); transition: none; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
@@ -505,7 +590,7 @@
   </nav>
 
   <!-- Page hero -->
-  <div class="page-hero">
+  <div class="page-hero hero-entrance">
     <p class="section-label">Portfolio</p>
     <h1 class="page-headline">Governance work that<br><em>goes into production.</em></h1>
     <p class="page-subhead">Provenance engagements are built from the ground up for each client's context, regulatory environment, and values. These are two of the organizations we have worked with to build responsible AI infrastructure.</p>
@@ -516,7 +601,7 @@
   ═══════════════════════════════════════ -->
   <article class="case-study">
 
-    <div class="case-header">
+    <div class="case-header reveal">
       <div class="case-header-inner">
         <div>
           <p class="case-type">Healthcare AI · AI Governance Framework</p>
@@ -544,7 +629,7 @@
       </div>
     </div>
 
-    <div class="case-body">
+    <div class="case-body reveal">
       <div class="case-body-inner">
 
         <div>
@@ -592,7 +677,7 @@
 
           <br/>
           <p class="case-section-title">Deliverables</p>
-          <div class="deliverables-grid">
+          <div class="deliverables-grid reveal-stagger">
             <div class="deliverable-item">
               <p class="deliverable-name">CompassAI Assessment</p>
               <p class="deliverable-desc">Structured governance diagnostic across five pillars, surfacing pre-launch gaps and priorities.</p>
@@ -615,17 +700,17 @@
       </div>
     </div>
 
-    <div class="case-quote">
+    <div class="case-quote reveal">
       <div class="case-quote-inner">
         <p>"Working through the governance framework before we deployed gave us a level of confidence we would not have had otherwise. Responsible AI governance became integral to how we thought about what we were building, not just how we documented it."</p>
         <cite>Founder, Psychiatric AI Documentation Startup</cite>
       </div>
     </div>
 
-    <div class="case-outcomes">
+    <div class="case-outcomes reveal">
       <div class="case-outcomes-inner">
         <p class="case-section-title mono">Outcomes</p>
-        <div class="outcomes-grid">
+        <div class="outcomes-grid reveal-stagger">
           <div class="outcome-item">
             <p class="outcome-text">A full governance framework in place before a single clinical pilot participant is enrolled, shaping product decisions rather than documenting them after the fact.</p>
           </div>
@@ -646,7 +731,7 @@
   ═══════════════════════════════════════ -->
   <article class="case-study" style="border-top: 1px solid var(--rule);">
 
-    <div class="case-header">
+    <div class="case-header reveal">
       <div class="case-header-inner">
         <div>
           <p class="case-type">Arts Nonprofit · AI Fluency & Governance</p>
@@ -674,7 +759,7 @@
       </div>
     </div>
 
-    <div class="case-body">
+    <div class="case-body reveal">
       <div class="case-body-inner">
 
         <div>
@@ -696,7 +781,7 @@
 
         <div>
           <p class="case-section-title">Deliverables</p>
-          <div class="deliverables-grid">
+          <div class="deliverables-grid reveal-stagger">
             <div class="deliverable-item">
               <p class="deliverable-name">AI Fluency Reference</p>
               <p class="deliverable-desc">Staff-facing guide covering the 4D Framework with TFD-specific use cases across research, writing, data analysis, and workflow automation.</p>
@@ -737,10 +822,10 @@
       </div>
     </div>
 
-    <div class="case-outcomes">
+    <div class="case-outcomes reveal">
       <div class="case-outcomes-inner">
         <p class="case-section-title mono">Outcomes</p>
-        <div class="outcomes-grid">
+        <div class="outcomes-grid reveal-stagger">
           <div class="outcome-item">
             <p class="outcome-text">A working governance and privacy framework in place before TFD adopted any AI tools, grounded in Canadian law and the organization's specific community commitments.</p>
           </div>
@@ -757,7 +842,7 @@
   </article>
 
   <!-- CTA -->
-  <section class="portfolio-cta">
+  <section class="portfolio-cta reveal">
     <h2>Ready to build something <em>responsibly?</em></h2>
     <p>Provenance works with organizations at any stage of AI adoption. Whether you are building a product or integrating tools into an existing workflow, we can help you do it right.</p>
     <a href="/#contact" class="btn-primary">Get in Touch</a>
@@ -767,6 +852,18 @@
     <a href="/" class="footer-wordmark">Provenance</a>
     <span class="footer-copy">2026 Ryan Vasquez · All rights reserved</span>
   </footer>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+  </script>
 
 </body>
 </html>

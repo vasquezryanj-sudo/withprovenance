@@ -288,6 +288,94 @@
     .footer-right a { font-size: 12px; color: var(--text3); text-decoration: none; font-weight: 300; transition: color 0.12s; }
     .footer-right a:hover { color: var(--text); }
 
+    /* ── Reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-stagger.visible > * { opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-entrance > * {
+      opacity: 0;
+      animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-entrance > *:nth-child(4) { animation-delay: 0.55s; }
+
+    /* Feature card hover */
+    .feature {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    /* Button hover lift */
+    .btn-primary {
+      transition: background 0.15s, box-shadow 0.15s, transform 0.25s;
+    }
+    .btn-primary:hover {
+      background: #c9622e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(184,80,30,0.35);
+    }
+
+    /* Section label line draw */
+    .section-label::after {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+    .reveal.visible .section-label::after,
+    .hero-entrance .section-label::after {
+      transform: scaleX(1);
+    }
+
+    /* Data list items stagger */
+    .data-list li {
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible .data-list li { opacity: 1; transform: none; }
+    .reveal.visible .data-list li:nth-child(1) { transition-delay: 0.05s; }
+    .reveal.visible .data-list li:nth-child(2) { transition-delay: 0.1s; }
+    .reveal.visible .data-list li:nth-child(3) { transition-delay: 0.15s; }
+    .reveal.visible .data-list li:nth-child(4) { transition-delay: 0.2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > *, .hero-entrance > *, .data-list li {
+        opacity: 1; transform: none;
+        animation: none; transition: none;
+      }
+      .section-label::after { transform: scaleX(1); transition: none; }
+    }
+
     @media (max-width: 640px) {
       nav { padding: 18px 24px; }
       .nav-right .nav-link { display: none; }
@@ -325,7 +413,7 @@
     </div>
   </nav>
 
-  <div class="hero">
+  <div class="hero hero-entrance">
     <div class="section-label">TaskBloc</div>
     <h1>Your days,<br><em>organized.</em></h1>
     <p class="hero-desc">TaskBloc is a personal task manager built for focused, day-by-day productivity. Plan your week, track projects, and let your calendar fill itself.</p>
@@ -335,9 +423,9 @@
     </div>
   </div>
 
-  <div class="features">
+  <div class="features reveal">
     <div class="section-label">What it does</div>
-    <div class="features-grid">
+    <div class="features-grid reveal-stagger">
       <div class="feature">
         <div class="feature-icon">📅</div>
         <h3>Day-by-day planning</h3>
@@ -361,7 +449,7 @@
     </div>
   </div>
 
-  <div class="transparency">
+  <div class="transparency reveal">
     <div class="section-label">Data & Privacy</div>
     <h2>Your data is<br><em>yours alone.</em></h2>
     <p>TaskBloc is built by Provenance — a consulting practice grounded in ethics and transparency. We apply those same principles to how we handle your data.</p>
@@ -375,7 +463,7 @@
     <p style="margin-top: 20px;">We do not sell your data. We do not run ads. We do not share your information with third parties beyond what is required to operate the service.</p>
   </div>
 
-  <div class="cta-section">
+  <div class="cta-section reveal">
     <div class="section-label">Get started</div>
     <h2>Ready to take back<br><em>your day?</em></h2>
     <p>Sign in with Google and start organizing in under a minute. Free to use.</p>
@@ -390,6 +478,18 @@
       <a href="mailto:vasquezryanj@gmail.com">Contact</a>
     </div>
   </footer>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+  </script>
 
 </body>
 </html>

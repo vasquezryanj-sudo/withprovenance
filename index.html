@@ -134,12 +134,7 @@
       background: var(--parchment);
       border-bottom: 1px solid var(--rule);
       padding: 32px 48px;
-      display: none;
       z-index: 199;
-    }
-
-    .nav-dropdown.open {
-      display: block;
     }
 
     .nav-dropdown ul {
@@ -229,9 +224,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.2s;
     }
-    .btn-primary:hover { background: var(--accent); }
 
     .btn-secondary {
       display: inline-block;
@@ -243,9 +236,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--ink-mid); color: var(--ink); }
 
     .hero-rule {
       position: absolute;
@@ -554,9 +545,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.2s;
     }
-    .compass-cta:hover { background: var(--accent-warm); }
 
 
     /* ── Contact ── */
@@ -601,9 +590,7 @@
       text-transform: uppercase;
       color: var(--ink-mid);
       text-decoration: none;
-      transition: color 0.2s;
     }
-    .contact-link:hover { color: var(--accent); }
 
     .contact-link-icon {
       width: 32px;
@@ -644,19 +631,127 @@
       color: var(--ink-light);
     }
 
-    /* ── Fade animation ── */
-    .fade-up {
-      opacity: 1;
-      transform: none;
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.hidden {
+    /* ── Reveal animations ── */
+    .reveal {
       opacity: 0;
-      transform: translateY(22px);
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .fade-up.visible {
+    .reveal.visible {
       opacity: 1;
       transform: none;
+    }
+
+    /* Staggered children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-stagger.visible > * { opacity: 1; transform: none; }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+
+    /* Hero entrance */
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-entrance > * {
+      opacity: 0;
+      animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-entrance > *:nth-child(4) { animation-delay: 0.55s; }
+
+    /* Button hover lift */
+    .btn-primary, .btn-secondary, .compass-cta {
+      transition: background 0.25s, border-color 0.25s, color 0.25s,
+                  transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    .btn-secondary:hover {
+      border-color: var(--ink-mid); color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .compass-cta:hover {
+      background: var(--accent-warm);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(107,58,42,0.25);
+    }
+
+    /* Contact link hover */
+    .contact-link {
+      transition: color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover {
+      color: var(--accent);
+      transform: translateX(6px);
+    }
+    .contact-link-icon {
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-link:hover .contact-link-icon {
+      border-color: var(--accent);
+      background: rgba(107,58,42,0.06);
+    }
+
+    /* Work card hover (desktop) */
+    @media (min-width: 769px) {
+      .work-card {
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .work-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+    }
+
+    /* Nav dropdown slide */
+    .nav-dropdown {
+      display: block;
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .nav-dropdown.open {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    /* Section label line draw */
+    .section-label::after {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+    .reveal.visible .section-label::after,
+    .hero-entrance .section-label::after {
+      transform: scaleX(1);
+    }
+
+    /* Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > *, .hero-entrance > * {
+        opacity: 1; transform: none;
+        animation: none; transition: none;
+      }
+      .section-label::after { transform: scaleX(1); transition: none; }
     }
 
     /* ── Responsive ── */
@@ -722,7 +817,7 @@
 
   <!-- Hero -->
   <section id="hero">
-    <div class="container">
+    <div class="container hero-entrance">
       <p class="hero-eyebrow">Fluency · Ethics · Governance</p>
       <h1 class="hero-headline">Where innovation<br>meets <em>responsibility.</em></h1>
       <p class="hero-body">Provenance works with organizations and individuals looking to innovate and build products responsibly in an evolving market and shifting regulatory landscape.</p>
@@ -737,14 +832,14 @@
   <!-- About -->
   <section id="about">
     <div class="container">
-      <div class="about-grid fade-up">
+      <div class="about-grid reveal">
         <div>
           <p class="section-label">About</p>
           <h2 class="about-headline">Grounded in ethics.<br>Built for practice.</h2>
           <p class="about-body">Provenance is a consulting practice built by Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
           <p class="about-body">With a Master's in Ethics and Emerging Technology from Fordham University, and an internationally recognized certification as an AI Governance Professional, Ryan brings both regulatory expertise and a deep, forward-looking understanding to his work, building an ethos of responsibility, care, and safety at every level of your project.</p>
         </div>
-        <div class="about-details">
+        <div class="about-details reveal-stagger">
           <div class="detail-item">
             <span class="detail-label">Focus Areas</span>
             <span class="detail-value">AI governance, regulatory compliance, AI fluency education, responsible implementation of new technologies</span>
@@ -769,12 +864,12 @@
   <!-- Work -->
   <section id="work">
     <div class="container-wide">
-      <div class="fade-up">
+      <div class="reveal">
         <p class="section-label">Work</p>
         <h2 class="work-headline">Govern and create.<br><em>In tandem.</em></h2>
         <p class="work-intro">Provenance sits at a rare intersection: encouraging client fluency in AI systems and how they work in practice, and partnering in creating unique AI governance frameworks grounded in responsible and ethical use. Most organizations get one or the other. Provenance brings both.</p>
       </div>
-      <div class="work-grid fade-up" id="workSlider">
+      <div class="work-grid reveal" id="workSlider">
         <div class="work-grid-track" id="workTrack">
           <div class="work-card">
             <h3 class="work-card-title">AI Governance</h3>
@@ -793,7 +888,7 @@
           <button class="work-dot" data-slide="1" aria-label="Card 2"></button>
         </div>
       </div>
-      <div class="work-portfolio-link fade-up">
+      <div class="work-portfolio-link reveal">
         <a href="https://withprovenance.org/portfolio" class="btn-secondary">Our Clients</a>
       </div>
     </div>
@@ -802,7 +897,7 @@
   <!-- CompassAI -->
   <section id="compass">
     <div class="container-wide">
-      <div class="compass-grid fade-up">
+      <div class="compass-grid reveal">
         <div>
           <p class="section-label">CompassAI</p>
           <h2 class="compass-headline">Your custom governance profile, in just five minutes.</h2>
@@ -834,11 +929,11 @@
   <!-- Contact -->
   <section id="contact">
     <div class="container">
-      <div class="fade-up">
+      <div class="reveal">
         <p class="section-label">Contact</p>
         <h2 class="contact-headline">Build for tomorrow.<br><span class="contact-headline-accent">Responsibly.</span></h2>
         <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, we are available to help at Provenance.</p>
-        <div class="contact-links">
+        <div class="contact-links reveal-stagger">
           <a href="mailto:ryan@withprovenance.org" class="contact-link">
             <span class="contact-link-icon">@</span>
             Contact us
@@ -867,10 +962,18 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    // Fade-up animation
-    document.querySelectorAll('.fade-up').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
+    // Scroll-triggered reveal animations
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+      revealObserver.observe(el);
     });
 
     // Hamburger menu toggle

@@ -273,6 +273,61 @@
       border-color: var(--border);
     }
 
+    /* ── Reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-entrance > * {
+      opacity: 0;
+      animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Section reveal stagger */
+    .section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .section.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Section label line draw */
+    .section-label::after, .hero-label::after {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+    .section.visible .section-label::after,
+    .hero-entrance .hero-label::after {
+      transform: scaleX(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .section, .hero-entrance > * {
+        opacity: 1; transform: none;
+        animation: none; transition: none;
+      }
+      .section-label::after, .hero-label::after { transform: scaleX(1); transition: none; }
+    }
+
     @media (max-width: 600px) {
       nav { padding: 20px 24px; }
       .hero { padding: 48px 24px 40px; }
@@ -304,7 +359,7 @@
     <span class="nav-right">Legal</span>
   </nav>
 
-  <div class="hero">
+  <div class="hero hero-entrance">
     <div class="hero-label">Privacy Policy</div>
     <h1>Your data,<br><em>your business.</em></h1>
     <p class="hero-meta">Last updated: April 19, 2026</p>
@@ -382,6 +437,18 @@
     <span class="footer-left">© 2026 Provenance. All rights reserved.</span>
     <span class="footer-right"><a href="https://www.withprovenance.org">withprovenance.org</a></span>
   </footer>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .section').forEach(el => revealObserver.observe(el));
+  </script>
 
 </body>
 </html>

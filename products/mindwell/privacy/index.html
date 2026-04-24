@@ -70,6 +70,37 @@
     .footer-wordmark { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; }
     .footer-copy { font-family: "DM Mono", monospace; font-size: 0.62rem; color: var(--ink-light); }
 
+    /* ── Reveal animations ── */
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-entrance > * {
+      opacity: 0;
+      animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .hero-entrance > * {
+        opacity: 1; transform: none;
+        animation: none; transition: none;
+      }
+    }
+
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
       .policy-hero { padding: 48px 24px; }
@@ -86,7 +117,7 @@
 </nav>
 
 <div class="policy-hero">
-  <div class="policy-hero-inner">
+  <div class="policy-hero-inner hero-entrance">
     <p class="policy-eyebrow">MindWell · Legal</p>
     <h1 class="policy-title">Privacy Policy</h1>
     <p class="policy-meta">Effective date: April 22, 2026 &nbsp;|&nbsp; Version 1.0 &nbsp;|&nbsp; Applies to MindWell web and app</p>
@@ -95,9 +126,9 @@
 
 <div class="policy-body">
 
-  <p class="policy-intro">MindWell is a reading tracker built for students, writers, and lifelong learners. We collect only what we need to run the app, we do not sell your data, and we try to be honest about what we do with it. This policy explains what we collect, how we use it, and what your rights are.</p>
+  <p class="policy-intro reveal">MindWell is a reading tracker built for students, writers, and lifelong learners. We collect only what we need to run the app, we do not sell your data, and we try to be honest about what we do with it. This policy explains what we collect, how we use it, and what your rights are.</p>
 
-  <div class="toc">
+  <div class="toc reveal">
     <p class="toc-title">Contents</p>
     <ol>
       <li><a href="#who">1. Who We Are</a></li>
@@ -239,7 +270,7 @@
   <p>Previous versions of this policy are available upon request.</p>
 
   <!-- 11 -->
-  <div class="contact-box">
+  <div class="contact-box reveal">
     <h2 id="contact">11. Contact</h2>
     <p>Questions about this policy, requests to exercise your rights, or concerns about how MindWell handles your data can be directed to:</p>
     <br/>
@@ -258,5 +289,16 @@
   <span class="footer-copy">2026 MindWell · Provenance LLC · All rights reserved</span>
 </footer>
 
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
 </body>
 </html>
