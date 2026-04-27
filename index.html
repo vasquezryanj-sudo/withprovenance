@@ -276,9 +276,23 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 180px 1fr 1fr;
+      gap: 48px;
       align-items: start;
+    }
+
+    .about-headshot {
+      width: 140px;
+      padding: 8px;
+      border: 1px solid var(--rule);
+      box-shadow: 0 2px 8px var(--rule);
+    }
+
+    .about-headshot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
     .about-headline {
@@ -299,9 +313,8 @@
     }
 
     .about-details {
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 1px solid var(--rule);
+      margin-top: 0;
+      padding-top: 0;
     }
 
     .detail-item {
@@ -761,7 +774,8 @@
       .nav-dropdown { padding: 24px; }
       section { padding: 64px 24px; }
       #hero { padding-top: 32px; padding-bottom: 48px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-headshot { margin: 0 auto; }
       .work-grid {
         overflow: hidden;
         position: relative;
@@ -832,12 +846,17 @@
   <!-- About -->
   <section id="about">
     <div class="container">
+      <div class="reveal">
+        <p class="section-label">About</p>
+        <h2 class="about-headline">Grounded in ethics.<br>Built for practice.</h2>
+      </div>
       <div class="about-grid reveal">
+        <div class="about-headshot">
+          <img src="/headshot.jpg" alt="Ryan Vasquez" />
+        </div>
         <div>
-          <p class="section-label">About</p>
-          <h2 class="about-headline">Grounded in ethics.<br>Built for practice.</h2>
-          <p class="about-body">Provenance is a consulting practice built by Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
-          <p class="about-body">With a Master's in Ethics and Emerging Technology from Fordham University, and an internationally recognized certification as an AI Governance Professional, Ryan brings both regulatory expertise and a deep, forward-looking understanding to his work, building an ethos of responsibility, care, and safety at every level of your project.</p>
+          <p class="about-body">Provenance is the consulting practice of Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
+          <p class="about-body">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
         </div>
         <div class="about-details reveal-stagger">
           <div class="detail-item">
