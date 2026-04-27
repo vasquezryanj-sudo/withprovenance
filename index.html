@@ -276,21 +276,25 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 180px 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: start;
     }
 
     .about-headshot {
-      width: 140px;
-      padding: 8px;
-      border: 1px solid var(--rule);
-      box-shadow: 0 2px 8px var(--rule);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      float: left;
+      margin-right: 20px;
+      margin-top: 4px;
+      flex-shrink: 0;
     }
 
     .about-headshot img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
       object-fit: cover;
     }
@@ -301,6 +305,11 @@
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
       margin-bottom: 24px;
+    }
+
+    .about-headline em {
+      font-style: italic;
+      color: var(--accent);
     }
 
     .about-body {
@@ -314,7 +323,8 @@
 
     .about-details {
       margin-top: 0;
-      padding-top: 0;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
     }
 
     .detail-item {
@@ -774,8 +784,7 @@
       .nav-dropdown { padding: 24px; }
       section { padding: 64px 24px; }
       #hero { padding-top: 32px; padding-bottom: 48px; }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .about-headshot { margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid {
         overflow: hidden;
         position: relative;
@@ -848,32 +857,32 @@
     <div class="container">
       <div class="reveal">
         <p class="section-label">About</p>
-        <h2 class="about-headline">Grounded in ethics.<br>Built for practice.</h2>
+        <h2 class="about-headline">Grounded in ethics.<br>Built for <em>practice.</em></h2>
       </div>
       <div class="about-grid reveal">
-        <div class="about-headshot">
-          <img src="/headshot.jpg" alt="Ryan Vasquez" />
-        </div>
         <div>
+          <div class="about-headshot">
+            <img src="/headshot.jpg" alt="Ryan Vasquez" />
+          </div>
           <p class="about-body">Provenance is the consulting practice of Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
-          <p class="about-body">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
+          <p class="about-body" style="clear: both;">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
         </div>
         <div class="about-details reveal-stagger">
           <div class="detail-item">
-            <span class="detail-label">Focus Areas</span>
+            <span class="detail-label">Focus</span>
             <span class="detail-value">AI governance, regulatory compliance, AI fluency education, responsible implementation of new technologies</span>
           </div>
           <div class="detail-item">
             <span class="detail-label">Clients</span>
-            <span class="detail-value">Public and private sector work, including medical clinics, nonprofits, technology companies, and more</span>
+            <span class="detail-value">Public and private sector, including medical clinics, nonprofits, technology companies, and more</span>
           </div>
           <div class="detail-item">
             <span class="detail-label">Education</span>
-            <span class="detail-value">MA Ethics & Society, Concentration in AI and Emerging Technologies, Fordham University; AI Governance Professional Certification (IAPP)</span>
+            <span class="detail-value">MA Ethics &amp; Society (AI &amp; Emerging Tech), Fordham University; AIGP Certification, IAPP</span>
           </div>
           <div class="detail-item">
             <span class="detail-label">Based</span>
-            <span class="detail-value">United States (available globally, proficient in international systems)</span>
+            <span class="detail-value">United States (available globally, proficient in international regulatory systems)</span>
           </div>
         </div>
       </div>
