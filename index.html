@@ -281,14 +281,17 @@
       align-items: start;
     }
 
+    .about-intro {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
     .about-headshot {
       width: 72px;
       height: 72px;
       border-radius: 50%;
       overflow: hidden;
-      float: left;
-      margin-right: 20px;
-      margin-top: 4px;
       flex-shrink: 0;
     }
 
@@ -297,6 +300,7 @@
       height: 100%;
       display: block;
       object-fit: cover;
+      object-position: center top;
     }
 
     .about-headline {
@@ -861,11 +865,13 @@
       </div>
       <div class="about-grid reveal">
         <div>
-          <div class="about-headshot">
-            <img src="/headshot.jpg" alt="Ryan Vasquez" />
+          <div class="about-intro">
+            <div class="about-headshot">
+              <img src="/headshot.jpg" alt="Ryan Vasquez" />
+            </div>
+            <p class="about-body" style="margin-bottom: 0;">Provenance is the consulting practice of Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
           </div>
-          <p class="about-body">Provenance is the consulting practice of Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
-          <p class="about-body" style="clear: both;">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
+          <p class="about-body" style="margin-top: 20px;">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
         </div>
         <div class="about-details reveal-stagger">
           <div class="detail-item">
