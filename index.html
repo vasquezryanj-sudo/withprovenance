@@ -477,26 +477,26 @@
     }
 
     /* ── CompassAI ── */
-    #compass {
+    #compassai {
       background: var(--ink);
       border-bottom: 1px solid var(--rule);
     }
 
-    #compass .section-label {
+    #compassai .section-label {
       color: var(--accent-warm);
     }
-    #compass .section-label::after {
+    #compassai .section-label::after {
       background: var(--accent-warm);
     }
 
-    .compass-grid {
+    .compassai-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: center;
     }
 
-    .compass-headline {
+    .compassai-headline {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -505,7 +505,7 @@
       margin-bottom: 24px;
     }
 
-    .compass-body {
+    .compassai-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.93rem;
@@ -514,7 +514,7 @@
       margin-bottom: 32px;
     }
 
-    .compass-slider {
+    .compassai-slider {
       position: relative;
       overflow: hidden;
       border: 4px solid var(--accent-warm);
@@ -522,32 +522,32 @@
       width: 100%;
     }
 
-    .compass-slider-track {
+    .compassai-slider-track {
       display: flex;
       transition: transform 0.5s ease;
       width: 500%;
     }
 
-    .compass-slide {
+    .compassai-slide {
       width: 20%;
       flex: 0 0 20%;
     }
 
-    .compass-slide img {
+    .compassai-slide img {
       width: 100%;
       height: auto;
       display: block;
     }
 
 
-    .compass-dots {
+    .compassai-dots {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin-bottom: 0;
     }
 
-    .compass-dot {
+    .compassai-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -558,11 +558,11 @@
       padding: 0;
     }
 
-    .compass-dot.active {
+    .compassai-dot.active {
       background: var(--accent-warm);
     }
 
-    .compass-cta {
+    .compassai-cta {
       display: inline-block;
       padding: 13px 32px;
       background: var(--accent);
@@ -699,7 +699,7 @@
     .hero-entrance > *:nth-child(4) { animation-delay: 0.55s; }
 
     /* Button hover lift */
-    .btn-primary, .btn-secondary, .compass-cta {
+    .btn-primary, .btn-secondary, .compassai-cta {
       transition: background 0.25s, border-color 0.25s, color 0.25s,
                   transform 0.25s, box-shadow 0.25s;
     }
@@ -713,7 +713,7 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    .compass-cta:hover {
+    .compassai-cta:hover {
       background: var(--accent-warm);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(107,58,42,0.25);
@@ -805,8 +805,8 @@
       .work-divider { display: none; }
       .work-dots { display: flex; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .compass-grid { grid-template-columns: 1fr; gap: 40px; }
-      .compass-grid > * { min-width: 0; }
+      .compassai-grid { grid-template-columns: 1fr; gap: 40px; }
+      .compassai-grid > * { min-width: 0; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
       .hero-rule { display: none; }
     }
@@ -929,31 +929,31 @@
   </section>
 
   <!-- CompassAI -->
-  <section id="compass">
+  <section id="compassai">
     <div class="container-wide">
-      <div class="compass-grid reveal">
+      <div class="compassai-grid reveal">
         <div>
           <p class="section-label">CompassAI</p>
-          <h2 class="compass-headline">Your custom governance profile, in just five minutes.</h2>
-          <p class="compass-body">CompassAI is a free diagnostic built around the five pillars of responsible AI: <strong><em>transparency, fairness, accountability, privacy,</em></strong> and <strong><em>robustness</em></strong>. Answer ten questions and receive a governance profile tailored to your organization, your industry, and your people.</p>
-          <a href="https://compass.withprovenance.org" class="compass-cta">Begin Assessment</a>
+          <h2 class="compassai-headline">Your custom governance profile, in just five minutes.</h2>
+          <p class="compassai-body">CompassAI is a free diagnostic built around the five pillars of responsible AI: <strong><em>transparency, fairness, accountability, privacy,</em></strong> and <strong><em>robustness</em></strong>. Answer ten questions and receive a governance profile tailored to your organization, your industry, and your people.</p>
+          <a href="https://compass.withprovenance.org" class="compassai-cta">Begin Assessment</a>
         </div>
         <div>
-          <div class="compass-slider" id="compassSlider">
-            <div class="compass-slider-track" id="compassTrack">
-              <div class="compass-slide"><img src="images/compass/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
-              <div class="compass-slide"><img src="images/compass/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
-              <div class="compass-slide"><img src="images/compass/slide-3.png" alt="Your context, your industry, your people" /></div>
-              <div class="compass-slide"><img src="images/compass/slide-4.png" alt="Your profile, through our eyes" /></div>
-              <div class="compass-slide"><img src="images/compass/slide-5.png" alt="Build responsibly with Provenance" /></div>
+          <div class="compassai-slider" id="compassaiSlider">
+            <div class="compassai-slider-track" id="compassaiTrack">
+              <div class="compassai-slide"><img src="images/compassai/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
+              <div class="compassai-slide"><img src="images/compassai/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
+              <div class="compassai-slide"><img src="images/compassai/slide-3.png" alt="Your context, your industry, your people" /></div>
+              <div class="compassai-slide"><img src="images/compassai/slide-4.png" alt="Your profile, through our eyes" /></div>
+              <div class="compassai-slide"><img src="images/compassai/slide-5.png" alt="Build responsibly with Provenance" /></div>
             </div>
           </div>
-          <div class="compass-dots" id="compassDots">
-            <button class="compass-dot active" data-slide="0" aria-label="Slide 1"></button>
-            <button class="compass-dot" data-slide="1" aria-label="Slide 2"></button>
-            <button class="compass-dot" data-slide="2" aria-label="Slide 3"></button>
-            <button class="compass-dot" data-slide="3" aria-label="Slide 4"></button>
-            <button class="compass-dot" data-slide="4" aria-label="Slide 5"></button>
+          <div class="compassai-dots" id="compassaiDots">
+            <button class="compassai-dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="compassai-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="compassai-dot" data-slide="2" aria-label="Slide 3"></button>
+            <button class="compassai-dot" data-slide="3" aria-label="Slide 4"></button>
+            <button class="compassai-dot" data-slide="4" aria-label="Slide 5"></button>
           </div>
         </div>
       </div>
@@ -1027,10 +1027,10 @@
       });
     });
 
-    // CompassAI slider
+    // CompassAI slider autoplay
     (() => {
-      const track = document.getElementById('compassTrack');
-      const dots = document.querySelectorAll('.compass-dot');
+      const track = document.getElementById('compassaiTrack');
+      const dots = document.querySelectorAll('.compassai-dot');
       const slideCount = 5;
       let current = 0;
       let autoplayTimer;
@@ -1050,9 +1050,9 @@
         autoplayTimer = setInterval(() => goTo(current + 1), 5000);
       }
 
-      // Swipe support for compass slider
+      // Swipe support for CompassAI slider
       let startX = 0;
-      const slider = document.getElementById('compassSlider');
+      const slider = document.getElementById('compassaiSlider');
       slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
       slider.addEventListener('touchend', e => {
         const diff = startX - e.changedTouches[0].clientX;
