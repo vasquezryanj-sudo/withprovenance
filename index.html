@@ -60,7 +60,6 @@
       padding: 0 48px;
       background: var(--cream);
       opacity: 1;
-      border-bottom: 1px solid var(--rule);
       z-index: 200;
     }
 
@@ -164,54 +163,58 @@
     }
 
     /* ── Layout ── */
-    section { padding: 64px 48px; }
+    section {
+      padding: 80px 48px;
+      margin-bottom: 24px;
+      background: transparent;
+    }
     .container      { max-width: 900px;  margin: 0 auto; }
     .container-wide { max-width: 1100px; margin: 0 auto; }
 
+    /* ── Card ── */
+    .section-card {
+      background: var(--ink);
+      border-radius: 24px;
+      margin: 0 24px;
+      padding: 64px 56px;
+    }
+
+    .section-card--orange {
+      background: #b85c2a;
+    }
+
     /* ── Hero ── */
     #hero {
-      min-height: 100vh;
+      min-height: auto;
       display: flex;
       align-items: center;
-      padding-top: calc(var(--nav-h) + 48px);
-      padding-bottom: 64px;
-      background: var(--ink);
-      border-bottom: 1px solid #3d3530;
+      padding: 80px 48px;
       position: relative;
     }
 
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-warm);
-      margin-bottom: 28px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
     }
 
     .hero-headline {
       font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 600;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
       line-height: 1.05;
       letter-spacing: -0.01em;
-      max-width: 780px;
-      margin-bottom: 36px;
-      color: var(--cream);
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--accent-warm);
+      color: var(--ink);
     }
 
     .hero-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: 1.15rem;
-      color: #d4c4b4;
-      max-width: 540px;
-      margin-bottom: 48px;
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      max-width: 420px;
+      margin-bottom: 36px;
       line-height: 1.85;
     }
 
@@ -247,16 +250,6 @@
       border-radius: 999px;
     }
 
-    .hero-rule {
-      position: absolute;
-      right: 80px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 200px;
-      background: linear-gradient(to bottom, transparent, #3d3530, transparent);
-    }
-
     /* ── Section label ── */
     .section-label {
       font-family: 'DM Mono', monospace;
@@ -277,10 +270,16 @@
       background: var(--accent-warm);
     }
 
-    /* ── About ── */
+    /* ── About (dark card) ── */
     #about {
-      background: var(--parchment);
-      border-bottom: 1px solid var(--rule);
+      padding: 0;
+    }
+
+    .about-card .section-label {
+      color: var(--accent-warm);
+    }
+    .about-card .section-label::after {
+      background: var(--accent-warm);
     }
 
     .about-grid {
@@ -313,33 +312,34 @@
     }
 
     .about-headline {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
       margin-bottom: 24px;
+      color: #ffffff;
     }
 
     .about-headline em {
       font-style: italic;
-      color: var(--accent);
+      color: var(--accent-warm);
     }
 
     .about-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.93rem;
-      color: var(--ink-mid);
+      color: #c8b8a8;
       line-height: 1.8;
       margin-bottom: 14px;
     }
 
     .about-details {
       margin-top: 0;
-      padding: 32px;
-      background: var(--cream);
-      border: 1px solid var(--rule);
-      border-radius: 12px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
     }
 
     .detail-item {
@@ -353,7 +353,7 @@
       font-size: 0.62rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ink-light);
+      color: #8a7a70;
       min-width: 110px;
       padding-top: 2px;
     }
@@ -362,19 +362,19 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.88rem;
-      color: var(--ink-mid);
+      color: #c8b8a8;
       line-height: 1.6;
     }
 
-    /* ── Work ── */
+    /* ── Work (orange card) ── */
     #work {
-      background: #b85c2a;
+      padding: 0;
     }
 
-    #work .section-label {
+    .work-card-wrapper .section-label {
       color: rgba(255,255,255,0.6);
     }
-    #work .section-label::after {
+    .work-card-wrapper .section-label::after {
       background: rgba(255,255,255,0.6);
     }
 
@@ -432,16 +432,15 @@
     .work-card-link:hover { gap: 14px; color: #ffffff; }
     .work-card-link::after { content: '\2192'; }
 
-    /* ── CompassAI ── */
+    /* ── CompassAI (dark card) ── */
     #compassai {
-      background: var(--ink);
-      border-bottom: 1px solid var(--rule);
+      padding: 0;
     }
 
-    #compassai .section-label {
+    .compassai-card .section-label {
       color: var(--accent-warm);
     }
-    #compassai .section-label::after {
+    .compassai-card .section-label::after {
       background: var(--accent-warm);
     }
 
@@ -465,7 +464,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.93rem;
-      color: var(--ink-light);
+      color: #c8b8a8;
       line-height: 1.8;
       margin-bottom: 32px;
     }
@@ -495,7 +494,6 @@
       display: block;
       object-fit: cover;
     }
-
 
     .compassai-dots {
       display: flex;
@@ -531,17 +529,15 @@
       text-decoration: none;
     }
 
-
-    /* ── Contact ── */
+    /* ── Contact (dark card) ── */
     #contact {
-      background: var(--ink);
-      border-bottom: 1px solid #3d3530;
+      padding: 0;
     }
 
-    #contact .section-label {
+    .contact-card .section-label {
       color: var(--accent-warm);
     }
-    #contact .section-label::after {
+    .contact-card .section-label::after {
       background: var(--accent-warm);
     }
 
@@ -600,7 +596,6 @@
       font-family: 'Fraunces', serif;
       font-weight: 500;
     }
-
 
     /* ── Footer ── */
     footer {
@@ -664,7 +659,6 @@
     }
     .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
-    .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
 
     /* Button hover lift */
     .btn-primary, .btn-secondary, .compassai-cta {
@@ -756,14 +750,15 @@
       .nav-links { display: none; }
       .nav-dropdown { padding: 24px; }
       section { padding: 40px 24px; }
-      #hero { padding-top: 40px; padding-bottom: 40px; min-height: auto; }
+      #hero { padding: 40px 24px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .section-card { margin: 0 12px; padding: 48px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .work-grid { grid-template-columns: 1fr; gap: 32px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .work-grid { grid-template-columns: 1fr; gap: 16px; }
+      .work-card { padding: 32px 24px; }
       .compassai-grid { grid-template-columns: 1fr; gap: 40px; }
       .compassai-grid > * { min-width: 0; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
-      .hero-rule { display: none; }
     }
 
     @media (min-width: 769px) {
@@ -799,49 +794,56 @@
 
   <!-- Hero -->
   <section id="hero">
-    <div class="container hero-entrance">
-      <h1 class="hero-headline">Technology that begins and ends with <em>people.</em></h1>
-      <p class="hero-body">Provenance is a responsible technology organization building and consulting at the intersection of AI governance, ethics, and human-centered design. From the tools we make to the frameworks we build with clients, everything starts from the same place: the people the technology touches.</p>
-      <div class="hero-cta-group">
-        <a href="#contact" class="btn-primary">Get in Touch</a>
+    <div class="container-wide hero-entrance">
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-headline">Technology that begins and ends with people.</h1>
+        </div>
+        <div>
+          <p class="hero-body">Provenance is a responsible technology organization building and consulting at the intersection of AI governance, ethics, and human-centered design. From the tools we make to the frameworks we build with clients, everything starts from the same place: the people the technology touches.</p>
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-rule"></div>
   </section>
 
   <!-- About -->
   <section id="about">
-    <div class="container">
-      <div class="reveal">
-        <p class="section-label">About</p>
-      </div>
-      <div class="about-grid reveal">
-        <div>
-          <h2 class="about-headline">Human by design, <em>in design.</em></h2>
-          <div class="about-intro">
-            <div class="about-headshot">
-              <img src="/headshot.jpg" alt="Ryan Vasquez" />
-            </div>
-            <p class="about-body" style="margin-bottom: 0;">Provenance is a responsible technology organization founded by Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
-          </div>
-          <p class="about-body" style="margin-top: 20px;">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
+    <div class="section-card about-card">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label">About</p>
         </div>
-        <div class="about-details reveal-stagger">
-          <div class="detail-item">
-            <span class="detail-label">Focus</span>
-            <span class="detail-value">AI governance, regulatory compliance, AI fluency education, responsible implementation of new technologies</span>
+        <div class="about-grid reveal">
+          <div>
+            <h2 class="about-headline">Human by design, <em>in design.</em></h2>
+            <div class="about-intro">
+              <div class="about-headshot">
+                <img src="/headshot.jpg" alt="Ryan Vasquez" />
+              </div>
+              <p class="about-body" style="margin-bottom: 0;">Provenance is a responsible technology organization founded by Ryan Vasquez: an AI governance consultant, ethicist, and writer working at the intersection of emerging technology, policy, and human-centered systems.</p>
+            </div>
+            <p class="about-body" style="margin-top: 20px;">Every day, powerful tools are being adopted that are capable of real good, and deployed faster than the questions around them are being asked. Who is at risk? Who is accountable? How do we build responsibly in a landscape that keeps shifting? Provenance exists to answer those questions. Not to slow innovation down, but to make sure it moves forward on solid ground.</p>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">Clients</span>
-            <span class="detail-value">Public and private sector, including medical clinics, nonprofits, technology companies, and more</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Education</span>
-            <span class="detail-value">MA Ethics &amp; Society (AI &amp; Emerging Tech), Fordham University; AIGP Certification, IAPP</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Based</span>
-            <span class="detail-value">United States (available globally, proficient in international regulatory systems)</span>
+          <div class="about-details reveal-stagger">
+            <div class="detail-item">
+              <span class="detail-label">Focus</span>
+              <span class="detail-value">AI governance, regulatory compliance, AI fluency education, responsible implementation of new technologies</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Clients</span>
+              <span class="detail-value">Public and private sector, including medical clinics, nonprofits, technology companies, and more</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Education</span>
+              <span class="detail-value">MA Ethics &amp; Society (AI &amp; Emerging Tech), Fordham University; AIGP Certification, IAPP</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Based</span>
+              <span class="detail-value">United States (available globally, proficient in international regulatory systems)</span>
+            </div>
           </div>
         </div>
       </div>
@@ -850,26 +852,28 @@
 
   <!-- Work -->
   <section id="work">
-    <div class="container-wide">
-      <div class="reveal">
-        <p class="section-label">Work</p>
-        <h2 class="work-headline">What we do.</h2>
-      </div>
-      <div class="work-grid reveal">
-        <div class="work-card">
-          <h3 class="work-card-title">AI Governance</h3>
-          <p class="work-card-body">Frameworks, policy, and compliance infrastructure for organizations building with AI.</p>
-          <a href="/portfolio" class="work-card-link">Case studies</a>
+    <div class="section-card section-card--orange work-card-wrapper">
+      <div class="container-wide">
+        <div class="reveal">
+          <p class="section-label">Work</p>
+          <h2 class="work-headline">What we do.</h2>
         </div>
-        <div class="work-card">
-          <h3 class="work-card-title">Human-Centered Products</h3>
-          <p class="work-card-body">Tools designed from the ground up around the people who use them.</p>
-          <a href="/products" class="work-card-link">Our products</a>
-        </div>
-        <div class="work-card">
-          <h3 class="work-card-title">Ethics and Technology</h3>
-          <p class="work-card-body">Writing and research on responsible technology, human-centered policy, and the cultural impact of AI.</p>
-          <a href="https://ryanvasquez.substack.com" target="_blank" class="work-card-link">dotBloom</a>
+        <div class="work-grid reveal">
+          <div class="work-card">
+            <h3 class="work-card-title">AI Governance</h3>
+            <p class="work-card-body">Frameworks, policy, and compliance infrastructure for organizations building with AI.</p>
+            <a href="/portfolio" class="work-card-link">Case studies</a>
+          </div>
+          <div class="work-card">
+            <h3 class="work-card-title">Human-Centered Products</h3>
+            <p class="work-card-body">Tools designed from the ground up around the people who use them.</p>
+            <a href="/products" class="work-card-link">Our products</a>
+          </div>
+          <div class="work-card">
+            <h3 class="work-card-title">Ethics and Technology</h3>
+            <p class="work-card-body">Writing and research on responsible technology, human-centered policy, and the cultural impact of AI.</p>
+            <a href="https://ryanvasquez.substack.com" target="_blank" class="work-card-link">dotBloom</a>
+          </div>
         </div>
       </div>
     </div>
@@ -877,30 +881,32 @@
 
   <!-- CompassAI -->
   <section id="compassai">
-    <div class="container-wide">
-      <div class="compassai-grid reveal">
-        <div>
-          <p class="section-label">CompassAI</p>
-          <h2 class="compassai-headline">Your custom governance profile, in just five minutes.</h2>
-          <p class="compassai-body">CompassAI is a free diagnostic built around the five pillars of responsible AI: <strong><em>transparency, fairness, accountability, privacy,</em></strong> and <strong><em>robustness</em></strong>. Answer ten questions and receive a governance profile tailored to your organization, your industry, and your people.</p>
-          <a href="https://compassai.withprovenance.org" class="compassai-cta">Begin Assessment</a>
-        </div>
-        <div>
-          <div class="compassai-slider" id="compassaiSlider">
-            <div class="compassai-slider-track" id="compassaiTrack">
-              <div class="compassai-slide"><img src="images/compassai/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
-              <div class="compassai-slide"><img src="images/compassai/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
-              <div class="compassai-slide"><img src="images/compassai/slide-3.png" alt="Your context, your industry, your people" /></div>
-              <div class="compassai-slide"><img src="images/compassai/slide-4.png" alt="Your profile, through our eyes" /></div>
-              <div class="compassai-slide"><img src="images/compassai/slide-5.png" alt="Build responsibly with Provenance" /></div>
-            </div>
+    <div class="section-card compassai-card">
+      <div class="container-wide">
+        <div class="compassai-grid reveal">
+          <div>
+            <p class="section-label">CompassAI</p>
+            <h2 class="compassai-headline">Your custom governance profile, in just five minutes.</h2>
+            <p class="compassai-body">CompassAI is a free diagnostic built around the five pillars of responsible AI: <strong><em>transparency, fairness, accountability, privacy,</em></strong> and <strong><em>robustness</em></strong>. Answer ten questions and receive a governance profile tailored to your organization, your industry, and your people.</p>
+            <a href="https://compassai.withprovenance.org" class="compassai-cta">Begin Assessment</a>
           </div>
-          <div class="compassai-dots" id="compassaiDots">
-            <button class="compassai-dot active" data-slide="0" aria-label="Slide 1"></button>
-            <button class="compassai-dot" data-slide="1" aria-label="Slide 2"></button>
-            <button class="compassai-dot" data-slide="2" aria-label="Slide 3"></button>
-            <button class="compassai-dot" data-slide="3" aria-label="Slide 4"></button>
-            <button class="compassai-dot" data-slide="4" aria-label="Slide 5"></button>
+          <div>
+            <div class="compassai-slider" id="compassaiSlider">
+              <div class="compassai-slider-track" id="compassaiTrack">
+                <div class="compassai-slide"><img src="images/compassai/slide-1.png" alt="Know where your AI governance stands in just five minutes" /></div>
+                <div class="compassai-slide"><img src="images/compassai/slide-2.png" alt="Ten questions, five minutes, a custom governance profile" /></div>
+                <div class="compassai-slide"><img src="images/compassai/slide-3.png" alt="Your context, your industry, your people" /></div>
+                <div class="compassai-slide"><img src="images/compassai/slide-4.png" alt="Your profile, through our eyes" /></div>
+                <div class="compassai-slide"><img src="images/compassai/slide-5.png" alt="Build responsibly with Provenance" /></div>
+              </div>
+            </div>
+            <div class="compassai-dots" id="compassaiDots">
+              <button class="compassai-dot active" data-slide="0" aria-label="Slide 1"></button>
+              <button class="compassai-dot" data-slide="1" aria-label="Slide 2"></button>
+              <button class="compassai-dot" data-slide="2" aria-label="Slide 3"></button>
+              <button class="compassai-dot" data-slide="3" aria-label="Slide 4"></button>
+              <button class="compassai-dot" data-slide="4" aria-label="Slide 5"></button>
+            </div>
           </div>
         </div>
       </div>
@@ -909,28 +915,30 @@
 
   <!-- Contact -->
   <section id="contact">
-    <div class="container">
-      <div class="reveal">
-        <p class="section-label">Contact</p>
-        <h2 class="contact-headline">Build for tomorrow.<br><span class="contact-headline-accent">Responsibly.</span></h2>
-        <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, Provenance can help.</p>
-        <div class="contact-links reveal-stagger">
-          <a href="mailto:ryan@withprovenance.org" class="contact-link">
-            <span class="contact-link-icon">@</span>
-            Contact us
-          </a>
-          <a href="https://withprovenance.org/case-studies" class="contact-link">
-            <span class="contact-link-icon"><img src="/favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
-            Case Studies
-          </a>
-          <a href="https://withprovenance.org/products/" class="contact-link">
-            <span class="contact-link-icon" style="font-size:0.5rem; letter-spacing:-1px;">&#9826;&#9826;&#9826;</span>
-            Our Products
-          </a>
-          <a href="https://ryanvasquez.substack.com/" class="contact-link">
-            <span class="contact-link-icon">dB</span>
-            <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:#8a7a70; text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
-          </a>
+    <div class="section-card contact-card">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label">Contact</p>
+          <h2 class="contact-headline">Build for tomorrow.<br><span class="contact-headline-accent">Responsibly.</span></h2>
+          <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, Provenance can help.</p>
+          <div class="contact-links reveal-stagger">
+            <a href="mailto:ryan@withprovenance.org" class="contact-link">
+              <span class="contact-link-icon">@</span>
+              Contact us
+            </a>
+            <a href="https://withprovenance.org/case-studies" class="contact-link">
+              <span class="contact-link-icon"><img src="/favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
+              Case Studies
+            </a>
+            <a href="https://withprovenance.org/products/" class="contact-link">
+              <span class="contact-link-icon" style="font-size:0.5rem; letter-spacing:-1px;">&#9826;&#9826;&#9826;</span>
+              Our Products
+            </a>
+            <a href="https://ryanvasquez.substack.com/" class="contact-link">
+              <span class="contact-link-icon">dB</span>
+              <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:#8a7a70; text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
