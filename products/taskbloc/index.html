@@ -6,190 +6,126 @@
   <title>TaskBloc — Your days, organized</title>
   <meta name="description" content="TaskBloc is a personal task manager that organizes your day, syncs with Google Calendar, and helps you stay focused on what matters.">
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #f7f4ef;
-      --text: #1a1612;
-      --text2: #5a5248;
-      --text3: #9a9088;
-      --accent: #b8501e;
-      --accent-light: #f5e8e0;
-      --border: #ddd5c8;
+    /* ── TaskBloc page-specific styles ── */
+    body {
+      padding-top: 0;
     }
 
-    html, body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.7;
-      min-height: 100vh;
+    main {
+      padding-top: var(--nav-h);
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 60px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .app-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--accent);
-      border-radius: 10px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 3.5px;
-      padding: 7px;
-    }
-
-    .app-icon-block { background: #fdfaf6; border-radius: 2px; }
-    .app-icon-block.empty { background: transparent; }
-
-    .nav-brand { display: flex; flex-direction: column; gap: 1px; }
-
-    .nav-app-name {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 600;
-      font-size: 19px;
-      color: var(--text);
-      letter-spacing: -0.2px;
-      line-height: 1;
-    }
-
-    .nav-by {
-      font-size: 10px;
-      color: var(--text3);
-      letter-spacing: 1.5px;
+    /* TaskBloc nav extras */
+    .nav-app-label {
+      font-family: 'Lora', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-weight: 400;
+      color: var(--ink-light);
     }
-
-    .nav-right { display: flex; align-items: center; gap: 24px; }
-
-    .nav-link {
-      font-size: 13px;
-      color: var(--text3);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.15s;
-    }
-    .nav-link:hover { color: var(--text); }
 
     .nav-cta {
-      background: var(--accent);
+      background: #c0442a;
       color: #fff;
       padding: 9px 20px;
-      border-radius: 22px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .nav-cta:hover { background: #c9622e; }
-
-    .hero {
-      padding: 100px 60px 80px;
-      max-width: 820px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 2.5px;
+      border-radius: 999px;
+      font-family: 'Lora', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text3);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
     }
-    .section-label::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--border);
+    .nav-cta:hover { background: #d4563a; transform: translateY(-2px); }
+
+    /* ── Hero (dark card) ── */
+    .hero-section {
+      padding: 24px 0;
     }
 
-    .hero h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
+    .hero-card {
+      background: var(--ink);
+      border-radius: 24px;
+      margin: 0 24px;
+      padding: 64px 56px;
+    }
+
+    .hero-card .section-label {
+      color: #c0442a;
+    }
+    .hero-card .section-label::after {
+      background: rgba(192,68,42,0.4);
+    }
+
+    .hero-card h1 {
+      font-family: 'Fraunces', serif;
       font-weight: 500;
-      font-size: clamp(44px, 6vw, 72px);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
       line-height: 1.05;
-      letter-spacing: -1.5px;
-      color: var(--text);
+      letter-spacing: -0.01em;
+      color: #ffffff;
       margin-bottom: 28px;
     }
-    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-card h1 em { font-style: italic; color: #c0442a; }
 
     .hero-desc {
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: 300;
-      color: var(--text2);
+      color: #c8b8a8;
       max-width: 520px;
-      line-height: 1.75;
+      line-height: 1.8;
       margin-bottom: 40px;
     }
 
     .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      padding: 13px 28px;
-      border-radius: 28px;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.15s, box-shadow 0.15s;
-      box-shadow: 0 2px 12px rgba(184,80,30,0.25);
+    .hero-card .btn-primary {
+      background: #ffffff;
+      color: var(--ink);
     }
-    .btn-primary:hover { background: #c9622e; box-shadow: 0 4px 20px rgba(184,80,30,0.35); }
-
-    .btn-secondary {
-      font-size: 13px;
-      color: var(--text3);
-      text-decoration: none;
-      font-weight: 400;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1px;
-      transition: color 0.15s, border-color 0.15s;
+    .hero-card .btn-primary:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .btn-secondary:hover { color: var(--text); border-color: var(--text3); }
 
+    .hero-card .btn-secondary {
+      background: transparent;
+      color: #c8b8a8;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 13px 32px;
+    }
+    .hero-card .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
+    /* ── Features (on cream) ── */
     .features {
-      padding: 80px 60px;
-      border-bottom: 1px solid var(--border);
+      padding: 80px 48px;
     }
 
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 48px;
-      margin-top: 48px;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .feature {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px 24px;
     }
 
     .feature-icon {
       width: 36px;
       height: 36px;
-      background: var(--accent-light);
+      background: rgba(192,68,42,0.15);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -199,95 +135,123 @@
     }
 
     .feature h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
-      font-size: 22px;
-      color: var(--text);
+      font-size: 1.2rem;
+      color: #ffffff;
       margin-bottom: 8px;
-      letter-spacing: -0.2px;
     }
 
     .feature p {
-      font-size: 14px;
+      font-size: 0.88rem;
       font-weight: 300;
-      color: var(--text2);
+      color: #c8b8a8;
       line-height: 1.75;
     }
 
+    /* ── Transparency (on cream) ── */
     .transparency {
-      padding: 80px 60px;
-      border-bottom: 1px solid var(--border);
+      padding: 80px 48px;
       max-width: 720px;
     }
 
+    .transparency .section-label {
+      color: var(--accent-warm);
+    }
+
     .transparency h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
-      font-size: 36px;
-      letter-spacing: -0.5px;
-      color: var(--text);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--ink);
       margin-bottom: 20px;
       line-height: 1.15;
     }
-    .transparency h2 em { font-style: italic; color: var(--accent); }
+    .transparency h2 em { font-style: italic; color: #c0442a; }
 
     .transparency p {
-      font-size: 15px;
+      font-size: 0.93rem;
       font-weight: 300;
-      color: var(--text2);
-      line-height: 1.75;
+      color: var(--ink-mid);
+      line-height: 1.8;
       margin-bottom: 14px;
     }
 
     .data-list { list-style: none; margin-top: 24px; }
     .data-list li {
-      font-size: 14px;
+      font-size: 0.88rem;
       font-weight: 300;
-      color: var(--text2);
+      color: var(--ink-mid);
       padding: 10px 0 10px 18px;
       position: relative;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--rule);
       line-height: 1.6;
     }
-    .data-list li:first-child { border-top: 1px solid var(--border); }
-    .data-list li::before { content: '—'; position: absolute; left: 0; color: var(--text3); font-size: 12px; }
+    .data-list li:first-child { border-top: 1px solid var(--rule); }
+    .data-list li::before { content: '—'; position: absolute; left: 0; color: var(--ink-light); font-size: 12px; }
 
-    .cta-section { padding: 80px 60px; border-bottom: 1px solid var(--border); }
+    /* ── CTA (dark card) ── */
+    .cta-section {
+      padding: 24px 0;
+    }
 
-    .cta-section h2 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
+    .cta-card {
+      background: var(--ink);
+      border-radius: 24px;
+      margin: 0 24px;
+      padding: 48px 40px;
+    }
+
+    .cta-card .section-label {
+      color: rgba(255,255,255,0.5);
+    }
+    .cta-card .section-label::after {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .cta-card h2 {
+      font-family: 'Fraunces', serif;
       font-weight: 500;
-      font-size: 40px;
-      letter-spacing: -0.5px;
-      color: var(--text);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: #ffffff;
       margin-bottom: 16px;
       line-height: 1.1;
     }
-    .cta-section h2 em { font-style: italic; color: var(--accent); }
+    .cta-card h2 em { font-style: italic; color: #c0442a; }
 
-    .cta-section p {
-      font-size: 15px;
-      color: var(--text2);
+    .cta-card p {
+      font-size: 0.93rem;
+      color: #c8b8a8;
       font-weight: 300;
       margin-bottom: 32px;
       max-width: 480px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 60px;
+    .cta-card .btn-primary {
+      background: #ffffff;
+      color: var(--ink);
+    }
+    .cta-card .btn-primary:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* ── Footer extras ── */
+    .footer-links {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      gap: 20px;
     }
-
-    .footer-left { font-size: 12px; color: var(--text3); font-weight: 300; }
-    .footer-right { display: flex; gap: 20px; }
-    .footer-right a { font-size: 12px; color: var(--text3); text-decoration: none; font-weight: 300; transition: color 0.12s; }
-    .footer-right a:hover { color: var(--text); }
+    .footer-links a {
+      font-family: 'Lora', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
 
     /* ── Reveal animations ── */
     .reveal {
@@ -329,21 +293,10 @@
     /* Feature card hover */
     .feature {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                  background 0.3s, border-color 0.3s;
     }
     .feature:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
-    /* Button hover lift */
-    .btn-primary {
-      transition: background 0.15s, box-shadow 0.15s, transform 0.25s;
-    }
-    .btn-primary:hover {
-      background: #c9622e;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(184,80,30,0.35);
     }
 
     /* Section label line draw */
@@ -378,105 +331,92 @@
     }
 
     @media (max-width: 640px) {
-      nav { padding: 18px 24px; }
-      .nav-right .nav-link { display: none; }
-      .hero { padding: 60px 24px 48px; }
+      .hero-card { margin: 0 12px; padding: 48px 24px; }
       .features { padding: 56px 24px; }
       .transparency { padding: 56px 24px; }
-      .cta-section { padding: 56px 24px; }
-      footer { padding: 24px; flex-direction: column; gap: 16px; }
+      .cta-card { margin: 0 12px; padding: 40px 24px; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-left" href="https://www.withprovenance.org">
-      <div class="app-icon">
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block"></div>
-        <div class="app-icon-block empty"></div>
-      </div>
-      <div class="nav-brand">
-        <span class="nav-app-name">TaskBloc</span>
-        <span class="nav-by">by Provenance</span>
-      </div>
-    </a>
-    <div class="nav-right">
-      <a class="nav-link" href="https://www.withprovenance.org/products/taskbloc/privacy">Privacy Policy</a>
+    <a href="/" class="nav-wordmark">Provenance</a>
+    <div class="nav-right-group">
+      <span class="nav-app-label">TaskBloc</span>
       <a class="nav-cta" href="https://vasquezryanj-sudo.github.io/TaskBloc/">Open App</a>
+      <img src="/favicon.png" alt="Provenance" class="nav-logo">
     </div>
   </nav>
 
-  <div class="hero hero-entrance">
-    <div class="section-label">TaskBloc</div>
-    <h1>Your days,<br><em>organized.</em></h1>
-    <p class="hero-desc">TaskBloc is a personal task manager built for focused, day-by-day productivity. Plan your week, track projects, and let your calendar fill itself.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://vasquezryanj-sudo.github.io/TaskBloc/">Get Started — It's Free</a>
-      <a class="btn-secondary" href="https://www.withprovenance.org/products/taskbloc/privacy">Privacy Policy</a>
-    </div>
-  </div>
-
-  <div class="features reveal">
-    <div class="section-label">What it does</div>
-    <div class="features-grid reveal-stagger">
-      <div class="feature">
-        <div class="feature-icon">📅</div>
-        <h3>Day-by-day planning</h3>
-        <p>Organize tasks by day with a clean, focused view. Drag to reorder, move between days, and see your week at a glance.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🗂</div>
-        <h3>Projects & tags</h3>
-        <p>Group tasks by project. Tag anything and find it instantly. Completed tasks are archived by project so nothing gets lost.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📆</div>
-        <h3>Google Calendar sync</h3>
-        <p>Connect your Google Calendar and TaskBloc automatically schedules your tasks into available time slots every morning.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📊</div>
-        <h3>Weekly summary</h3>
-        <p>Review everything you accomplished each week, broken down by project and by day. Your work, accounted for.</p>
+  <main>
+    <div class="hero-section">
+      <div class="hero-card hero-entrance">
+        <div class="section-label">TaskBloc</div>
+        <h1>Your days,<br><em>organized.</em></h1>
+        <p class="hero-desc">TaskBloc is a personal task manager built for focused, day-by-day productivity. Plan your week, track projects, and let your calendar fill itself.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://vasquezryanj-sudo.github.io/TaskBloc/">Get Started — It's Free</a>
+          <a class="btn-secondary" href="https://www.withprovenance.org/products/taskbloc/privacy">Privacy Policy</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="transparency reveal">
-    <div class="section-label">Data & Privacy</div>
-    <h2>Your data is<br><em>yours alone.</em></h2>
-    <p>TaskBloc is built by Provenance — a consulting practice grounded in ethics and transparency. We apply those same principles to how we handle your data.</p>
-    <p>Here is exactly what TaskBloc collects and why:</p>
-    <ul class="data-list">
-      <li>Task names, notes, tags, and dates — to power your task list</li>
-      <li>Google account identity — to give you a private, personal workspace</li>
-      <li>Google Calendar access (optional) — to schedule tasks into your calendar on your behalf</li>
-      <li>Basic device info — for compatibility and bug fixes only</li>
-    </ul>
-    <p style="margin-top: 20px;">We do not sell your data. We do not run ads. We do not share your information with third parties beyond what is required to operate the service.</p>
-  </div>
+    <div class="features reveal">
+      <div class="section-label">What it does</div>
+      <div class="features-grid reveal-stagger">
+        <div class="feature">
+          <div class="feature-icon">📅</div>
+          <h3>Day-by-day planning</h3>
+          <p>Organize tasks by day with a clean, focused view. Drag to reorder, move between days, and see your week at a glance.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🗂</div>
+          <h3>Projects & tags</h3>
+          <p>Group tasks by project. Tag anything and find it instantly. Completed tasks are archived by project so nothing gets lost.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📆</div>
+          <h3>Google Calendar sync</h3>
+          <p>Connect your Google Calendar and TaskBloc automatically schedules your tasks into available time slots every morning.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Weekly summary</h3>
+          <p>Review everything you accomplished each week, broken down by project and by day. Your work, accounted for.</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="cta-section reveal">
-    <div class="section-label">Get started</div>
-    <h2>Ready to take back<br><em>your day?</em></h2>
-    <p>Sign in with Google and start organizing in under a minute. Free to use.</p>
-    <a class="btn-primary" href="https://vasquezryanj-sudo.github.io/TaskBloc/">Open TaskBloc</a>
-  </div>
+    <div class="transparency reveal">
+      <div class="section-label">Data & Privacy</div>
+      <h2>Your data is<br><em>yours alone.</em></h2>
+      <p>TaskBloc is built by Provenance — a responsible technology organization grounded in ethics and transparency. We apply those same principles to how we handle your data.</p>
+      <p>Here is exactly what TaskBloc collects and why:</p>
+      <ul class="data-list">
+        <li>Task names, notes, tags, and dates — to power your task list</li>
+        <li>Google account identity — to give you a private, personal workspace</li>
+        <li>Google Calendar access (optional) — to schedule tasks into your calendar on your behalf</li>
+        <li>Basic device info — for compatibility and bug fixes only</li>
+      </ul>
+      <p style="margin-top: 20px;">We do not sell your data. We do not run ads. We do not share your information with third parties beyond what is required to operate the service.</p>
+    </div>
+
+    <div class="cta-section">
+      <div class="cta-card reveal">
+        <div class="section-label">Get started</div>
+        <h2>Ready to take back<br><em>your day?</em></h2>
+        <p>Sign in with Google and start organizing in under a minute. Free to use.</p>
+        <a class="btn-primary" href="https://vasquezryanj-sudo.github.io/TaskBloc/">Open TaskBloc</a>
+      </div>
+    </div>
+  </main>
 
   <footer>
-    <span class="footer-left">© 2026 Provenance. All rights reserved.</span>
-    <div class="footer-right">
-      <a href="https://www.withprovenance.org">withprovenance.org</a>
+    <a href="/" class="footer-wordmark">Provenance</a>
+    <div class="footer-links">
       <a href="https://www.withprovenance.org/products/taskbloc/privacy">Privacy Policy</a>
-      <a href="mailto:vasquezryanj@gmail.com">Contact</a>
+      <a href="mailto:ryan@withprovenance.org">Contact</a>
     </div>
   </footer>
 
