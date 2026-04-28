@@ -164,7 +164,7 @@
     }
 
     /* ── Layout ── */
-    section { padding: 140px 48px; }
+    section { padding: 64px 48px; }
     .container      { max-width: 900px;  margin: 0 auto; }
     .container-wide { max-width: 1100px; margin: 0 auto; }
 
@@ -173,8 +173,8 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: calc(var(--nav-h) + 100px);
-      padding-bottom: 140px;
+      padding-top: calc(var(--nav-h) + 48px);
+      padding-bottom: 64px;
       background: var(--ink);
       border-bottom: 1px solid #3d3530;
       position: relative;
@@ -192,7 +192,7 @@
     .hero-headline {
       font-family: 'Fraunces', serif;
       font-weight: 300;
-      font-size: clamp(3.6rem, 7vw, 6.5rem);
+      font-size: clamp(3rem, 6vw, 5.5rem);
       line-height: 1.05;
       letter-spacing: -0.01em;
       max-width: 780px;
@@ -264,7 +264,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent-warm);
-      margin-bottom: 28px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -286,7 +286,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      gap: 48px;
       align-items: center;
     }
 
@@ -345,7 +345,7 @@
     .detail-item {
       display: flex;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .detail-label {
@@ -390,7 +390,7 @@
     .work-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
 
     .work-card {
@@ -755,8 +755,8 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-dropdown { padding: 24px; }
-      section { padding: 80px 24px; }
-      #hero { padding-top: 60px; padding-bottom: 80px; min-height: auto; }
+      section { padding: 40px 24px; }
+      #hero { padding-top: 40px; padding-bottom: 40px; min-height: auto; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid { grid-template-columns: 1fr; gap: 32px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
