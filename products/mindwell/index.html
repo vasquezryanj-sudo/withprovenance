@@ -10,10 +10,10 @@
     :root {
       --mw-navy: #1a2744; --mw-blue: #2d4a7a; --mw-light: #e8edf5;
     }
-    body { line-height: 1.65; }
+    body { background: var(--cream); line-height: 1.65; }
 
-    /* Hero */
-    .hero { background: var(--mw-navy); padding: 80px 48px; border-bottom: 1px solid #0d1829; }
+    /* Hero — rounded navy card */
+    .hero { background: var(--mw-navy); border-radius: 24px; margin: 0 24px; padding: 64px 56px; margin-top: calc(var(--nav-h) + 24px); }
     .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
     .hero-eyebrow { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8aa4cc; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
     .hero-eyebrow::after { content: ""; display: block; width: 40px; height: 1px; background: #8aa4cc; }
@@ -21,24 +21,24 @@
     .hero-tagline { font-family: "DM Sans", sans-serif; font-weight: 300; font-size: 0.95rem; letter-spacing: 0.04em; color: #8aa4cc; margin-bottom: 28px; }
     .hero-desc { font-size: 1rem; color: #c8d4e8; line-height: 1.8; max-width: 440px; margin-bottom: 36px; }
     .hero-img img { width: 100%; border-radius: 12px; box-shadow: 0 32px 80px rgba(0,0,0,0.4); }
-    .btn-navy { display: inline-block; padding: 13px 32px; background: #ffffff; color: var(--mw-navy); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; border-radius: 4px; font-weight: 500; }
+    .btn-navy { display: inline-block; padding: 13px 32px; background: #ffffff; color: var(--mw-navy); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; border-radius: 999px; font-weight: 500; }
     .btn-navy:hover { background: #8aa4cc; color: #fff; }
-    .btn-outline { display: inline-block; padding: 13px 32px; border: 1px solid #3d5580; color: #8aa4cc; font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; border-radius: 4px; }
+    .btn-outline { display: inline-block; padding: 13px 32px; border: 1px solid #3d5580; color: #8aa4cc; font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s; border-radius: 999px; }
     .btn-outline:hover { border-color: #8aa4cc; color: #c8d4e8; }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* Audience */
-    .audience { padding: 80px 48px; background: var(--parchment); border-bottom: 1px solid var(--rule); }
+    /* Audience — on cream, dark ink cards */
+    .audience { padding: 80px 48px; }
     .audience-inner { max-width: 1100px; margin: 0 auto; }
     .audience-intro { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.3; max-width: 640px; margin-bottom: 48px; }
-    .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
-    .audience-card { background: var(--cream); padding: 36px 28px; }
+    .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; background: none; }
+    .audience-card { background: var(--ink); border-radius: 16px; padding: 32px 24px; }
     .audience-icon { font-size: 1.6rem; margin-bottom: 14px; }
-    .audience-title { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1.3rem; margin-bottom: 10px; color: var(--ink); }
-    .audience-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.75; }
+    .audience-title { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1.3rem; margin-bottom: 10px; color: #ffffff; }
+    .audience-desc { font-size: 0.88rem; color: #c8b8a8; line-height: 1.75; }
 
-    /* Features */
-    .features { padding: 80px 48px; border-bottom: 1px solid var(--rule); }
+    /* Features — on cream */
+    .features { padding: 80px 48px; }
     .features-inner { max-width: 1100px; margin: 0 auto; }
     .features-intro { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.3; max-width: 600px; margin-bottom: 56px; }
 
@@ -47,36 +47,38 @@
     .feature-row.reverse > * { direction: ltr; }
     .feature-img img { width: 100%; border-radius: 12px; box-shadow: 0 12px 48px rgba(22,18,14,0.1); }
     .feature-text { display: flex; flex-direction: column; gap: 14px; }
-    .feature-tag { font-family: "DM Mono", monospace; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mw-blue); }
+    .feature-tag { font-family: "Lora", serif; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--accent-warm); }
     .feature-title { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1.7rem; line-height: 1.2; color: var(--ink); }
     .feature-desc { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.8; }
 
-    /* Pricing */
-    .pricing { padding: 80px 48px; background: var(--parchment); border-bottom: 1px solid var(--rule); }
+    /* Pricing — rounded orange card */
+    .pricing { background: #b85c2a; border-radius: 24px; margin: 0 24px 24px; padding: 48px 40px; }
     .pricing-inner { max-width: 1100px; margin: 0 auto; }
-    .pricing-intro { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.3; max-width: 540px; margin-bottom: 48px; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
-    .pricing-card { background: var(--cream); padding: 36px 28px; }
-    .pricing-card.featured { background: var(--mw-navy); }
-    .pricing-tier { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; color: var(--ink-light); }
-    .pricing-card.featured .pricing-tier { color: #8aa4cc; }
-    .pricing-price { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 2.4rem; color: var(--ink); margin-bottom: 4px; }
+    .pricing .section-label { color: rgba(255,255,255,0.6); }
+    .pricing .section-label::after { background: rgba(255,255,255,0.3); }
+    .pricing-intro { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.3; max-width: 540px; margin-bottom: 48px; color: #ffffff; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; background: none; }
+    .pricing-card { background: rgba(255,255,255,0.1); border-radius: 16px; padding: 36px 28px; }
+    .pricing-card.featured { background: rgba(255,255,255,0.18); }
+    .pricing-tier { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; background: rgba(255,255,255,0.15); color: #ffffff; border: none; display: inline-block; padding: 4px 12px; border-radius: 99px; }
+    .pricing-card.featured .pricing-tier { background: rgba(255,255,255,0.25); color: #ffffff; }
+    .pricing-price { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 2.4rem; color: #ffffff; margin-bottom: 4px; }
     .pricing-card.featured .pricing-price { color: #fff; }
-    .pricing-period { font-size: 0.8rem; color: var(--ink-light); margin-bottom: 24px; }
-    .pricing-card.featured .pricing-period { color: #8aa4cc; }
+    .pricing-period { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.7); }
     .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .pricing-features li { font-size: 0.85rem; color: var(--ink-mid); display: flex; gap: 10px; align-items: flex-start; }
-    .pricing-card.featured .pricing-features li { color: #c8d4e8; }
-    .pricing-features li::before { content: "\2013"; color: var(--accent-warm); flex-shrink: 0; }
-    .pricing-card.featured .pricing-features li::before { color: #8aa4cc; }
+    .pricing-features li { font-size: 0.85rem; color: rgba(255,255,255,0.85); display: flex; gap: 10px; align-items: flex-start; }
+    .pricing-card.featured .pricing-features li { color: #ffffff; }
+    .pricing-features li::before { content: "\2013"; color: rgba(255,255,255,0.5); flex-shrink: 0; }
+    .pricing-card.featured .pricing-features li::before { color: rgba(255,255,255,0.7); }
 
-    /* CTA */
-    .cta { padding: 80px 48px; text-align: center; border-bottom: 1px solid var(--rule); }
-    .cta h2 { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 14px; }
-    .cta h2 em { font-style: italic; color: var(--mw-blue); }
-    .cta p { font-size: 0.93rem; color: var(--ink-mid); max-width: 480px; margin: 0 auto 36px; line-height: 1.8; }
-    .btn-primary { display: inline-block; padding: 13px 32px; background: var(--mw-navy); color: var(--cream); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--mw-blue); }
+    /* CTA — rounded dark card */
+    .cta { background: var(--ink); border-radius: 24px; margin: 0 24px 24px; padding: 48px 40px; text-align: center; }
+    .cta h2 { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 14px; color: #ffffff; }
+    .cta h2 em { font-style: italic; color: var(--accent-warm); }
+    .cta p { font-size: 0.93rem; color: #c8b8a8; max-width: 480px; margin: 0 auto 36px; line-height: 1.8; }
+    .btn-primary { display: inline-block; padding: 13px 32px; background: #ffffff; color: var(--ink); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; border-radius: 999px; }
+    .btn-primary:hover { background: rgba(255,255,255,0.85); }
 
     /* ── Reveal animations ── */
     .reveal {
@@ -119,7 +121,7 @@
     }
     .audience-card:hover, .pricing-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
     /* Feature row reveal */
@@ -169,11 +171,11 @@
     }
 
     @media (max-width: 900px) {
-      .hero { padding: 56px 24px; } .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding: 40px 24px; margin: 0 16px; } .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .audience { padding: 56px 24px; } .audience-grid { grid-template-columns: 1fr; }
       .features { padding: 56px 24px; } .feature-row, .feature-row.reverse { grid-template-columns: 1fr; direction: ltr; }
-      .pricing { padding: 56px 24px; } .pricing-grid { grid-template-columns: 1fr; }
-      .cta { padding: 56px 24px; }
+      .pricing { padding: 32px 20px; margin: 0 16px; } .pricing-grid { grid-template-columns: 1fr; }
+      .cta { padding: 32px 20px; margin: 0 16px; }
     }
 
     /* Blown-up content overlays */
@@ -375,7 +377,7 @@
 </section>
 
 <footer>
-  <a href="/" class="footer-wordmark">Provenance</a>
+  <span class="footer-wordmark">Provenance</span>
   <span class="footer-copy">2026 Ryan Vasquez · All rights reserved</span>
 </footer>
 
