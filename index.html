@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,7 +35,7 @@
       color: var(--ink);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      line-height: 1.65;
+      line-height: 1.8;
       overflow-x: hidden;
       padding-top: var(--nav-h);
     }
@@ -65,7 +65,7 @@
     }
 
     .nav-wordmark {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
       font-size: 1.2rem;
       letter-spacing: 0.14em;
@@ -164,18 +164,19 @@
     }
 
     /* ── Layout ── */
-    section { padding: 96px 48px; }
+    section { padding: 140px 48px; }
     .container      { max-width: 900px;  margin: 0 auto; }
     .container-wide { max-width: 1100px; margin: 0 auto; }
 
     /* ── Hero ── */
     #hero {
-      min-height: auto;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 64px;
-      padding-bottom: 96px;
-      border-bottom: 1px solid var(--rule);
+      padding-top: calc(var(--nav-h) + 100px);
+      padding-bottom: 140px;
+      background: var(--ink);
+      border-bottom: 1px solid #3d3530;
       position: relative;
     }
 
@@ -189,28 +190,29 @@
     }
 
     .hero-headline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 300;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 1.1;
+      font-size: clamp(3.6rem, 7vw, 6.5rem);
+      line-height: 1.05;
       letter-spacing: -0.01em;
       max-width: 780px;
       margin-bottom: 36px;
+      color: var(--cream);
     }
 
     .hero-headline em {
       font-style: italic;
-      color: var(--accent);
+      color: var(--accent-warm);
     }
 
     .hero-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: 1.05rem;
-      color: var(--ink-mid);
+      font-size: 1.15rem;
+      color: #c8b8a8;
       max-width: 540px;
       margin-bottom: 48px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .hero-cta-group {
@@ -222,7 +224,7 @@
     .btn-primary {
       display: inline-block;
       padding: 13px 32px;
-      background: var(--ink);
+      background: var(--accent);
       color: var(--cream);
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem;
@@ -234,8 +236,8 @@
     .btn-secondary {
       display: inline-block;
       padding: 13px 32px;
-      border: 1px solid var(--rule);
-      color: var(--ink-mid);
+      border: 1px solid #3d5580;
+      color: #8aa4cc;
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem;
       letter-spacing: 0.15em;
@@ -250,7 +252,7 @@
       transform: translateY(-50%);
       width: 1px;
       height: 200px;
-      background: linear-gradient(to bottom, transparent, var(--rule), transparent);
+      background: linear-gradient(to bottom, transparent, #3d3530, transparent);
     }
 
     /* ── Section label ── */
@@ -260,7 +262,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent-warm);
-      margin-bottom: 20px;
+      margin-bottom: 28px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -309,7 +311,7 @@
     }
 
     .about-headline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 400;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
@@ -365,69 +367,32 @@
     #work { border-bottom: 1px solid var(--rule); }
 
     .work-headline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 400;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
-      margin-bottom: 24px;
-    }
-
-    .work-headline em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .work-intro {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-      line-height: 1.7;
-      max-width: 620px;
-      margin-bottom: 28px;
-      text-align: left;
+      margin-bottom: 48px;
     }
 
     .work-grid {
-      display: block;
-    }
-
-    .work-grid-track {
-      display: flex;
-      align-items: stretch;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
     }
 
     .work-card {
-      background: var(--cream);
-      padding: 32px 36px;
-      flex: 1;
-    }
-
-    .work-divider {
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: var(--accent);
-      user-select: none;
-    }
-
-    .work-card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--parchment);
-      line-height: 1;
-      margin-bottom: 24px;
-      user-select: none;
+      background: transparent;
+      padding: 0;
     }
 
     .work-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: 1.5rem;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.6rem;
       letter-spacing: 0.01em;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
     }
 
     .work-card-body {
@@ -436,7 +401,7 @@
       font-size: 0.88rem;
       color: var(--ink-mid);
       line-height: 1.7;
-      margin-bottom: 12px;
+      margin-bottom: 24px;
     }
 
     .work-card-link {
@@ -449,38 +414,10 @@
       text-transform: uppercase;
       color: var(--accent);
       text-decoration: none;
-      margin-top: 12px;
       transition: gap 0.2s;
     }
     .work-card-link:hover { gap: 14px; }
     .work-card-link::after { content: '\2192'; }
-
-    .work-portfolio-link {
-      margin-top: 40px;
-      text-align: left;
-    }
-
-    .work-dots {
-      display: none;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .work-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid var(--accent-warm);
-      background: transparent;
-      cursor: pointer;
-      transition: background 0.2s;
-      padding: 0;
-    }
-
-    .work-dot.active {
-      background: var(--accent-warm);
-    }
 
     /* ── CompassAI ── */
     #compassai {
@@ -503,7 +440,7 @@
     }
 
     .compassai-headline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 400;
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       line-height: 1.2;
@@ -583,18 +520,29 @@
 
 
     /* ── Contact ── */
-    #contact { border-bottom: 1px solid var(--rule); }
+    #contact {
+      background: var(--ink);
+      border-bottom: 1px solid #3d3530;
+    }
+
+    #contact .section-label {
+      color: var(--accent-warm);
+    }
+    #contact .section-label::after {
+      background: var(--accent-warm);
+    }
 
     .contact-headline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 400;
       font-size: clamp(2rem, 3.5vw, 3rem);
       line-height: 1.2;
       margin-bottom: 24px;
+      color: var(--cream);
     }
 
     .contact-headline-accent {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-style: italic;
       color: var(--accent-warm);
     }
@@ -636,7 +584,7 @@
       font-size: 0.72rem;
       color: var(--ink-light);
       flex-shrink: 0;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
     }
 
@@ -650,7 +598,7 @@
     }
 
     .footer-wordmark {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
       font-size: 1rem;
       letter-spacing: 0.14em;
@@ -796,21 +744,7 @@
       section { padding: 64px 24px; }
       #hero { padding-top: 32px; padding-bottom: 48px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .work-grid {
-        overflow: hidden;
-        position: relative;
-      }
-      .work-grid-track {
-        display: flex;
-        transition: transform 0.4s ease;
-        width: 200%;
-      }
-      .work-card {
-        flex: 0 0 50%;
-        padding: 32px 24px;
-      }
-      .work-divider { display: none; }
-      .work-dots { display: flex; }
+      .work-grid { grid-template-columns: 1fr; gap: 32px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .compassai-grid { grid-template-columns: 1fr; gap: 40px; }
       .compassai-grid > * { min-width: 0; }
@@ -907,30 +841,24 @@
     <div class="container-wide">
       <div class="reveal">
         <p class="section-label">Work</p>
-        <h2 class="work-headline">Govern and create, <em>in tandem.</em></h2>
-        <p class="work-intro">Provenance sits at a rare intersection: encouraging client fluency in AI systems and how they work in practice, and partnering in creating unique AI governance frameworks grounded in responsible and ethical use. Most organizations get one or the other. Provenance brings both.</p>
+        <h2 class="work-headline">What we do.</h2>
       </div>
-      <div class="work-grid reveal" id="workSlider">
-        <div class="work-grid-track" id="workTrack">
-          <div class="work-card">
-            <h3 class="work-card-title">AI Governance</h3>
-            <p class="work-card-body">Navigating AI regulation requires more than static legal awareness. Provenance develops living, flexible governance frameworks, risk assessments, and internal policy infrastructure grounded in both regulatory reality and practical AI experience.</p>
-            <p class="work-card-body">Our work will draw on active regulation, but also move beyond the current environment to guarantee safe, responsible, and ethical AI use as boundaries shift.</p>
-          </div>
-          <div class="work-divider">&infin;</div>
-          <div class="work-card">
-            <h3 class="work-card-title">AI Fluency & Innovation</h3>
-            <p class="work-card-body">At Provenance, we know that responsible AI adoption isn't just about what to avoid, but about knowing what's possible and building toward it thoughtfully. Provenance consults with organizations with a mission to provide tools to unlock their potential with the use of AI systems that fit your needs, always with responsibility in the foreground.</p>
-            <p class="work-card-body">This includes workshops, one-on-one consulting, and the development of bespoke AI tools built to solve real organizational problems.</p>
-          </div>
+      <div class="work-grid reveal">
+        <div class="work-card">
+          <h3 class="work-card-title">AI Governance</h3>
+          <p class="work-card-body">Frameworks, policy, and compliance infrastructure for organizations building with AI.</p>
+          <a href="#contact" class="work-card-link">Our work</a>
         </div>
-        <div class="work-dots" id="workDots">
-          <button class="work-dot active" data-slide="0" aria-label="Card 1"></button>
-          <button class="work-dot" data-slide="1" aria-label="Card 2"></button>
+        <div class="work-card">
+          <h3 class="work-card-title">Human-Centered Products</h3>
+          <p class="work-card-body">Tools designed from the ground up around the people who use them.</p>
+          <a href="/products" class="work-card-link">Our products</a>
         </div>
-      </div>
-      <div class="work-portfolio-link reveal">
-        <a href="https://withprovenance.org/case-studies" class="btn-secondary">Case Studies</a>
+        <div class="work-card">
+          <h3 class="work-card-title">Ethics and Technology</h3>
+          <p class="work-card-body">Consulting, writing, and research at the intersection of emerging technology and public good.</p>
+          <a href="https://ryanvasquez.substack.com" target="_blank" class="work-card-link">Our writing</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1081,31 +1009,6 @@
       resetAutoplay();
     })();
 
-    // Work cards slider (mobile only)
-    (() => {
-      const track = document.getElementById('workTrack');
-      const dots = document.querySelectorAll('.work-dot');
-      let current = 0;
-
-      function goTo(index) {
-        current = index;
-        track.style.transform = 'translateX(-' + (current * 50) + '%)';
-        dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      }
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => goTo(parseInt(dot.dataset.slide)));
-      });
-
-      // Swipe support
-      let startX = 0;
-      const slider = document.getElementById('workSlider');
-      slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-      slider.addEventListener('touchend', e => {
-        const diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) goTo(diff > 0 ? 1 : 0);
-      });
-    })();
   </script>
 
 </body>
