@@ -46,17 +46,17 @@
     }
 
     .hero-card {
-      background: var(--ink);
+      background: var(--accent-warm);
       border-radius: 24px;
       margin: 0 24px;
       padding: 64px 56px;
     }
 
     .hero-card .section-label {
-      color: #c0442a;
+      color: rgba(255,255,255,0.6);
     }
     .hero-card .section-label::after {
-      background: rgba(192,68,42,0.4);
+      background: rgba(255,255,255,0.3);
     }
 
     .hero-card h1 {
@@ -68,12 +68,12 @@
       color: #ffffff;
       margin-bottom: 28px;
     }
-    .hero-card h1 em { font-style: italic; color: #c0442a; }
+    .hero-card h1 em { font-style: italic; color: rgba(255,255,255,0.75); }
 
     .hero-desc {
       font-size: 1rem;
       font-weight: 300;
-      color: #c8b8a8;
+      color: rgba(255,255,255,0.8);
       max-width: 520px;
       line-height: 1.8;
       margin-bottom: 40px;
@@ -93,8 +93,8 @@
 
     .hero-card .btn-secondary {
       background: transparent;
-      color: #c8b8a8;
-      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.3);
       padding: 13px 32px;
     }
     .hero-card .btn-secondary:hover {
@@ -106,7 +106,7 @@
 
     /* ── Features (on cream) ── */
     .features {
-      padding: 80px 48px;
+      padding: 48px 48px;
     }
 
     .features-grid {
@@ -120,18 +120,6 @@
       background: var(--ink);
       border-radius: 16px;
       padding: 32px 24px;
-    }
-
-    .feature-icon {
-      width: 36px;
-      height: 36px;
-      background: rgba(192,68,42,0.15);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      margin-bottom: 14px;
     }
 
     .feature h3 {
@@ -366,22 +354,18 @@
       <div class="section-label">What it does</div>
       <div class="features-grid reveal-stagger">
         <div class="feature">
-          <div class="feature-icon">📅</div>
           <h3>Day-by-day planning</h3>
           <p>Organize tasks by day with a clean, focused view. Drag to reorder, move between days, and see your week at a glance.</p>
         </div>
         <div class="feature">
-          <div class="feature-icon">🗂</div>
           <h3>Projects & tags</h3>
           <p>Group tasks by project. Tag anything and find it instantly. Completed tasks are archived by project so nothing gets lost.</p>
         </div>
         <div class="feature">
-          <div class="feature-icon">📆</div>
           <h3>Google Calendar sync</h3>
           <p>Connect your Google Calendar and TaskBloc automatically schedules your tasks into available time slots every morning.</p>
         </div>
         <div class="feature">
-          <div class="feature-icon">📊</div>
           <h3>Weekly summary</h3>
           <p>Review everything you accomplished each week, broken down by project and by day. Your work, accounted for.</p>
         </div>
