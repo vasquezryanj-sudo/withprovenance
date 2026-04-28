@@ -5,22 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy — MindWell</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #16120e; --ink-mid: #3d3530; --ink-light: #7a706a;
-      --cream: #f7f3ec; --parchment: #ede6d8; --rule: #cec5b8;
-      --accent: #6b3a2a; --accent-warm: #a0522d;
-      --mw-navy: #1a2744; --nav-h: 72px;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--ink); font-family: "DM Sans", sans-serif; font-weight: 300; line-height: 1.7; padding-top: var(--nav-h); }
-
-    nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: var(--cream); border-bottom: 1px solid var(--rule); z-index: 200; }
-    .nav-wordmark { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1.2rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    :root { --mw-navy: #1a2744; }
+    body { line-height: 1.7; padding-top: var(--nav-h); }
     .nav-app { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 1rem; color: var(--mw-navy); text-decoration: none; letter-spacing: 0.04em; }
 
     /* Hero bar */
@@ -67,10 +55,6 @@
     .contact-box p { color: #c8d4e8; }
     .contact-box a { color: #8aa4cc; }
 
-    footer { padding: 28px 48px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
-    .footer-wordmark { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; }
-    .footer-copy { font-family: "DM Mono", monospace; font-size: 0.62rem; color: var(--ink-light); }
-
     /* ── Reveal animations ── */
     @keyframes heroFadeIn {
       from { opacity: 0; transform: translateY(24px); }
@@ -103,10 +87,8 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 24px; }
       .policy-hero { padding: 48px 24px; }
       .policy-body { padding: 48px 24px 72px; }
-      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
