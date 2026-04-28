@@ -209,7 +209,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 1.15rem;
-      color: #c8b8a8;
+      color: #d4c4b4;
       max-width: 540px;
       margin-bottom: 48px;
       line-height: 1.85;
@@ -231,18 +231,20 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
+      border-radius: 999px;
     }
 
     .btn-secondary {
       display: inline-block;
       padding: 13px 32px;
-      border: 1px solid #3d5580;
-      color: #8aa4cc;
+      border: 1px solid var(--rule);
+      color: var(--ink-mid);
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
+      border-radius: 999px;
     }
 
     .hero-rule {
@@ -311,8 +313,8 @@
     }
 
     .about-headline {
-      font-family: 'Fraunces', serif;
-      font-weight: 400;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
       margin-bottom: 24px;
@@ -337,6 +339,7 @@
       padding: 32px;
       background: var(--cream);
       border: 1px solid var(--rule);
+      border-radius: 12px;
     }
 
     .detail-item {
@@ -364,7 +367,16 @@
     }
 
     /* ── Work ── */
-    #work { border-bottom: 1px solid var(--rule); }
+    #work {
+      background: #b85c2a;
+    }
+
+    #work .section-label {
+      color: rgba(255,255,255,0.6);
+    }
+    #work .section-label::after {
+      background: rgba(255,255,255,0.6);
+    }
 
     .work-headline {
       font-family: 'Fraunces', serif;
@@ -372,34 +384,35 @@
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       line-height: 1.2;
       margin-bottom: 48px;
+      color: #ffffff;
     }
 
     .work-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      gap: 20px;
     }
 
     .work-card {
-      background: transparent;
-      padding: 0;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 48px 40px;
     }
 
     .work-card-title {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.6rem;
-      letter-spacing: 0.01em;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: #ffffff;
       margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--rule);
     }
 
     .work-card-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: 0.88rem;
-      color: var(--ink-mid);
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.75);
       line-height: 1.7;
       margin-bottom: 24px;
     }
@@ -412,11 +425,11 @@
       font-size: 0.65rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
-      transition: gap 0.2s;
+      transition: gap 0.2s, color 0.2s;
     }
-    .work-card-link:hover { gap: 14px; }
+    .work-card-link:hover { gap: 14px; color: #ffffff; }
     .work-card-link::after { content: '\2192'; }
 
     /* ── CompassAI ── */
@@ -538,7 +551,7 @@
       font-size: clamp(2rem, 3.5vw, 3rem);
       line-height: 1.2;
       margin-bottom: 24px;
-      color: var(--cream);
+      color: #ffffff;
     }
 
     .contact-headline-accent {
@@ -551,7 +564,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.92rem;
-      color: #c8b8a8;
+      color: #d4c4b4;
       line-height: 1.8;
       margin-bottom: 36px;
     }
@@ -570,19 +583,19 @@
       font-size: 0.68rem;
       letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: #8aa4cc;
+      color: #c8b8a8;
       text-decoration: none;
     }
 
     .contact-link-icon {
       width: 32px;
       height: 32px;
-      border: 1px solid #3d5580;
+      border: 1px solid #8a7a70;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.72rem;
-      color: #8aa4cc;
+      color: #c8b8a8;
       flex-shrink: 0;
       font-family: 'Fraunces', serif;
       font-weight: 500;
@@ -595,7 +608,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--parchment);
+      background: #b85c2a;
     }
 
     .footer-wordmark {
@@ -604,14 +617,14 @@
       font-size: 1rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ink-light);
+      color: #ffffff;
     }
 
     .footer-copy {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem;
       letter-spacing: 0.1em;
-      color: var(--ink-light);
+      color: rgba(255,255,255,0.65);
     }
 
     /* ── Reveal animations ── */
@@ -652,7 +665,6 @@
     .hero-entrance > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
     .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
-    .hero-entrance > *:nth-child(4) { animation-delay: 0.55s; }
 
     /* Button hover lift */
     .btn-primary, .btn-secondary, .compassai-cta {
@@ -665,7 +677,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
     .btn-secondary:hover {
-      border-color: #c8b8a8; color: #c8b8a8;
+      border-color: var(--ink-mid); color: var(--ink);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
@@ -680,26 +692,27 @@
       transition: color 0.2s, transform 0.2s;
     }
     .contact-link:hover {
-      color: var(--accent-warm);
+      color: #ffffff;
       transform: translateX(6px);
     }
     .contact-link-icon {
       transition: border-color 0.2s, background 0.2s;
     }
     .contact-link:hover .contact-link-icon {
-      border-color: var(--accent-warm);
-      background: rgba(160,82,45,0.1);
+      border-color: #c8b8a8;
+      background: rgba(200,184,168,0.1);
     }
 
     /* Work card hover (desktop) */
     @media (min-width: 769px) {
       .work-card {
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                    background 0.3s, border-color 0.3s;
       }
       .work-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        background: rgba(255,255,255,0.13);
+        border-color: rgba(255,255,255,0.25);
       }
     }
 
@@ -787,12 +800,10 @@
   <!-- Hero -->
   <section id="hero">
     <div class="container hero-entrance">
-      <p class="hero-eyebrow">Fluency · Ethics · Governance</p>
       <h1 class="hero-headline">Technology that begins and ends with <em>people.</em></h1>
       <p class="hero-body">Provenance is a responsible technology organization building and consulting at the intersection of AI governance, ethics, and human-centered design. From the tools we make to the frameworks we build with clients, everything starts from the same place: the people the technology touches.</p>
       <div class="hero-cta-group">
-        <a href="#work" class="btn-primary">Our Work</a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
+        <a href="#contact" class="btn-primary">Get in Touch</a>
       </div>
     </div>
     <div class="hero-rule"></div>
@@ -848,7 +859,7 @@
         <div class="work-card">
           <h3 class="work-card-title">AI Governance</h3>
           <p class="work-card-body">Frameworks, policy, and compliance infrastructure for organizations building with AI.</p>
-          <a href="#contact" class="work-card-link">Our work</a>
+          <a href="/portfolio" class="work-card-link">Case studies</a>
         </div>
         <div class="work-card">
           <h3 class="work-card-title">Human-Centered Products</h3>
@@ -857,8 +868,8 @@
         </div>
         <div class="work-card">
           <h3 class="work-card-title">Ethics and Technology</h3>
-          <p class="work-card-body">Consulting, writing, and research at the intersection of emerging technology and public good.</p>
-          <a href="https://ryanvasquez.substack.com" target="_blank" class="work-card-link">Our writing</a>
+          <p class="work-card-body">Writing and research on responsible technology, human-centered policy, and the cultural impact of AI.</p>
+          <a href="https://ryanvasquez.substack.com" target="_blank" class="work-card-link">dotBloom</a>
         </div>
       </div>
     </div>
@@ -918,7 +929,7 @@
           </a>
           <a href="https://ryanvasquez.substack.com/" class="contact-link">
             <span class="contact-link-icon">dB</span>
-            <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:#c8b8a8; text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
+            <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:#8a7a70; text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
           </a>
         </div>
       </div>
