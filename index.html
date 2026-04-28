@@ -10,100 +10,8 @@
   <meta property="og:url" content="https://withprovenance.org" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Lora:wght@400;500&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:          #16120e;
-      --ink-mid:      #3d3530;
-      --ink-light:    #7a706a;
-      --cream:        #f7f3ec;
-      --parchment:    #ede6d8;
-      --rule:         #cec5b8;
-      --accent:       #6b3a2a;
-      --accent-warm:  #a0522d;
-      --nav-h:        72px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.8;
-      overflow-x: hidden;
-      padding-top: var(--nav-h);
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 50;
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      background: var(--cream);
-      opacity: 1;
-      z-index: 200;
-    }
-
-    .nav-wordmark {
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
-      font-size: 1.2rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-right-group {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Lora', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    .nav-logo {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      opacity: 0.85;
-    }
-
     /* ── Layout ── */
     section {
       padding: 80px 48px;
@@ -164,52 +72,6 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 13px 32px;
-      background: #b85c2a;
-      color: var(--cream);
-      font-family: 'Lora', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 999px;
-    }
-
-    .btn-secondary {
-      display: inline-block;
-      padding: 13px 32px;
-      background: #b85c2a;
-      color: var(--cream);
-      font-family: 'Lora', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 999px;
-    }
-
-    /* ── Section label ── */
-    .section-label {
-      font-family: 'Lora', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent-warm);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .section-label::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--accent-warm);
     }
 
     /* ── About (dark card) ── */
@@ -479,24 +341,34 @@
       border-radius: 999px;
     }
 
-    /* ── Contact (dark card) ── */
+    /* ── Contact (centered dark card) ── */
     #contact {
-      padding: 0;
+      padding: 80px 48px;
+    }
+
+    .contact-card {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      border-radius: 24px;
+      background: var(--ink);
+      text-align: center;
     }
 
     .contact-card .section-label {
       color: #ffffff;
+      justify-content: center;
     }
     .contact-card .section-label::after {
-      background: rgba(255,255,255,0.5);
+      display: none;
     }
 
     .contact-headline {
       font-family: 'Fraunces', serif;
       font-weight: 400;
-      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
       line-height: 1.2;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: #ffffff;
     }
 
@@ -512,64 +384,31 @@
       font-size: 0.92rem;
       color: #d4c4b4;
       line-height: 1.8;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
     .contact-links {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-family: 'Lora', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: #c8b8a8;
-      text-decoration: none;
-    }
-
-    .contact-link-icon {
-      width: 32px;
-      height: 32px;
-      border: 1px solid #8a7a70;
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
-      font-size: 0.72rem;
-      color: #c8b8a8;
-      flex-shrink: 0;
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
+      gap: 8px;
     }
 
-    /* ── Footer ── */
-    footer {
-      padding: 28px 48px;
-      display: flex;
-      justify-content: space-between;
+    .contact-pill {
+      display: inline-flex;
       align-items: center;
-      background: var(--cream);
-    }
-
-    .footer-wordmark {
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      background: #ffffff;
       color: var(--ink);
-    }
-
-    .footer-copy {
+      border-radius: 999px;
+      padding: 10px 24px;
       font-family: 'Lora', serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: var(--ink-light);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-pill:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
     }
 
     /* ── Reveal animations ── */
@@ -611,19 +450,8 @@
     .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
 
     /* Button hover lift */
-    .btn-primary, .btn-secondary, .compassai-cta {
-      transition: background 0.25s, border-color 0.25s, color 0.25s,
-                  transform 0.25s, box-shadow 0.25s;
-    }
-    .btn-primary:hover {
-      background: var(--accent-warm);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-    .btn-secondary:hover {
-      background: var(--accent-warm);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    .compassai-cta {
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
     }
     .compassai-cta:hover {
       background: var(--accent-warm);
@@ -631,21 +459,6 @@
       box-shadow: 0 4px 12px rgba(107,58,42,0.25);
     }
 
-    /* Contact link hover */
-    .contact-link {
-      transition: color 0.2s, transform 0.2s;
-    }
-    .contact-link:hover {
-      color: #ffffff;
-      transform: translateX(6px);
-    }
-    .contact-link-icon {
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .contact-link:hover .contact-link-icon {
-      border-color: #c8b8a8;
-      background: rgba(200,184,168,0.1);
-    }
 
     /* Work card hover (desktop) */
     @media (min-width: 769px) {
@@ -682,8 +495,6 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
       section { padding: 40px 24px; }
       #hero { padding: 40px 24px; }
       .hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -693,11 +504,6 @@
       .work-card { padding: 32px 24px; }
       .compassai-grid { grid-template-columns: 1fr; gap: 40px; }
       .compassai-grid > * { min-width: 0; }
-      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
-    }
-
-    @media (min-width: 769px) {
-      .nav-links { display: flex !important; }
     }
   </style>
 </head>
@@ -838,30 +644,16 @@
 
   <!-- Contact -->
   <section id="contact">
-    <div class="section-card contact-card">
-      <div class="container">
-        <div class="reveal">
-          <p class="section-label">Contact</p>
-          <h2 class="contact-headline">Build for tomorrow.<br><span class="contact-headline-accent">Responsibly.</span></h2>
-          <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, Provenance can help.</p>
-          <div class="contact-links reveal-stagger">
-            <a href="mailto:ryan@withprovenance.org" class="contact-link">
-              <span class="contact-link-icon">@</span>
-              Contact us
-            </a>
-            <a href="https://withprovenance.org/case-studies" class="contact-link">
-              <span class="contact-link-icon"><img src="/favicon.png" alt="Provenance" width="20" height="20" style="display:block;" /></span>
-              Case Studies
-            </a>
-            <a href="https://withprovenance.org/products/" class="contact-link">
-              <span class="contact-link-icon" style="font-size:0.5rem; letter-spacing:-1px;">&#9826;&#9826;&#9826;</span>
-              Our Products
-            </a>
-            <a href="https://ryanvasquez.substack.com/" class="contact-link">
-              <span class="contact-link-icon">dB</span>
-              <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:#8a7a70; text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
-            </a>
-          </div>
+    <div class="contact-card">
+      <div class="reveal">
+        <p class="section-label">Contact</p>
+        <h2 class="contact-headline">Let's create something together.<br><span class="contact-headline-accent">Responsibly.</span></h2>
+        <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, Provenance can help.</p>
+        <div class="contact-links">
+          <a href="mailto:ryan@withprovenance.org" class="contact-pill">Contact Us</a>
+          <a href="/portfolio" class="contact-pill">Case Studies</a>
+          <a href="/products" class="contact-pill">Our Products</a>
+          <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-pill">dotBloom</a>
         </div>
       </div>
     </div>
