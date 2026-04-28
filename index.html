@@ -551,7 +551,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.92rem;
-      color: var(--ink-mid);
+      color: #c8b8a8;
       line-height: 1.8;
       margin-bottom: 36px;
     }
@@ -570,19 +570,19 @@
       font-size: 0.68rem;
       letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: var(--ink-mid);
+      color: #8aa4cc;
       text-decoration: none;
     }
 
     .contact-link-icon {
       width: 32px;
       height: 32px;
-      border: 1px solid var(--rule);
+      border: 1px solid #3d5580;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.72rem;
-      color: var(--ink-light);
+      color: #8aa4cc;
       flex-shrink: 0;
       font-family: 'Fraunces', serif;
       font-weight: 500;
@@ -595,6 +595,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: var(--parchment);
     }
 
     .footer-wordmark {
@@ -659,12 +660,12 @@
                   transform 0.25s, box-shadow 0.25s;
     }
     .btn-primary:hover {
-      background: var(--accent);
+      background: var(--accent-warm);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
     .btn-secondary:hover {
-      border-color: var(--ink-mid); color: var(--ink);
+      border-color: #c8b8a8; color: #c8b8a8;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
@@ -679,15 +680,15 @@
       transition: color 0.2s, transform 0.2s;
     }
     .contact-link:hover {
-      color: var(--accent);
+      color: var(--accent-warm);
       transform: translateX(6px);
     }
     .contact-link-icon {
       transition: border-color 0.2s, background 0.2s;
     }
     .contact-link:hover .contact-link-icon {
-      border-color: var(--accent);
-      background: rgba(107,58,42,0.06);
+      border-color: var(--accent-warm);
+      background: rgba(160,82,45,0.1);
     }
 
     /* Work card hover (desktop) */
@@ -741,8 +742,8 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-dropdown { padding: 24px; }
-      section { padding: 64px 24px; }
-      #hero { padding-top: 32px; padding-bottom: 48px; }
+      section { padding: 80px 24px; }
+      #hero { padding-top: 60px; padding-bottom: 80px; min-height: auto; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid { grid-template-columns: 1fr; gap: 32px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -917,7 +918,7 @@
           </a>
           <a href="https://ryanvasquez.substack.com/" class="contact-link">
             <span class="contact-link-icon">dB</span>
-            <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:var(--ink-light); text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
+            <span>dotBloom<br><span style="font-size:0.58rem; letter-spacing:0.1em; color:#c8b8a8; text-transform:none; font-weight:300;">our publication on human-centered technology and culture</span></span>
           </a>
         </div>
       </div>
