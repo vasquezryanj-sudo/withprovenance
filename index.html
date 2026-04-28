@@ -342,25 +342,18 @@
       border-radius: 999px;
     }
 
-    /* ── Contact (centered dark card) ── */
+    /* ── Contact (burnt orange section) ── */
     #contact {
       padding: 80px 48px;
-    }
-
-    .contact-card {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 48px 40px;
-      border-radius: 24px;
-      background: var(--ink);
+      background: var(--accent);
       text-align: center;
     }
 
-    .contact-card .section-label {
-      color: #ffffff;
+    #contact .section-label {
+      color: rgba(255,255,255,0.6);
       justify-content: center;
     }
-    .contact-card .section-label::after {
+    #contact .section-label::after {
       display: none;
     }
 
@@ -376,30 +369,35 @@
     .contact-headline-accent {
       font-family: 'Fraunces', serif;
       font-style: italic;
-      color: var(--accent-warm);
+      color: rgba(255,255,255,0.75);
     }
 
     .contact-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 0.92rem;
-      color: #d4c4b4;
+      color: rgba(255,255,255,0.8);
       line-height: 1.8;
       margin-bottom: 32px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 420px;
+      margin: 0 auto;
     }
 
     .contact-pill {
       display: inline-flex;
       align-items: center;
-      background: #b85c2a;
-      color: var(--cream);
+      justify-content: center;
+      background: #ffffff;
+      color: var(--ink);
       border-radius: 999px;
       padding: 13px 32px;
       font-family: 'Lora', serif;
@@ -410,9 +408,9 @@
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
     .contact-pill:hover {
-      background: var(--accent-warm);
+      background: var(--cream);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     /* ── Reveal animations ── */
@@ -648,16 +646,14 @@
 
   <!-- Contact -->
   <section id="contact">
-    <div class="contact-card">
-      <div class="reveal">
-        <h2 class="contact-headline">Let's create something together.<br><span class="contact-headline-accent">Responsibly.</span></h2>
-        <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, Provenance can help.</p>
-        <div class="contact-links">
-          <a href="mailto:ryan@withprovenance.org" class="contact-pill">Contact Us</a>
-          <a href="/portfolio" class="contact-pill">Case Studies</a>
-          <a href="/products" class="contact-pill">Our Products</a>
-          <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-pill">dotBloom</a>
-        </div>
+    <div class="reveal">
+      <h2 class="contact-headline">Let's create something together.<br><span class="contact-headline-accent">Responsibly.</span></h2>
+      <p class="contact-body">Whether you're navigating a specific regulatory question, developing an AI policy, or building literacy across your team, Provenance can help.</p>
+      <div class="contact-links">
+        <a href="mailto:ryan@withprovenance.org" class="contact-pill">Contact Us</a>
+        <a href="/portfolio" class="contact-pill">Case Studies</a>
+        <a href="/products" class="contact-pill">Our Products</a>
+        <a href="https://ryanvasquez.substack.com/" target="_blank" class="contact-pill">dotBloom</a>
       </div>
     </div>
   </section>
