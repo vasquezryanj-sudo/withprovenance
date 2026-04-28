@@ -182,8 +182,8 @@
     .btn-secondary {
       display: inline-block;
       padding: 13px 32px;
-      border: 1px solid var(--rule);
-      color: var(--ink-mid);
+      background: #b85c2a;
+      color: var(--cream);
       font-family: 'Lora', serif;
       font-size: 0.68rem;
       letter-spacing: 0.15em;
@@ -365,16 +365,17 @@
       gap: 8px;
       font-family: 'Lora', serif;
       font-size: 0.65rem;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--ink);
-      background: #ffffff;
+      color: var(--cream);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
       padding: 10px 24px;
       border-radius: 999px;
       text-decoration: none;
-      transition: gap 0.2s, transform 0.2s, box-shadow 0.2s;
+      transition: gap 0.2s, transform 0.2s, background 0.2s;
     }
-    .work-card-link:hover { gap: 14px; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .work-card-link:hover { gap: 14px; transform: translateY(-2px); background: rgba(255,255,255,0.25); }
     .work-card-link::after { content: '\2192'; }
 
     /* ── CompassAI (dark card) ── */
@@ -465,13 +466,14 @@
     .compassai-cta {
       display: inline-block;
       padding: 13px 32px;
-      background: var(--accent);
+      background: #b85c2a;
       color: var(--cream);
       font-family: 'Lora', serif;
       font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
+      border-radius: 999px;
     }
 
     /* ── Contact (dark card) ── */
@@ -616,9 +618,9 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
     .btn-secondary:hover {
-      border-color: var(--ink-mid); color: var(--ink);
+      background: var(--accent-warm);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
     .compassai-cta:hover {
       background: var(--accent-warm);
