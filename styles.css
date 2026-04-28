@@ -12,7 +12,7 @@
   --parchment:    #ede6d8;
   --rule:         #cec5b8;
   --accent:       #6b3a2a;
-  --accent-warm:  #a0522d;
+  --accent-warm:  #a0532e;
   --nav-h:        72px;
 }
 
@@ -96,7 +96,7 @@ nav {
 .btn-primary {
   display: inline-block;
   padding: 13px 32px;
-  background: #b85c2a;
+  background: #a0532e;
   color: var(--cream);
   font-family: 'Lora', serif;
   font-size: 0.68rem;
@@ -109,7 +109,7 @@ nav {
 .btn-secondary {
   display: inline-block;
   padding: 13px 32px;
-  background: #b85c2a;
+  background: #a0532e;
   color: var(--cream);
   font-family: 'Lora', serif;
   font-size: 0.68rem;
