@@ -5,77 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Case Studies - Provenance</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:          #16120e;
-      --ink-mid:      #3d3530;
-      --ink-light:    #7a706a;
-      --cream:        #f7f3ec;
-      --parchment:    #ede6d8;
-      --rule:         #cec5b8;
-      --accent:       #6b3a2a;
-      --accent-warm:  #a0522d;
-      --nav-h:        72px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.65;
-      padding-top: var(--nav-h);
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      background: var(--cream);
-      border-bottom: 1px solid var(--rule);
-      z-index: 200;
-    }
-
-    .nav-wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: 1.2rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
     /* ── Page hero ── */
     .page-hero {
       padding: 80px 48px 72px;
@@ -84,29 +15,9 @@
       margin: 0 auto;
     }
 
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent-warm);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-label::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--accent-warm);
-    }
-
     .page-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
       font-size: clamp(2.8rem, 5vw, 4.5rem);
       line-height: 1.1;
       max-width: 720px;
@@ -150,7 +61,7 @@
     }
 
     .case-type {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Lora', serif;
       font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -159,7 +70,7 @@
     }
 
     .case-client {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 400;
       font-size: clamp(2rem, 3.5vw, 3rem);
       line-height: 1.1;
@@ -188,7 +99,7 @@
     }
 
     .meta-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Lora', serif;
       font-size: 0.58rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -217,7 +128,7 @@
     }
 
     .case-section-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
       font-size: 1.2rem;
       color: var(--accent);
@@ -226,7 +137,7 @@
     }
 
     .case-section-title.mono {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Lora', serif;
       font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -273,6 +184,8 @@
       flex-direction: column;
       gap: 2px;
       background: var(--rule);
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     .pillar-row {
@@ -283,7 +196,7 @@
 
     .pillar-name {
       padding: 14px 16px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Lora', serif;
       font-size: 0.62rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -320,6 +233,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 2px;
       background: var(--rule);
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     .deliverable-item {
@@ -328,7 +243,7 @@
     }
 
     .deliverable-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 500;
       font-size: 1rem;
       color: var(--ink);
@@ -356,7 +271,7 @@
     }
 
     .case-quote p {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Fraunces', serif;
       font-weight: 300;
       font-style: italic;
       font-size: clamp(1.2rem, 2vw, 1.6rem);
@@ -366,7 +281,7 @@
     }
 
     .case-quote cite {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Lora', serif;
       font-size: 0.62rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -391,6 +306,8 @@
       gap: 2px;
       background: var(--rule);
       margin-top: 24px;
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     .outcome-item {
@@ -414,8 +331,8 @@
     }
 
     .case-studies-cta h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
       font-size: clamp(1.8rem, 3vw, 2.8rem);
       margin-bottom: 16px;
     }
@@ -431,46 +348,6 @@
       max-width: 480px;
       margin: 0 auto 36px;
       line-height: 1.8;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 13px 32px;
-      background: var(--ink);
-      color: var(--cream);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: var(--accent); }
-
-    /* ── Footer ── */
-    footer {
-      padding: 28px 48px;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      text-decoration: none;
-    }
-
-    .footer-copy {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: var(--ink-light);
     }
 
     /* ── Reveal animations ── */
@@ -511,16 +388,6 @@
     .hero-entrance > *:nth-child(2) { animation-delay: 0.25s; }
     .hero-entrance > *:nth-child(3) { animation-delay: 0.4s; }
 
-    /* Button hover lift */
-    .btn-primary {
-      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-    }
-    .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-
     /* Section label line draw */
     .section-label::after {
       transform-origin: left;
@@ -560,8 +427,6 @@
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
       .page-hero { padding: 56px 24px 48px; }
       .case-header { padding: 48px 24px 36px; }
       .case-header-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -575,7 +440,6 @@
       .case-quote { padding: 32px 24px; }
       .case-outcomes { padding: 40px 24px; }
       .case-studies-cta { padding: 56px 24px; }
-      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
@@ -583,11 +447,14 @@
 
   <nav>
     <a href="/" class="nav-wordmark">Provenance</a>
-    <ul class="nav-links">
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#work">Work</a></li>
-      <li><a href="/#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right-group">
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <img src="/favicon.png" alt="Provenance" class="nav-logo">
+    </div>
   </nav>
 
   <!-- Page hero -->
@@ -851,7 +718,7 @@
 
   <footer>
     <a href="/" class="footer-wordmark">Provenance</a>
-    <span class="footer-copy">2026 Ryan Vasquez · All rights reserved</span>
+    <span class="footer-copy">&copy; 2026 Ryan Vasquez · All rights reserved</span>
   </footer>
 
   <script>
