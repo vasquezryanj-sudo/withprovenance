@@ -52,19 +52,15 @@ nav {
 }
 
 .nav-wordmark {
-  font-family: 'Fraunces', serif;
-  font-weight: 500;
-  font-size: 1.2rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
   text-decoration: none;
-}
-
-.nav-right-group {
   display: flex;
   align-items: center;
-  gap: 36px;
+}
+
+.nav-wordmark-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -85,12 +81,6 @@ nav {
 
 .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-.nav-logo {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  opacity: 0.85;
-}
 
 /* ── Buttons ── */
 .btn-primary {
