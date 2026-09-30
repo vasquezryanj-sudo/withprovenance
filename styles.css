@@ -47,6 +47,7 @@ nav {
   justify-content: space-between;
   padding: 0 48px;
   background: var(--cream);
+  border-bottom: 1px solid var(--rule);
   opacity: 1;
   z-index: 200;
 }
@@ -102,7 +103,7 @@ nav {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 3px;
 }
 
 .btn-secondary {
@@ -115,7 +116,7 @@ nav {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 3px;
 }
 
 .btn-primary, .btn-secondary {
@@ -136,21 +137,18 @@ nav {
 /* ── Section label ── */
 .section-label {
   font-family: 'Lora', serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent-warm);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  margin-bottom: 20px;
+  display: block;
+  border-left: 2px solid var(--accent-warm);
+  padding-left: 10px;
+  line-height: 1;
 }
 .section-label::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 1px;
-  background: var(--accent-warm);
+  display: none;
 }
 
 /* ── Footer ── */
