@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study: Toes For Dance | Provenance</title>
+<style>
+  :root {
+    --cream: #F2EAE0;
+    --walnut: #4A3429;
+    --ink: #1B1814;
+    --warm-black: #15110D;
+    --terracotta: #BC613D;
+    --paper: #FFFFFF;
+    --hairline: #D9D2C7;
+    --sans: "Avenir Next", "Avenir", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #E6DED3; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    font-size: 9.5pt;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0.4in auto;
+    background: var(--paper);
+    box-shadow: 0 1px 24px rgba(21,17,13,.12);
+    border: 2.5pt solid var(--walnut);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .label {
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  /* Header */
+  header {
+    background: var(--cream);
+    padding: 0.36in 0.55in 0.24in;
+    display: grid;
+    grid-template-columns: 1fr 1.75in;
+    gap: 0.35in;
+  }
+  header h1 {
+    font-size: 21pt;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--walnut);
+    letter-spacing: -.01em;
+    margin: 5pt 0 3pt;
+  }
+  header .intro { max-width: 5in; font-size: 9pt; }
+  .meta { border-left: 1px solid var(--hairline); padding-left: 14pt; align-self: end; }
+  .meta dt { font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--walnut); opacity: .7; }
+  .meta dd { font-size: 8.25pt; line-height: 1.3; margin-bottom: 5pt; }
+  .meta dd:last-child { margin-bottom: 0; }
+
+  /* Challenge brief */
+  .challenge-brief {
+    padding: 0.13in 0.55in 0.12in;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .challenge-brief p {
+    font-size: 8.75pt;
+    line-height: 1.44;
+    color: var(--ink);
+  }
+
+  /* TRACE Matrix */
+  .trace-matrix {
+    padding: 0.13in 0.55in 0.1in;
+    flex: 1;
+  }
+  .matrix-top {
+    margin-bottom: 5pt;
+  }
+  .matrix-top h2 {
+    font-size: 10pt;
+    font-weight: 800;
+    color: var(--walnut);
+    margin-bottom: 0;
+  }
+  .matrix-col-headers {
+    display: grid;
+    grid-template-columns: 1.35in 1fr 1fr;
+    gap: 0 3pt;
+    margin-bottom: 3pt;
+  }
+  .col-header-before {
+    background: var(--walnut);
+    color: var(--cream);
+    font-size: 6.75pt;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4pt 9pt;
+  }
+  .col-header-after {
+    background: var(--terracotta);
+    color: #fff;
+    font-size: 6.75pt;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4pt 9pt;
+  }
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 1.35in 1fr 1fr;
+    gap: 0 3pt;
+    border-top: 1px solid var(--hairline);
+    align-items: stretch;
+  }
+  .pillar-row:last-of-type { border-bottom: 1px solid var(--hairline); }
+  .pillar-id {
+    display: flex;
+    flex-direction: column;
+    gap: 1pt;
+    padding: 6pt 0;
+  }
+  .initial {
+    font-size: 16pt;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--walnut);
+  }
+  .pillar-name {
+    font-size: 7.25pt;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .before-col {
+    background: #EDEAE6;
+    padding: 6pt 9pt;
+  }
+  .before-col p {
+    font-size: 7.75pt;
+    line-height: 1.38;
+    color: var(--ink);
+    opacity: .75;
+  }
+  .after-col {
+    background: #FBF0EB;
+    padding: 6pt 9pt;
+  }
+  .after-col p {
+    font-size: 7.75pt;
+    line-height: 1.38;
+    color: var(--ink);
+  }
+
+  /* Quote */
+  blockquote {
+    background: var(--warm-black);
+    color: var(--cream);
+    padding: 0.14in 0.55in;
+  }
+  blockquote p {
+    font-style: italic;
+    font-size: 10.75pt;
+    line-height: 1.42;
+  }
+  blockquote footer {
+    margin-top: 7pt;
+    padding-top: 5pt;
+    border-top: 1px solid var(--terracotta);
+    width: 0.5in;
+    white-space: nowrap;
+    font-size: 7.25pt;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: .75;
+  }
+
+  /* Footer */
+  .page-footer {
+    margin: 0 0.55in;
+    padding: 7pt 0 0.16in;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: var(--walnut);
+  }
+  .page-footer .brand { font-weight: 800; letter-spacing: .02em; }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    html, body { background: none; height: 11in; overflow: hidden; }
+    .page { margin: 0; box-shadow: none; }
+  }
+  @media (max-width: 860px) {
+    .page { width: auto; height: auto; margin: 0; }
+    header { grid-template-columns: 1fr; }
+    .meta { border-left: 0; padding-left: 0; }
+    .col-labels { display: none; }
+    .pillar-row { grid-template-columns: 1fr; gap: 6pt 0; }
+  }
+</style>
+</head>
+<body>
+<article class="page">
+
+  <header>
+    <div>
+      <div class="label">Case study | Arts Nonprofit</div>
+      <h1>Toes For Dance</h1>
+      <p class="intro">An artist-run nonprofit based in Toronto running three flagship programs — the Common Ground Dance Festival, the Process + Practice residency series, and the Fresh Dance Intensive for youth ages 8 to 18. Funded by Canada Council for the Arts, Ontario Arts Council, and Toronto Arts Council. The organization had no existing AI usage and served equity-seeking communities, including Indigenous artists and youth, when Provenance was engaged.</p>
+    </div>
+    <dl class="meta">
+      <dt>Sector</dt><dd>Arts nonprofit</dd>
+      <dt>Engagement</dt><dd>March 2026</dd>
+      <dt>Scope</dt><dd>AI fluency, data governance, research protocols, tools selection</dd>
+      <dt>Stage</dt><dd>No prior AI usage; building responsible adoption from the ground up</dd>
+    </dl>
+  </header>
+
+  <section class="challenge-brief">
+    <p>Small arts nonprofits face a real adoption gap: AI tools that could meaningfully reduce administrative burden are increasingly accessible, but the risk of privacy exposure and value misalignment is elevated for organizations serving communities with heightened legal protections. TFD needed a foundation — shared vocabulary, safe data handling practices, and a curated toolkit — before introducing any AI tools into its operations. The engagement was structured around three priorities: AI fluency, data governance, and practical tool selection appropriate to TFD's size, budget, and values.</p>
+  </section>
+
+  <section class="trace-matrix">
+    <div class="matrix-top">
+      <h2>TRACE Framework — Before &amp; After</h2>
+    </div>
+    <div class="matrix-col-headers">
+      <div></div>
+      <div class="col-header-before">Before Provenance</div>
+      <div class="col-header-after">After Provenance</div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-id"><span class="initial">T</span><span class="pillar-name">Transparency</span></div>
+      <div class="before-col"><p>No shared organizational vocabulary for AI use. No disclosure practices or documented expectations around when or how AI was contributing to outputs. Staff had no framework for distinguishing AI-assisted from human-authored work.</p></div>
+      <div class="after-col"><p>Staff-facing AI Fluency Reference published covering the 4D Framework: Delegation, Description, Discernment, and Diligence. Clear guidelines on what AI should not produce without significant human oversight, including artist communications, letters of reference, and sensitive correspondence.</p></div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-id"><span class="initial">R</span><span class="pillar-name">Robustness</span></div>
+      <div class="before-col"><p>No verification protocols for AI-assisted research. No criteria for evaluating AI tools against organizational needs. No repeatable processes — every use of AI would have started from scratch, with inconsistent results and no institutional memory built.</p></div>
+      <div class="after-col"><p>Formal research protocols established, including verification requirements by research type (grant deadlines, funder language, regulatory information, statistics). Starter toolkit sequenced for incremental adoption. TFD Grant Brief approach introduced to anchor AI-assisted grant writing in consistent organizational context.</p></div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-id"><span class="initial">A</span><span class="pillar-name">Accountability &amp; Explainability</span></div>
+      <div class="before-col"><p>No individual accountability framework for AI-assisted work. No onboarding pathway for staff or board members. No mechanism for staff to know what questions to ask before using AI, or where to escalate uncertainty.</p></div>
+      <div class="after-col"><p>Individual staff accountability for AI tool use formalized in policy. A free, sequenced training pathway established requiring approximately three hours total. Staff now have a clear escalation standard: if uncertain whether information is safe to enter into an AI tool, they must ask before proceeding.</p></div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-id"><span class="initial">C</span><span class="pillar-name">Compliance</span></div>
+      <div class="before-col"><p>No mapping of Canadian legal obligations to AI or data practices. PIPEDA, CASL, and OCAP principles were not operationalized in any organizational policy. Youth data and donor data were held without AI-specific governance in place.</p></div>
+      <div class="after-col"><p>Full compliance mapping across PIPEDA, OCAP, CASL, and the Ontario Human Rights Code. AI-specific data rules documented for youth, donor, and Indigenous community data. Six-step data breach protocol written and adopted. All six recommended tools confirmed for nonprofit pricing and Canadian compliance.</p></div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar-id"><span class="initial">E</span><span class="pillar-name">Ethics &amp; Harm Reduction</span></div>
+      <div class="before-col"><p>No formal consideration of the heightened privacy stakes for TFD's communities. Indigenous data sovereignty principles (OCAP) were not reflected in any policy or practice. Youth participant data was not subject to any AI-specific protections beyond general program registration practices.</p></div>
+      <div class="after-col"><p>OCAP principles integrated as a first-order constraint, not an afterthought. Indigenous artist data is never entered into public AI tools; consent must be renewed when the purpose of use changes. Youth participant data protections exceed minimum requirements, with photo and video consent treated separately from registration consent and required per distinct use.</p></div>
+    </div>
+  </section>
+
+  <blockquote>
+    <p>&ldquo;We came in with no AI experience and a lot of uncertainty about where the risks were. What we left with was a real framework — not just a list of tools, but an understanding of how to think about this going forward.&rdquo;</p>
+    <footer>Co-founder, Toes For Dance</footer>
+  </blockquote>
+
+  <footer class="page-footer">
+    <span class="brand">Provenance</span>
+    <span>withprovenance.org</span>
+    <span>Ryan Vasquez, AIGP | Identifying details included with the organization's knowledge</span>
+  </footer>
+
+</article>
+</body>
+</html>
