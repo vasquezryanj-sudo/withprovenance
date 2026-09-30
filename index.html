@@ -189,7 +189,7 @@
 
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 16px;
     }
 
@@ -197,30 +197,37 @@
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
-      padding: 48px 40px;
+      padding: 56px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .work-card-left {
       display: flex;
       flex-direction: column;
     }
 
     .work-card-title {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 1.3rem;
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
       color: #ffffff;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      line-height: 1.15;
     }
 
     .work-card-body {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: 0.92rem;
+      font-size: 1rem;
       color: rgba(255,255,255,0.75);
-      line-height: 1.7;
-      margin-bottom: 24px;
+      line-height: 1.75;
+      margin-bottom: 36px;
     }
 
     .work-card-link {
-      margin-top: auto;
       align-self: flex-start;
       display: inline-flex;
       align-items: center;
@@ -239,6 +246,46 @@
     }
     .work-card-link:hover { gap: 14px; border-color: rgba(255,255,255,0.9); color: #ffffff; }
     .work-card-link::after { content: '\2192'; }
+
+    .work-card-services {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 48px;
+    }
+
+    .work-card-service {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .work-card-service:first-child {
+      padding-top: 0;
+    }
+
+    .work-card-service:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .work-card-service-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .work-card-service-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
 
     /* ── CompassAI (dark card) ── */
     #compassai {
@@ -393,6 +440,10 @@
       margin: 0 auto;
     }
 
+    .contact-links .contact-pill:first-child {
+      grid-column: 1 / -1;
+    }
+
     .contact-pill {
       display: inline-flex;
       align-items: center;
@@ -495,7 +546,8 @@
       .section-card { margin: 0 12px; padding: 48px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .work-grid { grid-template-columns: 1fr; gap: 16px; }
-      .work-card { padding: 32px 24px; }
+      .work-card { padding: 32px 24px; grid-template-columns: 1fr; gap: 32px; }
+      .work-card-services { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px; }
       .compassai-grid { grid-template-columns: 1fr; gap: 40px; }
       .compassai-grid > * { min-width: 0; }
     }
@@ -582,14 +634,29 @@
         </div>
         <div class="work-grid reveal">
           <div class="work-card">
-            <h3 class="work-card-title">AI Governance</h3>
-            <p class="work-card-body">Frameworks, policy, and compliance infrastructure for organizations building with AI.</p>
-            <a href="/portfolio" class="work-card-link">Portfolio</a>
-          </div>
-          <div class="work-card">
-            <h3 class="work-card-title">Ethics and Technology</h3>
-            <p class="work-card-body">Writing and research on responsible technology, human-centered policy, and the cultural impact of AI.</p>
-            <a href="https://ryanvasquez.substack.com" target="_blank" class="work-card-link">dotBloom</a>
+            <div class="work-card-left">
+              <h3 class="work-card-title">Responsible AI Policy</h3>
+              <p class="work-card-body">Frameworks, policies, and compliance infrastructure for organizations building with AI, or using it for the first time.</p>
+              <a href="/portfolio" class="work-card-link">Our Portfolio</a>
+            </div>
+            <div class="work-card-services">
+              <div class="work-card-service">
+                <span class="work-card-service-name">Governance Frameworks</span>
+                <span class="work-card-service-desc">End-to-end policy architecture across the five pillars of responsible AI.</span>
+              </div>
+              <div class="work-card-service">
+                <span class="work-card-service-name">Regulatory Readiness</span>
+                <span class="work-card-service-desc">Compliance infrastructure built before it becomes a crisis.</span>
+              </div>
+              <div class="work-card-service">
+                <span class="work-card-service-name">Team Fluency</span>
+                <span class="work-card-service-desc">Education and training for organizations adopting AI for the first time.</span>
+              </div>
+              <div class="work-card-service">
+                <span class="work-card-service-name">Pre-Launch Review</span>
+                <span class="work-card-service-desc">Risk assessment and design guidance before a product enters the world.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
